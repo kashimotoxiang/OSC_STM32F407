@@ -1,0 +1,111 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¶ÃVision V5.20.0.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: LI YUXIANG, NJUPT, LIC=CZLII-TP41V-X56T0-BEHTM-TI5F9-SU5GE
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.20
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 2 (build 183)
+Assembler:       Armasm.exe V5.06 update 2 (build 183)
+Linker/Locator:  ArmLink.exe V5.06 update 2 (build 183)
+Library Manager: ArmAr.exe V5.06 update 2 (build 183)
+Hex Converter:   FromElf.exe V5.06 update 2 (build 183)
+CPU DLL:         SARMCM3.DLL V5.20
+Dialog DLL:      DCM.DLL V1.13.7.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TCM.DLL V1.14.9.0
+ 
+<h2>Project:</h2>
+D:\Documents\workspace\stm32¥˙¬Î\OSC_STM32F407\MDK-ARM\OSC_STM32F407.uvprojx
+Project File Date:  07/22/2016
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'OSC_STM32F407'
+compiling LCD_MD050SD.c...
+compiling LCD_ILI9341_Graph.c...
+compiling LCD_MD050SD_Graph.c...
+compiling LCD_ILI9341.c...
+compiling LCD_ILI9341_Touch.c...
+compiling main.c...
+compiling LCD_MD050SD_Touch.c...
+compiling DebugSupport.c...
+compiling mySPI.c...
+compiling System.c...
+compiling Usual.c...
+compiling myKey.c...
+..\HARDWARE\myKey.c(88): warning:  #186-D: pointless comparison of unsigned integer with zero
+  	g_DACVal = 
+afe_Return((g_DACVal), 0, 4095) ;
+..\HARDWARE\myKey.c: 1 warning, 0 errors
+compiling myUART.c...
+compiling myADC.c...
+compiling FFT.c...
+compiling GUI_X_Touch_Analog.c...
+compiling FSM.c...
+..\SOFTWARE\FSM.c(9): warning:  #177-D: variable "freq" was declared but never referenced
+  	static u16 freq = 0, as = 0;
+..\SOFTWARE\FSM.c(9): warning:  #177-D: variable "as" was declared but never referenced
+  	static u16 freq = 0, as = 0;
+..\SOFTWARE\FSM.c: 2 warnings, 0 errors
+compiling GUI_X.c...
+compiling OSC_Work.c...
+compiling GUIDRV_Template_BSP.c...
+compiling GUIDRV_Template_ESP.c...
+compiling __UserGUI.c...
+..\SOFTWARE\GUI\__UserGUI.c(39): warning:  #550-D: variable "Index" was set but never used
+  	unsigned int Index;
+..\SOFTWARE\GUI\__UserGUI.c(29): warning:  #177-D: function "__User_GUI_DRAW__Draw" was declared but never referenced
+  static void __User_GUI_DRAW__Draw (GUI_DRAW_HANDLE hDrawObj, int x, int y) {
+..\SOFTWARE\GUI\__UserGUI.c: 2 warnings, 0 errors
+compiling GUIControlStation.c...
+..\SOFTWARE\GUI\GUIControlStation.c(32): warning:  #177-D: variable "hWin" was declared but never referenced
+  	WM_HWIN hWin = pMsg->hWin;
+..\SOFTWARE\GUI\GUIControlStation.c: 1 warning, 0 errors
+compiling GUIUsual.c...
+compiling GUIDraw.c...
+..\SOFTWARE\GUI\GUIDraw.c(24): warning:  #177-D: variable "g_hScaleV" was declared but never referenced
+  static GRAPH_SCALE_Handle g_hScaleV; // Handle of vertical scale
+..\SOFTWARE\GUI\GUIDraw.c(25): warning:  #177-D: variable "g_hScaleH" was declared but never referenced
+  static GRAPH_SCALE_Handle g_hScaleH; // Handle of horizontal scale
+..\SOFTWARE\GUI\GUIDraw.c(50): warning:  #177-D: function "ResizeWindow" was declared but never referenced
+  static void ResizeWindow (void) {
+..\SOFTWARE\GUI\GUIDraw.c: 3 warnings, 0 errors
+compiling GUINumPad.c...
+compiling GUIGraph.c...
+..\SOFTWARE\GUI\GUIGraph.c(76): warning:  #177-D: variable "hWin" was declared but never referenced
+  	WM_HWIN hWin = pMsg->hWin;
+..\SOFTWARE\GUI\GUIGraph.c(44): warning:  #177-D: variable "GUI_Exec_State" was declared but never referenced
+  static int GUI_Exec_State = 1; // Êò?Â≠?‰∏ÄÁö?Êï?Êç?
+..\SOFTWARE\GUI\GUIGraph.c: 2 warnings, 0 errors
+compiling LCDConf_FlexColor_Template.c...
+linking...
+Program Size: Code=92954 RO-data=22918 RW-data=2360 ZI-data=45432  
+FromELF: creating hex file...
+"OSC_STM32F407\OSC_STM32F407.axf" - 0 Error(s), 11 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
+                ARM::CMSIS:CORE:4.3.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 4.3.0
+
+<h2>Collection of Component include folders:</h2>
+  D:\Documents\workspace\stm32¥˙¬Î\OSC_STM32F407\MDK-ARM\RTE
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:4.3.0
+Build Time Elapsed:  00:00:19
+</pre>
+</body>
+</html>
