@@ -122,7 +122,7 @@ void delay_ms (int count);
 void delay_us (int count);
 void delay_25ns (int ns);
 /* Private function prototypes -----------------------------------------------*/
-void System_Initial_OSC (void);
+void Display_Initial (void);
 void BackgroundUpdata (void);
 void Open_ADC_Triple_DMA (void);
 void ADC_Config (void);

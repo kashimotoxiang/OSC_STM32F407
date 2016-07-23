@@ -6,10 +6,10 @@ extern Disp_struct g_Disp;
 
 /*-------------------------------------------------------*
 *
-*System_Initial_OSC
+*Display_Initial
 *
 *-------------------------------------------------------*/
-void System_Initial_OSC (void) {
+void Display_Initial (void) {
 	/*BSP------------------------------------------------------*/
 	BSP_LCD_Init();
 	BSP_TS_Init();

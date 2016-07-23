@@ -51,6 +51,8 @@ osc_stm32f407\gui_x_touch_analog.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\gui_x_touch_analog.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\gui_x_touch_analog.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\gui_x_touch_analog.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\gui_x_touch_analog.o: ..\SOFTWARE\TypeDefine.h
+osc_stm32f407\gui_x_touch_analog.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\gui_x_touch_analog.o: ..\HARDWARE\System.h
 osc_stm32f407\gui_x_touch_analog.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\gui_x_touch_analog.o: ..\HARDWARE\myADC.h

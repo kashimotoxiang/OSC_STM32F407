@@ -50,6 +50,8 @@ osc_stm32f407\fsm.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\fsm.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\fsm.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\fsm.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\fsm.o: ..\SOFTWARE\TypeDefine.h
+osc_stm32f407\fsm.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\fsm.o: ..\HARDWARE\System.h
 osc_stm32f407\fsm.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\fsm.o: ..\HARDWARE\myADC.h

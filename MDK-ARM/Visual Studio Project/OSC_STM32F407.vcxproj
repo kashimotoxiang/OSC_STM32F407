@@ -24,7 +24,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='OSC_STM32F407|Win32'">
     <NMakeOutput>OSC_STM32F407.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>USE_HAL_DRIVER;STM32F407xx;__TARGET_FPU_VFP;ARM_MATH_MATRIX_CHECK;ARM_MATH_ROUNDING;ARM_MATH_CM4;__CC_ARM</NMakePreprocessorDefinitions>
-    <IncludePath>..\..\Inc;..\..\Drivers\STM32F4xx_HAL_Driver\Inc;..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;..\..\Drivers\CMSIS\Include;..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;..\..\ENWIN;..\..\ENWIN\emWin_Config;..\..\ENWIN\emWin_Lib;..\..\HARDWARE;..\..\HARDWARE\LCD_MD050SD;..\..\SOFTWARE;..\..\SOFTWARE\GUI;..\..\Src;C:\Keil_v5\ARM\ARMCC\include;..\..\ENWIN\inc;..\..\HARDWARE\LCD_ILI9341;</IncludePath>
+    <IncludePath>D:\Documents\workspace\stm32代码\OSC_STM32F407\Chips;..\..\Inc;..\..\Drivers\STM32F4xx_HAL_Driver\Inc;..\..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy;..\..\Drivers\CMSIS\Include;..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;..\..\ENWIN;..\..\ENWIN\emWin_Config;..\..\ENWIN\emWin_Lib;..\..\HARDWARE;..\..\HARDWARE\LCD_MD050SD;..\..\SOFTWARE;..\..\SOFTWARE\GUI;..\..\Src;C:\Keil_v5\ARM\ARMCC\include;..\..\ENWIN\inc;..\..\HARDWARE\LCD_ILI9341</IncludePath>
     <NMakeBuildCommandLine>"C:\Program Files\Keil_v5\UV4\UV4.exe " -b ..\OSC_STM32F407.uvprojx -t "OSC_STM32F407" -j0 -o Build.log</NMakeBuildCommandLine>
   </PropertyGroup>
   <ItemDefinitionGroup>
@@ -38,9 +38,6 @@
     <None Include="..\..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h" />
     <None Include="..\..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h" />
     <None Include="..\..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h" />
-    <None Include="..\..\HARDWARE\LCD_ILI9341\LCD_ILI9325.h" />
-    <None Include="..\..\HARDWARE\LCD_ILI9341\LCD_ILI9325_Graph.h" />
-    <None Include="..\..\HARDWARE\LCD_ILI9341\LCD_ILI9325_Touch.h" />
     <None Include="..\..\HARDWARE\myADC.h" />
     <None Include="..\..\HARDWARE\myKey.h" />
     <None Include="..\..\HARDWARE\mySPI.h" />
@@ -68,6 +65,13 @@
     <None Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Chips\AD9852.c" />
+    <ClCompile Include="..\..\Chips\ADF4002.c" />
+    <ClCompile Include="..\..\Chips\ADS1110.c" />
+    <ClCompile Include="..\..\Chips\ADS7883.c" />
+    <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325.c" />
+    <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.c" />
+    <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.c" />
     <ClCompile Include="..\..\Src\stm32f4xx_it.c" />
     <ClCompile Include="..\..\Src\main.c" />
     <ClCompile Include="..\..\Src\stm32f4xx_hal_msp.c" />
@@ -98,9 +102,6 @@
     <ClCompile Include="..\..\HARDWARE\LCD_MD050SD\LCD_MD050SD.c" />
     <ClCompile Include="..\..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.c" />
     <ClCompile Include="..\..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.c" />
-    <ClCompile Include="..\..\HARDWARE\LCD_ILI9341\LCD_ILI9325.c" />
-    <ClCompile Include="..\..\HARDWARE\LCD_ILI9341\LCD_ILI9325_Graph.c" />
-    <ClCompile Include="..\..\HARDWARE\LCD_ILI9341\LCD_ILI9325_Touch.c" />
     <ClCompile Include="..\..\HARDWARE\myADC.c" />
     <ClCompile Include="..\..\HARDWARE\myKey.c" />
     <ClCompile Include="..\..\HARDWARE\mySPI.c" />
@@ -690,7 +691,16 @@
     <ClCompile Include="source\WM__UpdateChildPositions.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Chips\AD9852.h" />
+    <ClInclude Include="..\..\Chips\ADF4002.h" />
+    <ClInclude Include="..\..\Chips\ADS1110.h" />
+    <ClInclude Include="..\..\Chips\ADS7883.h" />
+    <ClInclude Include="..\..\Chips\ChipsDefine.h" />
+    <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325.h" />
+    <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h" />
+    <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h" />
     <ClInclude Include="..\..\Inc\mxconstants.h" />
+    <ClInclude Include="..\..\SOFTWARE\TypeDefine.h" />
     <ClInclude Include="source\BUTTON.h" />
     <ClInclude Include="source\BUTTON_Private.h" />
     <ClInclude Include="source\CHECKBOX.h" />

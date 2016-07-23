@@ -67,6 +67,10 @@
 #define ESP_T_DOUT_GPIO_Port GPIOD
 #define ESP_T_IRQ_Pin GPIO_PIN_3
 #define ESP_T_IRQ_GPIO_Port GPIOD
+#define ADS1110_SCL_Pin GPIO_PIN_0
+#define ADS1110_SCL_GPIO_Port GPIOE
+#define ADS1110_SDA_Pin GPIO_PIN_1
+#define ADS1110_SDA_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

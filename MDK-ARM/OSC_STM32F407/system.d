@@ -50,6 +50,8 @@ osc_stm32f407\system.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\system.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\system.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\system.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\system.o: ..\SOFTWARE\TypeDefine.h
+osc_stm32f407\system.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\system.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\system.o: ..\HARDWARE\myADC.h
 osc_stm32f407\system.o: ..\HARDWARE\myKey.h
@@ -105,6 +107,6 @@ osc_stm32f407\system.o: ..\SOFTWARE\GUI\GUIDraw.h
 osc_stm32f407\system.o: ..\SOFTWARE\GUI\GUINumPad.h
 osc_stm32f407\system.o: ..\SOFTWARE\GUI\GUIControlStation.h
 osc_stm32f407\system.o: ..\SOFTWARE\GUI\__UserGUI.h
-osc_stm32f407\system.o: ..\HARDWARE\LCD_ILI9341/LCD_ILI9341.h
-osc_stm32f407\system.o: ..\HARDWARE\LCD_ILI9341/LCD_ILI9341_Graph.h
-osc_stm32f407\system.o: ..\HARDWARE\LCD_ILI9341/LCD_ILI9341_Touch.h
+osc_stm32f407\system.o: ..\HARDWARE\LCD_ILI9325/LCD_ILI9325.h
+osc_stm32f407\system.o: ..\HARDWARE\LCD_ILI9325/LCD_ILI9325_Graph.h
+osc_stm32f407\system.o: ..\HARDWARE\LCD_ILI9325/LCD_ILI9325_Touch.h

@@ -50,6 +50,8 @@ osc_stm32f407\lcd_md050sd.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\lcd_md050sd.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\lcd_md050sd.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\lcd_md050sd.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\lcd_md050sd.o: ..\SOFTWARE\TypeDefine.h
+osc_stm32f407\lcd_md050sd.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\lcd_md050sd.o: ..\HARDWARE\System.h
 osc_stm32f407\lcd_md050sd.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\lcd_md050sd.o: ..\HARDWARE\myADC.h

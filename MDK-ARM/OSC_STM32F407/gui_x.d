@@ -50,6 +50,8 @@ osc_stm32f407\gui_x.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\gui_x.o: C:\Keil_v5\ARM\ARMCC\include\string.h
 osc_stm32f407\gui_x.o: C:\Keil_v5\ARM\ARMCC\include\math.h
 osc_stm32f407\gui_x.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\gui_x.o: ..\SOFTWARE\TypeDefine.h
+osc_stm32f407\gui_x.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\gui_x.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\gui_x.o: ..\HARDWARE\myADC.h
 osc_stm32f407\gui_x.o: ..\HARDWARE\myKey.h

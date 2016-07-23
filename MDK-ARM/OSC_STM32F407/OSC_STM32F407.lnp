@@ -31,9 +31,9 @@
 "osc_stm32f407\lcd_md050sd.o"
 "osc_stm32f407\lcd_md050sd_graph.o"
 "osc_stm32f407\lcd_md050sd_touch.o"
-"osc_stm32f407\lcd_ili9341.o"
-"osc_stm32f407\lcd_ili9341_graph.o"
-"osc_stm32f407\lcd_ili9341_touch.o"
+"osc_stm32f407\lcd_ili9325.o"
+"osc_stm32f407\lcd_ili9325_graph.o"
+"osc_stm32f407\lcd_ili9325_touch.o"
 "osc_stm32f407\myadc.o"
 "osc_stm32f407\mykey.o"
 "osc_stm32f407\myspi.o"
@@ -57,6 +57,7 @@
 "osc_stm32f407\guigraph.o"
 "osc_stm32f407\guinumpad.o"
 "osc_stm32f407\guiusual.o"
+"osc_stm32f407\ads1110.o"
 --library_type=microlib --strict --scatter "OSC_STM32F407\OSC_STM32F407.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

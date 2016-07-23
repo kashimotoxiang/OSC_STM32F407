@@ -1,6 +1,6 @@
 osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\emWin_Config\GUIDRV_Template_BSP.c
 osc_stm32f407\guidrv_template_bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_ILI9341\LCD_ILI9341.h
+osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_ILI9325\LCD_ILI9325.h
 osc_stm32f407\guidrv_template_bsp.o: ..\Src\main.h
 osc_stm32f407\guidrv_template_bsp.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 osc_stm32f407\guidrv_template_bsp.o: ../Inc/stm32f4xx_hal_conf.h
@@ -50,6 +50,8 @@ osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\inc\GUI_Type.h
 osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\inc\GUI_Version.h
+osc_stm32f407\guidrv_template_bsp.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\TypeDefine.h
 osc_stm32f407\guidrv_template_bsp.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\System.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\mySPI.h
@@ -106,8 +108,8 @@ osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUIDraw.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUINumPad.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUIControlStation.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\__UserGUI.h
-osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_ILI9341\LCD_ILI9341_Graph.h
-osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_ILI9341\LCD_ILI9341_Touch.h
+osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h
+osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h
 osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\inc\LCD_Private.h
 osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\emWin_Config\LCDConf.h
 osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\inc\LCD_ConfDefaults.h

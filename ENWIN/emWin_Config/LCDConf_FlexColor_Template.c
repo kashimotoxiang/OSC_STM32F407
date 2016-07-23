@@ -1,5 +1,6 @@
 #include "GUI.h"
 #include "GUIDRV_Template_ESP.h"
+#include "GUIDRV_Template_BSP.h"
 #include "GUIDRV_FlexColor.h"
 #include <main.h>
 
@@ -40,24 +41,16 @@
 
 //配置程序,用于创建显示驱动器件,设置颜色转换程序和显示尺寸
 void LCD_X_Config (void) {
-			//GUI_MULTIBUF_ConfigEx(eLAYER_BSP, 1);
-		//	GUI_MULTIBUF_ConfigEx(eLAYER_ESP, 1);
+	GUI_MULTIBUF_ConfigEx(eLAYER_BSP, 1);
+	GUI_MULTIBUF_ConfigEx(eLAYER_ESP, 1);
 	/*BSP-------------------------------------------------------*/
-//	GUI_DEVICE_CreateAndLink(&BSP_GUIDRV_Template_API, GUICC_M565, 0, eLAYER_BSP); //创建显示驱动器件
-//	LCD_SetSizeEx(eLAYER_BSP, 240, 320);
-//	LCD_SetVSizeEx(eLAYER_BSP, 240, 320);
-
-//	GUI_TOUCH_Calibrate(GUI_COORD_X, 0, 240, 0, 239);
-//	GUI_TOUCH_Calibrate(GUI_COORD_Y, 0, 320, 0, 319);
+	GUI_DEVICE_CreateAndLink(&BSP_GUIDRV_Template_API, GUICC_M565, 0, eLAYER_BSP); //创建显示驱动器件
+	LCD_SetSizeEx(eLAYER_BSP, 240, 320);
+	LCD_SetVSizeEx(eLAYER_BSP, 240, 320);
 	/*ESP-------------------------------------------------------*/
 	GUI_DEVICE_CreateAndLink(&ESP_GUIDRV_Template_API, GUICC_M565, 0, eLAYER_ESP); //创建显示驱动器件
 	LCD_SetSizeEx(eLAYER_ESP, XSIZE_PHYS, YSIZE_PHYS);
 	LCD_SetVSizeEx(eLAYER_ESP, XSIZE_PHYS, YSIZE_PHYS);
-
-	GUI_TOUCH_Calibrate(GUI_COORD_X, 0, 480, 0, 479);
-	GUI_TOUCH_Calibrate(GUI_COORD_Y, 0, 800, 0, 799);
-
-
 }
 
 //显示器驱动的回调函数

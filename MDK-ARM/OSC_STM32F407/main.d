@@ -49,6 +49,8 @@ osc_stm32f407\main.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\main.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\main.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\main.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\main.o: ..\SOFTWARE\TypeDefine.h
+osc_stm32f407\main.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\main.o: ..\HARDWARE\System.h
 osc_stm32f407\main.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\main.o: ..\HARDWARE\myADC.h
@@ -105,3 +107,5 @@ osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUIDraw.h
 osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUINumPad.h
 osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUIControlStation.h
 osc_stm32f407\main.o: ..\SOFTWARE\GUI\__UserGUI.h
+osc_stm32f407\main.o: ..\Chips\ChipsDefine.h
+osc_stm32f407\main.o: ..\Chips\ADS1110.h

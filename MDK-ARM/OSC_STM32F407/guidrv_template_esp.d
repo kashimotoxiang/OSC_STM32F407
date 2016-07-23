@@ -51,6 +51,8 @@ osc_stm32f407\guidrv_template_esp.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\guidrv_template_esp.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\guidrv_template_esp.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\guidrv_template_esp.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\guidrv_template_esp.o: ..\SOFTWARE\TypeDefine.h
+osc_stm32f407\guidrv_template_esp.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\guidrv_template_esp.o: ..\HARDWARE\System.h
 osc_stm32f407\guidrv_template_esp.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\guidrv_template_esp.o: ..\HARDWARE\myADC.h

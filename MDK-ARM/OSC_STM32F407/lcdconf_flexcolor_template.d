@@ -7,6 +7,7 @@ osc_stm32f407\lcdconf_flexcolor_template.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ..\ENWIN\emWin_Config\GUIDRV_Template_ESP.h
+osc_stm32f407\lcdconf_flexcolor_template.o: ..\ENWIN\emWin_Config\GUIDRV_Template_BSP.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ..\ENWIN\inc\GUIDRV_FlexColor.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ..\Src\main.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
@@ -50,6 +51,8 @@ osc_stm32f407\lcdconf_flexcolor_template.o: ../Drivers/CMSIS/Include/arm_math.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\lcdconf_flexcolor_template.o: C:\Keil_v5\ARM\ARMCC\include\string.h
 osc_stm32f407\lcdconf_flexcolor_template.o: C:\Keil_v5\ARM\ARMCC\include\math.h
+osc_stm32f407\lcdconf_flexcolor_template.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\lcdconf_flexcolor_template.o: ..\SOFTWARE\TypeDefine.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ..\HARDWARE\System.h
 osc_stm32f407\lcdconf_flexcolor_template.o: ..\HARDWARE\mySPI.h

@@ -51,6 +51,8 @@ osc_stm32f407\lcd_md050sd_touch.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\lcd_md050sd_touch.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\lcd_md050sd_touch.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\lcd_md050sd_touch.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\lcd_md050sd_touch.o: ..\SOFTWARE\TypeDefine.h
+osc_stm32f407\lcd_md050sd_touch.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\lcd_md050sd_touch.o: ..\HARDWARE\System.h
 osc_stm32f407\lcd_md050sd_touch.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\lcd_md050sd_touch.o: ..\HARDWARE\myADC.h

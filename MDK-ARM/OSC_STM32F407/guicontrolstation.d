@@ -1,6 +1,7 @@
 osc_stm32f407\guicontrolstation.o: ..\SOFTWARE\GUI\GUIControlStation.c
 osc_stm32f407\guicontrolstation.o: ..\SOFTWARE\GUI\GUIControlStation.h
 osc_stm32f407\guicontrolstation.o: ..\SOFTWARE\GUI\GUIDefine.h
+osc_stm32f407\guicontrolstation.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 osc_stm32f407\guicontrolstation.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 osc_stm32f407\guicontrolstation.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 osc_stm32f407\guicontrolstation.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
@@ -56,7 +57,6 @@ osc_stm32f407\guicontrolstation.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx
 osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
 osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Include/core_cm4.h
-osc_stm32f407\guicontrolstation.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Include/core_cmInstr.h
 osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Include/core_cmFunc.h
@@ -88,6 +88,8 @@ osc_stm32f407\guicontrolstation.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx
 osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Include/arm_math.h
 osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\guicontrolstation.o: C:\Keil_v5\ARM\ARMCC\include\math.h
+osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\guicontrolstation.o: ..\SOFTWARE\TypeDefine.h
 osc_stm32f407\guicontrolstation.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\guicontrolstation.o: ..\HARDWARE\System.h
 osc_stm32f407\guicontrolstation.o: ..\HARDWARE\mySPI.h

@@ -50,6 +50,8 @@ osc_stm32f407\debugsupport.o: ..\ENWIN\inc\LCD.h
 osc_stm32f407\debugsupport.o: ..\ENWIN\inc\Global.h
 osc_stm32f407\debugsupport.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\debugsupport.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\debugsupport.o: ..\SOFTWARE\TypeDefine.h
+osc_stm32f407\debugsupport.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\debugsupport.o: ..\HARDWARE\System.h
 osc_stm32f407\debugsupport.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\debugsupport.o: ..\HARDWARE\myADC.h

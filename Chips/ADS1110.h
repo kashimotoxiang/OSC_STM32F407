@@ -1,0 +1,17 @@
+#include "ChipsDefine.h"
+
+#define   ADS1110_DIN_1 	HAL_GPIO_WritePin(ADS1110_SDA_GPIO_Port,ADS1110_SDA_Pin,GPIO_PIN_SET)
+#define   ADS1110_DIN_0 	HAL_GPIO_WritePin(ADS1110_SDA_GPIO_Port,ADS1110_SDA_Pin,GPIO_PIN_RESET)		//  SDA
+
+#define   ADS1110_SCLK_1	HAL_GPIO_WritePin(ADS1110_SCL_GPIO_Port,ADS1110_SCL_Pin,GPIO_PIN_SET)
+#define   ADS1110_SCLK_0	HAL_GPIO_WritePin(ADS1110_SCL_GPIO_Port,ADS1110_SCL_Pin,GPIO_PIN_RESET)
+
+#define   ADS1110_DOUT		HAL_GPIO_ReadPin(ADS1110_SDA_GPIO_Port,ADS1110_SDA_Pin)
+
+#define ADS1110_ADDRESS 0x9E
+
+//void ADS1110_GPIO_Config(void);
+void ADS1110_Init (void);
+int ADS1110_Read ();
+void ADS1110_Write (unsigned short data);
+
