@@ -58,11 +58,11 @@ extern u16 BSP_BACK_COLOR; //背景颜色.默认为白色
 #define	BSP_LCD_RS_CLR      GPIOE->ODR&=~PIN3   //片选端口  	     	PC8
 #define	BSP_LCD_WR_CLR	    GPIOD->ODR&=~PIN5   //读数据			 	PC9
 #define	BSP_LCD_RD_CLR	    GPIOD->ODR&=~PIN4   //写数据			 	PC10
-#define	BSP_LCD_CS_CLR   	GPIOD->ODR&=~PIN7   //数据/命令         	PC11
+#define	BSP_LCD_CS_CLR    	GPIOD->ODR&=~PIN7   //数据/命令         	PC11
 
 //PD0~15,作为数据线
-#define BSP_LCD_BANK_ADDR                            ((uint32_t)0x6C000000)
-#define BSP_WRITE_READ_ADDR    						 ((uint32_t)0x0000007E)
+#define BSP_LCD_BANK_ADDR                        ((uint32_t)0x6C000000)
+#define BSP_WRITE_READ_ADDR    				        	 ((uint32_t)0x80)
 
 #define BSP_LCD_CMD BSP_LCD_BANK_ADDR
 #define BSP_LCD_DATA (BSP_LCD_BANK_ADDR+BSP_WRITE_READ_ADDR)

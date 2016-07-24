@@ -1,32 +1,42 @@
-#pragma once
+ï»¿#pragma once
 /* Includes ------------------------------------------------------------------*/
 #include "LCD_ILI9325.h"
 
-/* touch panel interface define */
-#define  BSP_T_CMD_RDX  0xD0	 //´¥ÃşIC¶Á×ø±ê»ı´æÆ÷
-#define  BSP_T_CMD_RDY  0x90
-//´¥ÃşÒı½Å¶¨Òå------------------------------------------------------------------------------------------//
-#define	BSP_T_CLK_High	      BSP_T_CLK_GPIO_Port->ODR|=BSP_T_CLK_Pin    //Êı¾İ/ÃüÁî      		PA11
-#define	BSP_T_CS_High	      BSP_T_CS_GPIO_Port->ODR|=BSP_T_CS_Pin    //Ğ´Êı¾İ				PA12
-#define	BSP_T_DIN_High	      BSP_T_DIN_GPIO_Port->ODR|=BSP_T_DIN_Pin   //¶ÁÊı¾İ			 	PA13
+//è§¦æ‘¸å±æ ¡å‡†å‚æ•°
+typedef struct {
+	float xfac;
+	float yfac;
+	short xoff;
+	short yoff;
 
-#define	BSP_T_CLK_Low		  BSP_T_CLK_GPIO_Port->ODR&=~BSP_T_CLK_Pin     //Æ¬Ñ¡¶Ë¿Ú  	     	PA11
-#define	BSP_T_CS_Low	      BSP_T_CS_GPIO_Port->ODR&=~BSP_T_CS_Pin     //¶ÁÊı¾İ			 	PA12
-#define	BSP_T_DIN_Low	      BSP_T_DIN_GPIO_Port->ODR&=~BSP_T_DIN_Pin    //Ğ´Êı¾İ			 	PA13
+} Touch_Adjust_Parameters;
+
+/* touch panel interface define */
+#define  BSP_T_CMD_RDX  0xD0	 //è§¦æ‘¸ICè¯»åæ ‡ç§¯å­˜å™¨
+#define  BSP_T_CMD_RDY  0x90
+//è§¦æ‘¸å¼•è„šå®šä¹‰------------------------------------------------------------------------------------------//
+#define	BSP_T_CLK_High	      BSP_T_CLK_GPIO_Port->ODR|=BSP_T_CLK_Pin    //æ•°æ®/å‘½ä»¤      		PA11
+#define	BSP_T_CS_High	      BSP_T_CS_GPIO_Port->ODR|=BSP_T_CS_Pin    //å†™æ•°æ®				PA12
+#define	BSP_T_DIN_High	      BSP_T_DIN_GPIO_Port->ODR|=BSP_T_DIN_Pin   //è¯»æ•°æ®			 	PA13
+
+#define	BSP_T_CLK_Low		  BSP_T_CLK_GPIO_Port->ODR&=~BSP_T_CLK_Pin     //ç‰‡é€‰ç«¯å£  	     	PA11
+#define	BSP_T_CS_Low	      BSP_T_CS_GPIO_Port->ODR&=~BSP_T_CS_Pin     //è¯»æ•°æ®			 	PA12
+#define	BSP_T_DIN_Low	      BSP_T_DIN_GPIO_Port->ODR&=~BSP_T_DIN_Pin    //å†™æ•°æ®			 	PA13
 
 #define BSP_T_IRQ_Dect		  ((BSP_T_IRQ_GPIO_Port->IDR)&BSP_T_IRQ_Pin)
-#define BSP_T_DOUT_Dect    ¡¡ ((BSP_T_DOUT_GPIO_Port->IDR)&BSP_T_DOUT_Pin)
+#define BSP_T_DOUT_Dect       ((BSP_T_DOUT_GPIO_Port->IDR)&BSP_T_DOUT_Pin)
 
 /*-------------------------------------------------------*/
-extern T_Data_Struct BSP_tp_pixad, BSP_TS; //µ±Ç°´¥¿Ø×ø±êµÄADÖµ,Ç°´¥¿Ø×ø±êµÄÏñËØÖµ
-extern u16 BSP_vx, BSP_vy; //±ÈÀıÒò×Ó£¬´ËÖµ³ıÒÔ1000Ö®ºó±íÊ¾¶àÉÙ¸öADÖµ´ú±íÒ»¸öÏñËØµã
-extern u16 BSP_chx, BSP_chy;//Ä¬ÈÏÏñËØµã×ø±êÎª0Ê±µÄADÆğÊ¼Öµ
+extern T_Data_Struct BSP_tp_pixad, BSP_TS; //å½“å‰è§¦æ§åæ ‡çš„ADå€¼,å‰è§¦æ§åæ ‡çš„åƒç´ å€¼
+extern u16 BSP_vx, BSP_vy; //æ¯”ä¾‹å› å­ï¼Œæ­¤å€¼é™¤ä»¥1000ä¹‹åè¡¨ç¤ºå¤šå°‘ä¸ªADå€¼ä»£è¡¨ä¸€ä¸ªåƒç´ ç‚¹
+extern u16 BSP_chx, BSP_chy;//é»˜è®¤åƒç´ ç‚¹åæ ‡ä¸º0æ—¶çš„ADèµ·å§‹å€¼
 
+void BSP_TP_Write_Byte (u8 num);
 void BSP_TS_Init (void);
-void BSP_T_Adjust (void);
-void BSP_T_point (void); //»æÍ¼º¯Êı
-
-u16 BSP_TP_Read_XOY (u8 xy);//SPI £¨¼Ä´æÆ÷°æ±¾£©ÊÕ·¢Êı¾İ
+u16 BSP_TP_Read_AD (u8 CMD);
+u16 BSP_TP_Read_XOY (u8 xy);
+u8 BSP_TP_Read_XY (u16* x, u16* y);
+u8 BSP_TP_Read_XY2 (u16* x, u16* y);
 u8 BSP_Convert_Pos (void);
 void BSP_Pointer_Update (void);
 

@@ -183,6 +183,7 @@ static void BSP_XorPixel (GUI_DEVICE* pDevice, int x, int y) {
 *       BSP_FillRect
 */
 static inline void BSP_FillRect (GUI_DEVICE* pDevice, int x0, int y0, int x1, int y1) {
+	BSP_POINT_COLOR = LCD_COLORINDEX ;
 	BSP_LCD_Fill(x0, y0, x1, y1);
 }
 
@@ -192,6 +193,7 @@ static inline void BSP_FillRect (GUI_DEVICE* pDevice, int x0, int y0, int x1, in
 *       BSP_DrawHLine
 */
 static inline void BSP_DrawHLine (GUI_DEVICE* pDevice, int x0, int y, int x1) {
+	BSP_POINT_COLOR = LCD_COLORINDEX;
 	BSP_LCD_Fill(x0, y, x1, y);
 }
 
@@ -200,6 +202,7 @@ static inline void BSP_DrawHLine (GUI_DEVICE* pDevice, int x0, int y, int x1) {
 *       BSP_DrawVLine, not optimized
 */
 static inline void BSP_DrawVLine (GUI_DEVICE* pDevice, int x, int y0, int y1) {
+	BSP_POINT_COLOR = LCD_COLORINDEX;
 	BSP_LCD_Fill(x, y0, x, y1);
 }
 
@@ -457,11 +460,9 @@ static void BSP_DrawBitLine8BPP (GUI_DEVICE* pDevice, int x, int y, U8 const GUI
 */
 static inline void BSP_DrawBitLine16BPP (GUI_DEVICE* pDevice, int x, int y, U16 const* p, int xsize) {
 	BSP_LCD_SetCursor(x, y);
-	BSP_LCD_WriteRAM_Prepare ();
-	for (; xsize > 0; xsize-- , x++ , p++) {
-		BSP_LCD_WR_DATA ((LCD_PIXELINDEX)*p);
-	}
-
+	BSP_LCD_WriteRAM_Prepare();
+	for (; xsize > 0; xsize-- , x++ , p++)
+	BSP_LCD_WR_REG ((LCD_PIXELINDEX)*p);
 }
 
 /*********************************************************************

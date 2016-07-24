@@ -54,7 +54,7 @@ u16 ESP_ReadFromCharFrom7843 (void) //SPI ???
 		delay_25ns(ESP_delay_ns_); //?????
 		ESP_T_CLK_Low ;
 		delay_25ns(ESP_delay_ns_);
-		if ( ((ESP_T_DOUT_GPIO_Port->IDR)&ESP_T_DOUT_Pin)) {
+		if (((ESP_T_DOUT_GPIO_Port->IDR) & ESP_T_DOUT_Pin)) {
 			Num |= 1;
 		}
 	}
@@ -389,14 +389,14 @@ u16 ESP_TP_Read_XOY (u8 xy) {
 u8 ESP_Convert_Pos (void) {
 	static u8 state;
 	state = 0;
-	if (!ESP_T_IRQ_Dect) {//¼ì²âÓ²¼þ´¥Ãþ
-		if (ESP_Read_ADS2(&ESP_tp_pixad.xc, &ESP_tp_pixad.yc)) {//ÅÐ¶Ï´¥ÃþÊý¾ÝÊÇ·ñÕý³£
-			state = 1;
-			ESP_TS.xc = ESP_tp_pixad.xc > ESP_chx ? ((u32)ESP_tp_pixad.xc - (u32)ESP_chx) * 1000 / ESP_vx : ((u32)ESP_chx - (u32)ESP_tp_pixad.xc) * 1000 / ESP_vx;
-			ESP_TS.yc = ESP_tp_pixad.yc > ESP_chy ? ((u32)ESP_tp_pixad.yc - (u32)ESP_chy) * 1000 / ESP_vy : ((u32)ESP_chy - (u32)ESP_tp_pixad.yc) * 1000 / ESP_vy;
-			return state;
-		}
+	//if (!ESP_T_IRQ_Dect) {//¼ì²âÓ²¼þ´¥Ãþ
+	if (ESP_Read_ADS2(&ESP_tp_pixad.xc, &ESP_tp_pixad.yc)) {//ÅÐ¶Ï´¥ÃþÊý¾ÝÊÇ·ñÕý³£
+		state = 1;
+		ESP_TS.xc = ESP_tp_pixad.xc > ESP_chx ? ((u32)ESP_tp_pixad.xc - (u32)ESP_chx) * 1000 / ESP_vx : ((u32)ESP_chx - (u32)ESP_tp_pixad.xc) * 1000 / ESP_vx;
+		ESP_TS.yc = ESP_tp_pixad.yc > ESP_chy ? ((u32)ESP_tp_pixad.yc - (u32)ESP_chy) * 1000 / ESP_vy : ((u32)ESP_chy - (u32)ESP_tp_pixad.yc) * 1000 / ESP_vy;
+		return state;
 	}
+	//}
 	ESP_TS.xc = 0;
 	ESP_TS.yc = 0;
 	return state;

@@ -1,161 +1,267 @@
 #include "ADS1110.h"
-#include <LCD_ILI9325/LCD_ILI9325.h>
 
-unsigned char ADS1110_ShiftIn8Bit();
-void ADS1110_ShiftOut8Bit(unsigned char data);
-void ADS1110_start();
-void ADS1110_stop();
-void ADS1110_get_ack();
-void ADS1110_ack();
+extern void delay_us (int nus);
 
-uint8_t ADS1110_Rrgister=0x8C;
+int AD_Result[13];
 
-///*
-//配置ADS1110用到的I/O口
-//*/
-//void ADS1110_GPIO_Config(void)
-//{		
-//	/*定义一个GPIO_InitTypeDef类型的结构体*/
-//	GPIO_InitTypeDef GPIO_InitStructure;
-//
-//	/*开启GPIOC的外设时钟*/
-//	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA|RCC_APB2Periph_GPIOC, ENABLE); 
-//															   
-//   	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;			 		//	 SCK
-//  	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD; 
-//  	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
-//  	GPIO_Init(GPIOA, &GPIO_InitStructure);
-//	GPIO_SetBits(GPIOA, GPIO_Pin_8);
-//
-//   	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;			 		//	 SDA
-//  	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD; 
-//  	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
-//  	GPIO_Init(GPIOC, &GPIO_InitStructure);
-//	GPIO_SetBits(GPIOC, GPIO_Pin_9);
-//}
-
-void ADS1110_Init(void)
-{
-	//ADS1110_GPIO_Config ();
-	ADS1110_DIN_1;
-	ADS1110_SCLK_1;
-	ADS1110_Write(0x8C);
+void ADS1110_Init (void) {
+	/* 给一个停止信号, 复位I2C总线上的所有设备到待机模式 */
+	i2c_Stop();
+	ads1110Config ();
 }
 
 /*
-ADS1110 FSYNC 拉低后，一个时钟信号一 bit ， 写8位数据
+*********************************************************************************************************
+*	函 数 名: i2c_Delay
+*	功能说明: I2C总线位延迟，最快400KHz
+*	形    参:  无
+*	返 回 值: 无
+*********************************************************************************************************
 */
+static void i2c_Delay (void) {
+	uint8_t i;
 
-void ADS1110_start()
-{
-	ADS1110_SCLK_1;
-	ADS1110_DIN_1;
-	ADS1110_DIN_0;
-	delay_us(6);
-	ADS1110_SCLK_0;
-	delay_us(12);
+	/*　
+	CPU主频168MHz时，在内部Flash运行, MDK工程不优化。用台式示波器观测波形。
+	循环次数为5时，SCL频率 = 1.78MHz (读耗时: 92ms, 读写正常，但是用示波器探头碰上就读写失败。时序接近临界)
+	循环次数为10时，SCL频率 = 1.1MHz (读耗时: 138ms, 读速度: 118724B/s)
+	循环次数为30时，SCL频率 = 440KHz， SCL高电平时间1.0us，SCL低电平时间1.2us
+
+	上拉电阻选择2.2K欧时，SCL上升沿时间约0.5us，如果选4.7K欧，则上升沿约1us
+
+	实际应用选择400KHz左右的速率即可
+	*/
+	for (i = 0; i < 30; i++);
 }
 
-void ADS1110_stop()
-{
-	ADS1110_DIN_0;
-	ADS1110_SCLK_1;
-	delay_us(6);
-	ADS1110_DIN_1;
-	delay_us(6);
+/*
+*********************************************************************************************************
+*	函 数 名: i2c_Start
+*	功能说明: CPU发起I2C总线启动信号
+*	形    参:  无
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+void i2c_Start (void) {
+	/* 当SCL高电平时，SDA出现一个下跳沿表示I2C总线启动信号 */
+	I2C_SDA_1();
+	I2C_SCL_1();
+	i2c_Delay();
+	I2C_SDA_0();
+	i2c_Delay();
+
+	I2C_SCL_0();
+	i2c_Delay();
 }
 
-void ADS1110_get_ack()
-{
- 	ADS1110_SCLK_0;		
-	ADS1110_DIN_1;
-	delay_us(12);
-	ADS1110_SCLK_1;
- 	delay_us(6);
- 	ADS1110_SCLK_0;		//ack
-	delay_us(12);
-
-}
-void ADS1110_ack()
-{
-// 	ADS1110_SCLK_0;  //ack
-//	delay_us(5);
-	ADS1110_DIN_0;
-	delay_us(6);
-	ADS1110_SCLK_1;
-	delay_us(6);
-	ADS1110_SCLK_0;
-	delay_us(12);
-	ADS1110_DIN_1;
-
+/*
+*********************************************************************************************************
+*	函 数 名: i2c_Start
+*	功能说明: CPU发起I2C总线停止信号
+*	形    参:  无
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+void i2c_Stop (void) {
+	/* 当SCL高电平时，SDA出现一个上跳沿表示I2C总线停止信号 */
+	I2C_SDA_0();
+	I2C_SCL_1();
+	i2c_Delay();
+	I2C_SDA_1();
+	i2c_Delay();
 }
 
-unsigned char ADS1110_ShiftIn8Bit()
-{
-	char i=0;
-	unsigned char tmp_in=0;
-	for(i=0;i<8;i++)
-	{
-		ADS1110_SCLK_1;
-		delay_us(6);
-		tmp_in<<=1;
-		if(ADS1110_DOUT)
-		{
-			tmp_in|=1;
+/*
+*********************************************************************************************************
+*	函 数 名: i2c_SendByte
+*	功能说明: CPU向I2C总线设备发送8bit数据
+*	形    参:  _ucByte ： 等待发送的字节
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+void i2c_SendByte (uint8_t _ucByte) {
+	uint8_t i;
+
+	/* 先发送字节的高位bit7 */
+	for (i = 0; i < 8; i++) {
+		if (_ucByte & 0x80) {
+			I2C_SDA_1();
 		}
-		ADS1110_SCLK_0;
-		delay_us(12);	
+		else {
+			I2C_SDA_0();
+		}
+		i2c_Delay();
+		I2C_SCL_1();
+		i2c_Delay();
+		I2C_SCL_0();
+		if (i == 7) {
+			I2C_SDA_1(); // 释放总线
+		}
+		_ucByte <<= 1; /* 左移一个bit */
+		i2c_Delay();
 	}
-	return tmp_in;	
 }
-void ADS1110_ShiftOut8Bit(unsigned char data)
-{
-	char i=0;
-	for(i=0;i<8;i++)
-	{
-		ADS1110_SCLK_0;
-		//delay_us(5);
-		if(data&0x80)
-		{
-			ADS1110_DIN_1;
+
+/*
+*********************************************************************************************************
+*	函 数 名: i2c_ReadByte
+*	功能说明: CPU从I2C总线设备读取8bit数据
+*	形    参:  无
+*	返 回 值: 读到的数据
+*********************************************************************************************************
+*/
+uint8_t i2c_ReadByte (void) {
+	uint8_t i;
+	uint8_t value;
+
+	/* 读到第1个bit为数据的bit7 */
+	value = 0;
+	for (i = 0; i < 8; i++) {
+		value <<= 1;
+		I2C_SCL_1();
+		i2c_Delay();
+		if (I2C_SDA_READ()) {
+			value++;
 		}
-		else
-		{
-			ADS1110_DIN_0;
-		}
-		data<<=1;
-		delay_us(12);
-		ADS1110_SCLK_1;
-		delay_us(6);	
+		I2C_SCL_0();
+		i2c_Delay();
 	}
+	return value;
 }
 
-void ADS1110_Write(unsigned short data)
-{	
-	ADS1110_start();
-	ADS1110_ShiftOut8Bit(ADS1110_ADDRESS);
-	ADS1110_get_ack();
-	ADS1110_ShiftOut8Bit(data);
-	ADS1110_get_ack();
-	ADS1110_stop();
-}
- 
-int  ADS1110_Read()
-{
-	int16_t tmp_in=0;
-	ADS1110_start();
-	ADS1110_ShiftOut8Bit(ADS1110_ADDRESS|0x01);
-	ADS1110_get_ack();
-	tmp_in=ADS1110_ShiftIn8Bit();
-	tmp_in<<=8;
-	ADS1110_ack();
-	tmp_in|=ADS1110_ShiftIn8Bit();
-	ADS1110_ack();	  
-	ADS1110_ShiftIn8Bit();
-	ADS1110_ack();	   
-	ADS1110_stop();	 
+/*
+*********************************************************************************************************
+*	函 数 名: i2c_WaitAck
+*	功能说明: CPU产生一个时钟，并读取器件的ACK应答信号
+*	形    参:  无
+*	返 回 值: 返回0表示正确应答，1表示无器件响应
+*********************************************************************************************************
+*/
+uint8_t i2c_WaitAck (void) {
+	uint8_t re;
 
-	return tmp_in;	
-		 
+	I2C_SDA_1(); /* CPU释放SDA总线 */
+	i2c_Delay();
+	I2C_SCL_1(); /* CPU驱动SCL = 1, 此时器件会返回ACK应答 */
+	i2c_Delay();
+	if (I2C_SDA_READ()) /* CPU读取SDA口线状态 */ {
+		re = 1;
+	}
+	else {
+		re = 0;
+	}
+	I2C_SCL_0();
+	i2c_Delay();
+	return re;
+}
+
+/*
+*********************************************************************************************************
+*	函 数 名: i2c_Ack
+*	功能说明: CPU产生一个ACK信号
+*	形    参:  无
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+void i2c_Ack (void) {
+	I2C_SDA_0(); /* CPU驱动SDA = 0 */
+	i2c_Delay();
+	I2C_SCL_1(); /* CPU产生1个时钟 */
+	i2c_Delay();
+	I2C_SCL_0();
+	i2c_Delay();
+	I2C_SDA_1(); /* CPU释放SDA总线 */
+}
+
+/*
+*********************************************************************************************************
+*	函 数 名: i2c_NAck
+*	功能说明: CPU产生1个NACK信号
+*	形    参:  无
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+void i2c_NAck (void) {
+	I2C_SDA_1(); /* CPU驱动SDA = 1 */
+	i2c_Delay();
+	I2C_SCL_1(); /* CPU产生1个时钟 */
+	i2c_Delay();
+	I2C_SCL_0();
+	i2c_Delay();
+}
+
+/*
+*********************************************************************************************************
+*	函 数 名: i2c_CheckDevice
+*	功能说明: 检测I2C总线设备，CPU向发送设备地址，然后读取设备应答来判断该设备是否存在
+*	形    参:  _Address：设备的I2C总线地址
+*	返 回 值: 返回值 0 表示正确， 返回1表示未探测到
+*********************************************************************************************************
+*/
+uint8_t i2c_CheckDevice (uint8_t _Address) {
+	uint8_t ucAck;
+
+	if (I2C_SDA_READ() && I2C_SCL_READ()) {
+		i2c_Start(); /* 发送启动信号 */
+
+		/* 发送设备地址+读写控制bit（0 = w， 1 = r) bit7 先传 */
+		i2c_SendByte(_Address | I2C_WR);
+		ucAck = i2c_WaitAck(); /* 检测设备的ACK应答 */
+
+		i2c_Stop(); /* 发送停止信号 */
+
+		return ucAck;
+	}
+	return 1; /* I2C总线异常 */
+}
+
+void ads1110Config (void) {
+	i2c_Start();
+	i2c_SendByte(0x90); //写
+	i2c_NAck();
+	i2c_SendByte(0x8c); //PGA=1
+	i2c_NAck();
+	i2c_Stop();
+}
+
+u16 RD_ADS (void) {
+	u16 W_B1byte_high, W_B1byte_low, W_B1_word;
+
+	i2c_Start();
+
+	i2c_SendByte(0x91); //读
+	i2c_NAck();
+	W_B1byte_high = i2c_ReadByte();
+	i2c_Ack();
+
+	W_B1byte_low = i2c_ReadByte();
+	i2c_Ack();
+
+	W_B1_word = i2c_ReadByte();
+
+	i2c_Stop();
+
+	W_B1_word = (W_B1byte_high << 8) + W_B1byte_low;
+
+	return W_B1_word;
+}
+
+u16 get_ad_result (void) {
+	u8 i, j;
+	u16 temp;
+
+	for (i = 0; i < 13; i++) {
+		AD_Result[i] = RD_ADS();
+		delay_us(10);
+	}
+
+	for (i = 1; i < 13; i++) {
+		temp = AD_Result[i];
+		for (j = i; j > 0 && temp < AD_Result[j - 1]; j--) {
+			AD_Result[j] = AD_Result[j - 1];
+		}
+		AD_Result[j] = temp;
+	}
+	return AD_Result[7];
 }
 

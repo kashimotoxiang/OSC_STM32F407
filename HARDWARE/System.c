@@ -3,6 +3,7 @@
 
 //"系统" 常用功能函数集-头文件
 extern Disp_struct g_Disp;
+static int x = 0;
 
 /*-------------------------------------------------------*
 *
@@ -41,10 +42,10 @@ void Display_Initial (void) {
 *
 *-------------------------------------------------------*/
 void BackgroundUpdata (void) {
-	//	/*BSP-------------------------------------------------------*/
-	//	GUI_SelectLayer(eLAYER_BSP);//选择绘图层
-	//	BSP_Pointer_Update();
-	//	GUI_Exec();
+	/*BSP-------------------------------------------------------*/
+	GUI_SelectLayer(eLAYER_BSP);//选择绘图层
+	BSP_Pointer_Update();
+	GUI_Exec();
 	/*ESP-------------------------------------------------------*/
 	GUI_SelectLayer(eLAYER_ESP);//选择绘图层
 	ESP_Pointer_Update();

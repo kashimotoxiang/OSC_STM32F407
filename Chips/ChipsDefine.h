@@ -1,13 +1,14 @@
 #pragma once
-#include "stm32f4xx_hal.h"
 
+#include "stm32f4xx_hal.h"
+#include "TypeDefine.h"
 #include "mxconstants.h"
 //#include "AD9852.h"
 //#include "ADF4002.h"
 #include "ADS1110.h"
 //#include "ADS7883.h"
 
-/*PinList
+/*PinLis
 
 //ADS7883
 ADS7883_SCLK---SCLK

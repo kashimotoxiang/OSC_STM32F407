@@ -139,6 +139,7 @@ void ESP_MainTask (void) {
 	g_GraphButton.Reserve2.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.Reserve2.ID);//获取按键句柄//必须放在这里！！！！
 	g_GraphButton.Reserve3.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.Reserve3.ID);//获取按键句柄//必须放在这里！！！！
 	/*-------------------------------------------------------*/
+
 	GUI_Exec();//重绘
 	/*-------------------------------------------------------*/
 #ifdef DEBUG__
@@ -169,7 +170,7 @@ void BSP_MainTask (void) {
 	g_Disp.BSP_NumpadDlg = Numpad_CreateWindow();
 	g_Disp.BSP_ConStDlg = ControlStation_CreateWindow();
 	ConStSwitch(eClose);//先关闭控制台
-	RMSwitch(eClose, NumPad_RMs);//关闭屏幕键盘
+	RMSwitch(eOpen, NumPad_RMs);//关闭屏幕键盘
 	GUI_Exec();//重绘
 }
 
@@ -217,6 +218,8 @@ void OSC_MeasureInfoSwitch (u8 state) {
 		GUI_DispFloat(g_OSCInfo.Freq, 4);
 		GUI_DispStringAt("Ampl:", MEASURE_INFO_BEGIN_X, MEASURE_INFO_BEGIN_Y + FontSizeY);
 		GUI_DispFloat(g_OSCInfo.f_MaxVal, 4);
+		GUI_DispStringAt("ADS1110:", MEASURE_INFO_BEGIN_X, MEASURE_INFO_BEGIN_Y + FontSizeY * 2);
+		GUI_DispFloat(g_Sense.ADS1110, 4);
 	}
 	else {
 		GUI_GotoXY(MEASURE_INFO_BEGIN_X, MEASURE_INFO_BEGIN_Y);

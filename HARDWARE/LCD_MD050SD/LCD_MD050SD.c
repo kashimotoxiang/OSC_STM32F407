@@ -53,9 +53,7 @@ void ESP_LCD_Clear (u16 POINT_COLOR) {
 	ESP_Address_set(0, 0, LCD_W_ - 1, LCD_H_ - 1);
 	for (i = 0; i < LCD_W_; i++) {
 		for (j = 0; j < LCD_H_; j++) {
-			ESP_LCD_WR_DATA(POINT_COLOR)
-
-				;
+			ESP_LCD_WR_DATA(POINT_COLOR);
 		}
 	}
 }

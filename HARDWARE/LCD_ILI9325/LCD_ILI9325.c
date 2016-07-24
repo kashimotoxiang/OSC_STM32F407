@@ -1,10 +1,10 @@
-#include "LCD_ILI9325.h"
+﻿#include "LCD_ILI9325.h"
 
-//LCD�Ļ�����ɫ�ͱ���ɫ	   
-u16 BSP_POINT_COLOR = 0x0000; //������ɫ
-u16 BSP_BACK_COLOR = 0xFFFF; //����ɫ 
+//LCD的画笔颜色和背景色	   
+u16 BSP_POINT_COLOR = 0x0000; //画笔颜色
+u16 BSP_BACK_COLOR = 0xFFFF; //背景色 
 
-//��ʼ��lcd
+//初始化lcd
 
 void BSP_LCD_Init (void) {
 	BSP_LCD_WriteReg (0x00E5, 0x78F0);
@@ -69,17 +69,19 @@ void BSP_LCD_Init (void) {
 
 	BSP_LCD_WriteReg (0x0007, 0x0133);
 	BSP_LCD_WriteReg (0x00, 0x0022);//
-	BSP_LCD_Scan_Dir(); //Ĭ��ɨ�跽�� 
 
-	BSP_LCD_LED_Open ; //��������
+	BSP_LCD_Scan_Dir(); //默认扫描方向 
+
+	BSP_LCD_LED_Open ; //点亮背光
+
 
 }
 
-//LCD������ʾ
+//LCD开启显示
 /*****************************************************************************
-** ��������:LCD_DisplayOn
-** ��������: ����LCD��ʾ
-** ��������: �ر�LCD��ʾ
+** 函数名称:LCD_DisplayOn
+** 功能描述: 开启LCD显示
+** 功能描述: 关闭LCD显示
 *****************************************************************************/
 
 void BSP_LCD_Display (u8 off_on) {
@@ -92,17 +94,17 @@ void BSP_LCD_Display (u8 off_on) {
 	}
 }
 
-//���ù��λ��
-//Xpos:������
-//Ypos:������
+//设置光标位置
+//Xpos:横坐标
+//Ypos:纵坐标
 inline void BSP_LCD_SetCursor (u16 Xpos, u16 Ypos) {
 	if (
 		Horizontal_or_Vertical) {
-		//������ʾ
+		//横屏显示
 		BSP_LCD_WriteReg (0x20, Ypos);
 		BSP_LCD_WriteReg (0x21, 319 - Xpos);
 	}
-	//������ʾ					   
+	//竖屏显示					   
 	else {
 		BSP_LCD_WriteReg (0x20, Xpos);
 		BSP_LCD_WriteReg (0x21, Ypos);
@@ -111,46 +113,49 @@ inline void BSP_LCD_SetCursor (u16 Xpos, u16 Ypos) {
 
 }
 
-//����LCD���Զ�ɨ�跽��
+//设置LCD的自动扫描方向
 
 void BSP_LCD_Scan_Dir (void) {
 	u16 regval = 0;
-	regval |= L2R_D2U; //������,���ϵ���
+	regval |= L2R_D2U; //从左到右,从上到下
 	regval |= 1 << 12;
 	BSP_LCD_WriteReg (0X03, regval);
 }
 
 
-//��������
-//Color:Ҫ���������ɫ
+//清屏函数
+//Color:要清屏的填充色
 void BSP_LCD_Clear (u16 Color) {
 	u32 index = 0;
-	BSP_LCD_SetCursor(0x00, 0x0000); //���ù��λ�� 
-	BSP_LCD_WriteRAM_Prepare (); //��ʼд��GRAM	 	  
+	BSP_LCD_SetCursor(0x00, 0x0000); //设置光标位置 
+	BSP_LCD_WriteRAM_Prepare (); //开始写入GRAM	 	  
 	for (index = 0; index < 76800; index++) {
 		BSP_LCD_WR_DATA (Color);
 	}
 }
 
 inline void BSP_Address_Set (u16 x1, u16 y1, u16 x2, u16 y2) {
-	BSP_LCD_WriteReg (0x50, x1); //ˮƽ����GRAM��ʼ��ַ
-	BSP_LCD_WriteReg (0x51, x2); //ˮƽ����GRAM������ַ
-	BSP_LCD_WriteReg (0x52, y1); //��ֱ����GRAM��ʼ��ַ
-	BSP_LCD_WriteReg (0x53, y2); //��ֱ����GRAM������ַ	
-	BSP_LCD_SetCursor(x1, y1);//���ù��λ��  
+	BSP_LCD_WriteReg (0x50, x1); //水平方向GRAM起始地址
+	BSP_LCD_WriteReg (0x51, x2); //水平方向GRAM结束地址
+	BSP_LCD_WriteReg (0x52, y1); //垂直方向GRAM起始地址
+	BSP_LCD_WriteReg (0x53, y2); //垂直方向GRAM结束地址	
+	BSP_LCD_SetCursor(x1, y1);//设置光标位置  
+	BSP_LCD_WriteRAM_Prepare (); //开始写入GRAM	 
+	//»Ö¸´ÉèÖÃ
+
 }
 
 /*===================================================================*/
-//��ȡ��ĳ�����ɫֵ	 
-//x,y:����
-//����ֵ:�˵����ɫ
+//读取个某点的颜色值	 
+//x,y:坐标
+//返回值:此点的颜色
 inline u16 BSP_LCD_ReadPoint (u16 x, u16 y) {
 	u16 r = 0, g = 0, b = 0;
 	BSP_LCD_SetCursor(x, y);
-	BSP_LCD_WR_REG(R34); //����IC���Ͷ�GRAMָ��
+	BSP_LCD_WR_REG(R34); //其他IC发送读GRAM指令
 	if (BSP_LCD_RD_DATA())
 		r = 0; //dummy Read	   
-	r = BSP_LCD_RD_DATA(); //ʵ��������ɫ
-	return r;//�⼸��ICֱ�ӷ�����ɫֵ
+	r = BSP_LCD_RD_DATA(); //实际坐标颜色
+	return r;//这几种IC直接返回颜色值
 }
 
