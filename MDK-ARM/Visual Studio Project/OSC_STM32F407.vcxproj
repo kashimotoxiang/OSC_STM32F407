@@ -65,6 +65,7 @@
     <None Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Chips\AD9834.c" />
     <ClCompile Include="..\..\Chips\AD9852.c" />
     <ClCompile Include="..\..\Chips\ADF4002.c" />
     <ClCompile Include="..\..\Chips\ADS1110.c" />
@@ -72,6 +73,8 @@
     <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325.c" />
     <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.c" />
     <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.c" />
+    <ClCompile Include="..\..\SOFTWARE\FPGAControl.c" />
+    <ClCompile Include="..\..\SOFTWARE\GUI\GUIMeasureData.c" />
     <ClCompile Include="..\..\Src\stm32f4xx_it.c" />
     <ClCompile Include="..\..\Src\main.c" />
     <ClCompile Include="..\..\Src\stm32f4xx_hal_msp.c" />
@@ -691,6 +694,7 @@
     <ClCompile Include="source\WM__UpdateChildPositions.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Chips\AD9834.h" />
     <ClInclude Include="..\..\Chips\AD9852.h" />
     <ClInclude Include="..\..\Chips\ADF4002.h" />
     <ClInclude Include="..\..\Chips\ADS1110.h" />
@@ -700,6 +704,8 @@
     <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h" />
     <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h" />
     <ClInclude Include="..\..\Inc\mxconstants.h" />
+    <ClInclude Include="..\..\SOFTWARE\FPGAControl.h" />
+    <ClInclude Include="..\..\SOFTWARE\GUI\GUIMeasureData.h" />
     <ClInclude Include="..\..\SOFTWARE\TypeDefine.h" />
     <ClInclude Include="source\BUTTON.h" />
     <ClInclude Include="source\BUTTON_Private.h" />

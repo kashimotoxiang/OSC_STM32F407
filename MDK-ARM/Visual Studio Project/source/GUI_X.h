@@ -65,7 +65,7 @@ void GUI_X_InitOS(void);
 
 /****      Event driving (optional with multitasking)  ****/
 void GUI_X_WaitEvent(void);
-void GUI_X_SignalEvent(void);
+void GUI_X_NumpadEvent(void);
 /**** Recording (logs/warnings and errors) - required only for higher levels ****/
 void GUI_X_Log(const char *s);
 void GUI_X_Warn(const char *s);

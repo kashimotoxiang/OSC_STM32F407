@@ -79,7 +79,7 @@ void GUI_PID_StoreState(const GUI_PID_STATE *pState) {
   _PID_Load();
   if (memcmp(&_State, pState, sizeof(_State))) {
     _State = *pState;
-    GUI_X_SIGNAL_EVENT();
+    GUI_X_Numpad_EVENT();
   }
 }
 

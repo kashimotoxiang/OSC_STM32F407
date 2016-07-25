@@ -179,7 +179,6 @@ void BSP_Pointer_Update (void) {
 			TS_State.x = 0;
 			TS_State.y = 0;
 		}
-
 	}
 }
 

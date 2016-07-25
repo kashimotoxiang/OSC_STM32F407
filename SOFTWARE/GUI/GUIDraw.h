@@ -21,5 +21,6 @@ void BSP_MainTask (void);
 void GUIDataUpdata (void);
 void OSC_MeasureInfoSwitch (u8 state);
 void RMSwitch (u8 state, ResourceMap_struct RMs);//资源表开关
+void WindowSwitch (WM_HWIN hWin, u8 state);
 void CloseAllBSPDLG (void);
 

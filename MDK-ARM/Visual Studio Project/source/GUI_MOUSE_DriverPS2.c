@@ -86,7 +86,7 @@ static void _EvaPacket(void) {
   } else if (_ScreenY > LCD_YSIZE-1) {
     _ScreenY = LCD_YSIZE-1;
   }
-  /* signal new mouse data */
+  /* Numpad new mouse data */
   State.x       = _ScreenX;
   State.y       = _ScreenY;
   State.Pressed = _Buttons;

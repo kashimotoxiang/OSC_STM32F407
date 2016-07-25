@@ -26,8 +26,8 @@
 //#define MEM_DEBUG__			 //内存调试模式
 //#define SINGLE_PAGE__		 //使用单页缓存
 //#define ADCTAKESAMPLE__		 //ADC采样模式填充数组
-#define SPIDATATRANS__		 //SPI数据传输模式
-
+//#define UARTDATATRANS__		 //SPI数据传输模式
+//#define PARALLELDATA__		//并口数据传输
 /*----------------------功能裁剪---------------------------------*/
 
 #define TRIBLE_ADC 0
@@ -39,10 +39,14 @@
 /*=========================结构体定义==============================*/
 
 /* ADC ----------------------------------------------------------*/
-typedef struct ADC_Conv_struct {
-	WAVE_TYPE Data[MEMORYE_DEPTH];
-	uint16_t FFT_Data[MEMORYE_DEPTH / 2];
-} ADC_Conv_struct;
+typedef struct FPGADATA_struct {
+	WAVE_TYPE ADCConvData[MEMORYE_DEPTH];
+	uint8_t isEquSampl;
+	uint32_t NumpadFreq;
+	uint32_t SamplFreq;
+	uint32_t Ampli;
+	uint32_t DutyCycle;
+} FPGADATA_struct;
 
 /* FMS ---------------------------------------------------------*/
 typedef struct FSM_struct//FMS
@@ -78,6 +82,7 @@ typedef struct GUIControl_struct//OSC
 	__uIO8 NumpadState;
 	__uIO8 GraphDispState;
 	__uIO8 ConStState;
+	__uIO8 MeasureState;
 	__uIO8 BSP_DispState;//BSP显示竞争
 } GUIControl_struct;
 
@@ -113,7 +118,7 @@ typedef struct SenseData_struct//Key
 } SenseData_struct;
 
 /*=======================================================*/
-extern ADC_Conv_struct g_SamplData;
+extern FPGADATA_struct g_FPGAData;
 extern FSM_struct g_FSM;
 extern OSC_struct g_OSCInfo;
 extern Page_struct g_DispPage;
@@ -135,6 +140,7 @@ extern void Error_Handler (void);
 #include "FSM.h"
 #include "OSC_Work.h"
 #include "FFT.h"
+#include "FPGAControl.h"
 /*emWin-------------------------------------------------------*/
 #include "GUIDefine.h"
 /*-------------------------------------------------------*/

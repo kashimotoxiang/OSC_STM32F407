@@ -1,4 +1,5 @@
 #include "GUIDraw.h"
+#include "GUIControlStation.h"
 /*********************************************************************
 *
 *       extern data
@@ -26,7 +27,7 @@ static GRAPH_SCALE_Handle g_hScaleH; // Handle of horizontal scale
 
 static GUI_COLOR _aColor = {GUI_RED}; // Array of colors for the GRAPH_DATA objects
 /*-------------------------------------------------------*/
-static GUI_POINT WaveArray[DATAARRAYLENTGH ] = {0};//波型数组
+static WAVE_TYPE WaveArray[DATAARRAYLENTGH ] = {0};//波型数组
 
 static Index_struct index;
 
@@ -127,17 +128,17 @@ void ESP_MainTask (void) {
 	ESP_SwapPage(&g_DispPage);//交换至第二块页面
 	WM_PaintWindowAndDescs(g_Disp.ESP_GraphDlg);//重绘界面于第二块显示器同时重绘
 	/*-------------------------------------------------------*/
-	_hData = GRAPH_DATA_XY_Create(_aColor, DATAARRAYLENTGH, WaveArray, DATAARRAYLENTGH);
+	_hData = GRAPH_DATA_YT_Create(_aColor, DATAARRAYLENTGH, WaveArray, DATAARRAYLENTGH);
 	GRAPH_AttachData(g_Disp.hItemGraph_OSC, _hData);//重绘这次的点
 	/*获取按键句柄-------------------------------------------------------*/
 	g_GraphButton.ZoomPlus.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.ZoomPlus.ID);//获取按键句柄//必须放在这里！！！！
 	g_GraphButton.ZoomSub.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.ZoomSub.ID);//获取按键句柄//必须放在这里！！！！
+	g_GraphButton.AmpliPlus.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.AmpliPlus.ID);//获取按键句柄//必须放在这里！！！！
+	g_GraphButton.AmpliSub.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.AmpliSub.ID);//获取按键句柄//必须放在这里！！！！
 	g_GraphButton.Measure.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.Measure.ID);//获取按键句柄//必须放在这里！！！！
 	g_GraphButton.NumPad.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.NumPad.ID);//获取按键句柄//必须放在这里！！！！
 	g_GraphButton.Stop.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.Stop.ID);//获取按键句柄//必须放在这里！！！！
-	g_GraphButton.ConSt.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.ConSt.ID);//获取按键句柄//必须放在这里！！！！
-	g_GraphButton.Reserve2.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.Reserve2.ID);//获取按键句柄//必须放在这里！！！！
-	g_GraphButton.Reserve3.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.Reserve3.ID);//获取按键句柄//必须放在这里！！！！
+
 	/*-------------------------------------------------------*/
 
 	GUI_Exec();//重绘
@@ -168,9 +169,8 @@ void BSP_MainTask (void) {
 	RADIO_SetDefaultSkin(RADIO_SKIN_FLEX);
 	/*-------------------------------------------------------*/
 	g_Disp.BSP_NumpadDlg = Numpad_CreateWindow();
-	g_Disp.BSP_ConStDlg = ControlStation_CreateWindow();
-	ConStSwitch(eClose);//先关闭控制台
-	RMSwitch(eOpen, NumPad_RMs);//关闭屏幕键盘
+	g_Disp.BSP_MersureDlg = MeasureData_CreateWindow();
+	RMSwitch(eOpen, Numpad_RMs);//关闭屏幕键盘
 	GUI_Exec();//重绘
 }
 
@@ -189,19 +189,18 @@ void GUIDataUpdata (void) {
 	if (!OSC_DataDeal(WaveArray, DATAARRAYLENTGH))//数据处理
 		return;
 	/*显示-------------------------------------------------------*/
-	GRAPH_DATA_XY_Clear(_hData);
+	GRAPH_DATA_YT_Clear(_hData);
 	for (j = 0; j < g_OSCInfo.DataEnd; j++) {
-		GRAPH_DATA_XY_AddPoint(_hData, &WaveArray[j]);
+		GRAPH_DATA_YT_AddValue(_hData, &WaveArray[j]);
 	}
 	/*无效化按键使之重绘-------------------------------------------------------*/
 	WM_InvalidateWindow(g_GraphButton.ZoomPlus.Handle);
 	WM_InvalidateWindow(g_GraphButton.ZoomSub.Handle);
+	WM_InvalidateWindow(g_GraphButton.AmpliPlus.Handle);
+	WM_InvalidateWindow(g_GraphButton.AmpliSub.Handle);
 	WM_InvalidateWindow(g_GraphButton.Measure.Handle);
 	WM_InvalidateWindow(g_GraphButton.NumPad.Handle);
 	WM_InvalidateWindow(g_GraphButton.Stop.Handle);
-	WM_InvalidateWindow(g_GraphButton.ConSt.Handle);
-	WM_InvalidateWindow(g_GraphButton.Reserve2.Handle);
-	WM_InvalidateWindow(g_GraphButton.Reserve3.Handle);
 }
 
 /*********************************************************************
@@ -249,12 +248,26 @@ void RMSwitch (u8 state, ResourceMap_struct RMs) {
 
 /*********************************************************************
 *
+*       ControlStation键盘开关
+*
+*/
+void WindowSwitch (WM_HWIN hWin,u8 state) {
+	if (state == eOpen) {
+		WM_ShowWindow(hWin);
+	}
+	else {
+		WM_HideWindow(hWin);
+	}
+}
+
+/*********************************************************************
+*
 *       关闭BSP所有窗口
 */
 void CloseAllBSPDLG (void) {
 	if (g_GUICon.NumpadState == eOpen)
-		RMSwitch(eClose, NumPad_RMs);
-	if (g_GUICon.ConStState == eOpen)
-		ConStSwitch(eClose);
+		RMSwitch(eClose, Numpad_RMs);
+	if (g_GUICon.MeasureState == eOpen)
+		WindowSwitch(g_Disp.BSP_MersureDlg, eClose);
 }
 

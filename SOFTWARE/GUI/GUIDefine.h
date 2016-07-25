@@ -38,12 +38,11 @@ typedef struct {
 typedef struct {
 	BUTTON_struct ZoomPlus;
 	BUTTON_struct ZoomSub;
+	BUTTON_struct AmpliPlus;
+	BUTTON_struct AmpliSub;
 	BUTTON_struct Measure;
 	BUTTON_struct NumPad;
-	BUTTON_struct ConSt;
 	BUTTON_struct Stop;
-	BUTTON_struct Reserve2;
-	BUTTON_struct Reserve3;
 } MAINBUTTON_struct;
 
 /*主要显示句柄-------------------------------------------------------*/
@@ -51,6 +50,7 @@ typedef struct {
 	WM_HWIN ESP_GraphDlg;//Graph界面
 	WM_HWIN BSP_NumpadDlg;//键盘界面
 	WM_HWIN BSP_ConStDlg;//控制台界面
+	WM_HWIN BSP_MersureDlg;//测试数据界面
 	WM_HWIN hItemGraph_OSC;//Graph小工具句柄
 } Disp_struct;
 
@@ -89,7 +89,7 @@ typedef struct ResourceMap_struct {
 #include "GUIGraph.h"
 #include "GUIDraw.h"
 #include "GUINumPad.h"
-#include "GUIControlStation.h"
+#include "GUIMeasureData.h"
 #include "__UserGUI.h"
 
 

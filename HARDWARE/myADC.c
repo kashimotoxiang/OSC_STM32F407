@@ -16,7 +16,7 @@ void Open_ADC_Triple_DMA (void) {
 
 	HAL_ADC_Start(&hadc3);
 	HAL_ADC_Start(&hadc2);
-	HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)g_SamplData.Data, 1500);
+	HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)g_FPGAData.ADCConvData, 1500);
 }
 
 /*  ---------------------------------------------------------*/
@@ -34,7 +34,7 @@ void ADC_DMA_ReSet (void) {
 	HAL_ADC_ConfigChannel(&hadc1, &sConfig);
 	HAL_ADC_ConfigChannel(&hadc2, &sConfig);
 	HAL_ADC_ConfigChannel(&hadc3, &sConfig);
-	HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)g_SamplData.Data, 1500);
+	HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t*)g_FPGAData.ADCConvData, 1500);
 
 	hadc1.Instance->SR &= ~ADC_SR_OVR ;
 	hadc2.Instance->SR &= ~ADC_SR_OVR ;

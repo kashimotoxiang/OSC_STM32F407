@@ -3,7 +3,7 @@
 #include "GUIDefine.h"
 
 /* ResourceMap---------------------------------------------------------*/
-extern ResourceMap_struct NumPad_RMs;
+extern ResourceMap_struct Numpad_RMs;
 /*********************************************************************
 *
 *       Declartion

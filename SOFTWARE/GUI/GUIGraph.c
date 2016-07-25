@@ -1,13 +1,14 @@
 #include "GUIGraph.h"
+#include "GUIControlStation.h"
 
 #define __ZoomPlusID  GUI_ID_BUTTON0
 #define __ZoomSubID  GUI_ID_BUTTON1
-#define __MeasureID  GUI_ID_BUTTON2
-#define __NumPadID  GUI_ID_BUTTON3
-#define __ConStID  GUI_ID_BUTTON4
-#define __StopID  GUI_ID_BUTTON5
-#define __Reserve2ID  GUI_ID_BUTTON6
-#define __Reserve3ID  GUI_ID_BUTTON7
+#define __AmpliPlusID  GUI_ID_BUTTON2
+#define __AmpliSubID  GUI_ID_BUTTON3
+#define __MeasureID  GUI_ID_BUTTON4
+#define __NumpadID  GUI_ID_BUTTON5
+#define __StopID  GUI_ID_BUTTON6
+
 
 /*********************************************************************
 *
@@ -18,12 +19,12 @@
 MAINBUTTON_struct g_GraphButton = {
 	{__ZoomPlusID, 0},
 	{__ZoomSubID, 0},
+	{__AmpliPlusID, 0},
+	{__AmpliSubID, 0},
 	{__MeasureID, 0},
-	{__NumPadID, 0},
-	{__ConStID, 0},
+	{__NumpadID, 0},
 	{__StopID, 0},
-	{__Reserve2ID, 0},
-	{__Reserve3ID, 0},
+
 
 };
 /*********************************************************************
@@ -49,12 +50,11 @@ const GUI_WIDGET_CREATE_INFO OSC_DialogCreate[] = {
 	{WINDOW_CreateIndirect, 0, 0, 0, 0, 800, 480},//不可移动
 	{BUTTON_CreateIndirect, "Zoom+", __ZoomPlusID, 692, 15, 105, 51, 0, 0},
 	{BUTTON_CreateIndirect, "Zoom-", __ZoomSubID, 692, 72, 105, 51, 0, 0},
-	{BUTTON_CreateIndirect, "Measure", __MeasureID, 692, 129, 105, 51, 0, 0},
-	{BUTTON_CreateIndirect, "NumPad", __NumPadID, 692, 186, 105, 51, 0, 0},
-	{BUTTON_CreateIndirect, "Control", __ConStID, 692, 243, 105, 51, 0, 0},
-	{BUTTON_CreateIndirect, "Stop", __StopID, 692, 300, 105, 51, 0, 0},
-	{BUTTON_CreateIndirect, "Reserve", __Reserve2ID, 692, 357, 105, 51, 0, 0},
-	{BUTTON_CreateIndirect, "Reserve", __Reserve3ID, 692, 414, 105, 51, 0, 0},
+	{BUTTON_CreateIndirect, "Amplitude+", __AmpliPlusID, 692, 129, 105, 51, 0, 0},
+	{BUTTON_CreateIndirect, "Amplitude-", __AmpliSubID, 692, 186, 105, 51, 0, 0},
+	{BUTTON_CreateIndirect, "Measure", __MeasureID, 692, 243, 105, 51, 0, 0},
+	{BUTTON_CreateIndirect, "Numpad", __NumpadID, 692, 300, 105, 51, 0, 0},
+	{BUTTON_CreateIndirect, "Stop", __StopID, 692, 357, 105, 51, 0, 0},
 	{GRAPH_CreateIndirect, 0, GUI_ID_GRAPH0, 2, 2, 685, 478},
 };
 
@@ -196,52 +196,49 @@ void Main_cbCallback (WM_MESSAGE* pMsg) {
 					if (NCode == WM_NOTIFICATION_RELEASED)
 						GUI_EndDialog(hDlg, 0);
 					break;
-				case GUI_ID_BUTTON0: //Zoom+
+				case __ZoomPlusID: //Zoom+
 					if (NCode == WM_NOTIFICATION_RELEASED)
 						g_OSCInfo.Time_rat = Safe_Return (g_OSCInfo.Time_rat + 1, eReslt_rat_Begin, eReslt_rat_End) ;
 					break;
-				case GUI_ID_BUTTON1: //Zoom-
+				case __ZoomSubID: //Zoom-
 					if (NCode == WM_NOTIFICATION_RELEASED)
 						g_OSCInfo.Time_rat = Safe_Return (g_OSCInfo.Time_rat - 1, eReslt_rat_Begin, eReslt_rat_End) ;
 					break;
-				case GUI_ID_BUTTON2: //Measure
+				case __AmpliPlusID: //Zoom+
 					if (NCode == WM_NOTIFICATION_RELEASED)
-						if (g_OSCInfo.MeasureStatu == eClose) {//打开测量数据
-							g_OSCInfo.MeasureStatu = eOpen;
-							OSC_MeasureInfoSwitch(eOpen);
+						g_OSCInfo.Ampli_rat = Safe_Return (g_OSCInfo.Ampli_rat + 1, eReslt_rat_Begin, eReslt_rat_End) ;
+					break;
+				case __AmpliSubID: //Zoom-
+					if (NCode == WM_NOTIFICATION_RELEASED)
+						g_OSCInfo.Ampli_rat = Safe_Return (g_OSCInfo.Ampli_rat - 1, eReslt_rat_Begin, eReslt_rat_End) ;
+					break;
+				case __MeasureID: //Measure
+					if (NCode == WM_NOTIFICATION_RELEASED)
+						if (g_GUICon.MeasureState == eClose
+						) {//打开NumPad//判断是否冲突
+							g_GUICon.MeasureState = eOpen;
+							CloseAllBSPDLG();
+							WindowSwitch(g_Disp.BSP_MersureDlg, eOpen);
 						}
-						else {//关闭测量数据
-							g_OSCInfo.MeasureStatu = eClose;
-							OSC_MeasureInfoSwitch(eClose);
+						else {//关闭NumPad
+							g_GUICon.ConStState = eClose;
+							CloseAllBSPDLG();
 						}
 					break;
-				case GUI_ID_BUTTON3: //开关NumPad
+				case __NumpadID: //开关Singal控制面板
 					if (NCode == WM_NOTIFICATION_RELEASED)
 						if (g_GUICon.NumpadState == eClose
 						) {//打开NumPad
 							g_GUICon.NumpadState = eOpen;
 							CloseAllBSPDLG();
-							RMSwitch(eOpen, NumPad_RMs);
+							RMSwitch(eOpen, Numpad_RMs);
 						}
 						else {//关闭NumPad
 							g_GUICon.NumpadState = eClose;
-							RMSwitch(eClose, NumPad_RMs);
-						}
-					break;
-				case GUI_ID_BUTTON4: //开关ControlStation
-					if (NCode == WM_NOTIFICATION_RELEASED)
-						if (g_GUICon.ConStState == eClose
-						) {//打开NumPad//判断是否冲突
-							g_GUICon.ConStState = eOpen;
 							CloseAllBSPDLG();
-							ConStSwitch(eOpen);
-						}
-						else {//关闭NumPad
-							g_GUICon.ConStState = eClose;
-							ConStSwitch(eClose);
 						}
 					break;
-				case GUI_ID_BUTTON5: //Stop
+				case __StopID: //Stop
 					if (NCode == WM_NOTIFICATION_RELEASED)
 						if (g_GUICon.GraphDispState == eClose) {//开始
 							g_GUICon.GraphDispState = eOpen;

@@ -50,7 +50,7 @@
       <UniqueIdentifier>{b089161c-ce5a-4815-a21c-2568cd321e72}</UniqueIdentifier>
     </Filter>
     <Filter Include="源文件\Chips">
-      <UniqueIdentifier>{af4819c6-0e1f-4ec1-aa5f-e5a71f891228}</UniqueIdentifier>
+      <UniqueIdentifier>{be0feb23-4a59-44cd-bf41-e5fb8e053f2d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1905,6 +1905,24 @@
     <ClCompile Include="source\WMTouch.c">
       <Filter>源文件\emWinSource</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325.c">
+      <Filter>源文件\BSP_LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.c">
+      <Filter>源文件\BSP_LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.c">
+      <Filter>源文件\BSP_LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SOFTWARE\GUI\GUIMeasureData.c">
+      <Filter>源文件\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SOFTWARE\FPGAControl.c">
+      <Filter>源文件\SOFTWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Chips\AD9834.c">
+      <Filter>源文件\Chips</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Chips\AD9852.c">
       <Filter>源文件\Chips</Filter>
     </ClCompile>
@@ -1916,15 +1934,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Chips\ADS7883.c">
       <Filter>源文件\Chips</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325.c">
-      <Filter>源文件\BSP_LCD</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.c">
-      <Filter>源文件\BSP_LCD</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.c">
-      <Filter>源文件\BSP_LCD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2200,6 +2209,27 @@
     <ClInclude Include="..\..\Inc\mxconstants.h">
       <Filter>源文件\Application/User</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325.h">
+      <Filter>源文件\BSP_LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h">
+      <Filter>源文件\BSP_LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h">
+      <Filter>源文件\BSP_LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SOFTWARE\TypeDefine.h">
+      <Filter>源文件\SOFTWARE</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SOFTWARE\GUI\GUIMeasureData.h">
+      <Filter>源文件\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SOFTWARE\FPGAControl.h">
+      <Filter>源文件\SOFTWARE</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Chips\AD9834.h">
+      <Filter>源文件\Chips</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Chips\AD9852.h">
       <Filter>源文件\Chips</Filter>
     </ClInclude>
@@ -2214,18 +2244,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Chips\ChipsDefine.h">
       <Filter>源文件\Chips</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325.h">
-      <Filter>源文件\BSP_LCD</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h">
-      <Filter>源文件\BSP_LCD</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h">
-      <Filter>源文件\BSP_LCD</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\SOFTWARE\TypeDefine.h">
-      <Filter>源文件\SOFTWARE</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

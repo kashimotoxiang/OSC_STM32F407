@@ -173,11 +173,11 @@ static void _Invalidate1Abs(WM_HWIN hWin, const GUI_RECT*pRect) {
         GUI_RECT r;
         r = pWin->Rect;
         if (WM__ClipAtParentBorders(&r,  hWin)) {
-          GUI_X_REDRAW(); /* Call hook function to signal an invalidation */
+          GUI_X_REDRAW(); /* Call hook function to Numpad an invalidation */
         }
       }
       #endif
-      GUI_X_SIGNAL_EVENT();
+      GUI_X_Numpad_EVENT();
     }
     /* Debug code: shows invalid areas */
     #if (WM_SUPPORT_DIAG)
@@ -1159,7 +1159,7 @@ static int _FindNext_IVR(void) {
   Sets the next clipping rectangle. If a valid one has
   been found (and set), 1 is returned in order to indicate
   that the drawing operation needs to be executed.
-  Returning 0 signals that we have iterated over all
+  Returning 0 Numpads that we have iterated over all
   rectangles.
 
   Returns: 0 if no valid rectangle is found

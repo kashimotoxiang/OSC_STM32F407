@@ -69,8 +69,8 @@ extern "C" {     /* Make sure we have C-declarations in C++ programs */
   #define GUI_DEFAULT_COLOR   GUI_WHITE
 #endif
 
-#ifndef GUI_X_SIGNAL_EVENT
-  #define GUI_X_SIGNAL_EVENT()
+#ifndef GUI_X_Numpad_EVENT
+  #define GUI_X_Numpad_EVENT()
 #endif
 
 #ifndef GUI_X_WAIT_EVENT

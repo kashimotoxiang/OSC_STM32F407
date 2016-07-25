@@ -142,19 +142,6 @@ WM_HWIN ControlStation_CreateWindow (void) {
 	return hWin;
 }
 
-/*********************************************************************
-*
-*       ControlStation¼üÅÌ¿ª¹Ø
-*
-*/
-void ConStSwitch (u8 state) {
-	if (state == eOpen) {
-		WM_ShowWindow(g_Disp.BSP_ConStDlg);
-	}
-	else {
-		WM_HideWindow(g_Disp.BSP_ConStDlg);
-	}
-}
 
 /*********************************************************************
 *

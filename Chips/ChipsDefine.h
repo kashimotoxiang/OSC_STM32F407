@@ -5,10 +5,16 @@
 #include "mxconstants.h"
 //#include "AD9852.h"
 //#include "ADF4002.h"
-#include "ADS1110.h"
+//#include "ADS1110.h"
 //#include "ADS7883.h"
+#include "AD9834.h"
 
 /*PinLis
+//AD9834
+AD9834_FSYNC
+AD9834_SCLK
+AD9834_SDATA
+AD9834_RESET
 
 //ADS7883
 ADS7883_SCLK---SCLK

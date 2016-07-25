@@ -75,7 +75,7 @@ void GUI_StoreKey(int Key) {
   if (!_Key) {
     _Key = Key;
   }
-  GUI_X_SIGNAL_EVENT();
+  GUI_X_Numpad_EVENT();
 }
 
 /*********************************************************************
@@ -95,7 +95,7 @@ void GUI_StoreKeyMsg(int Key, int PressedCnt) {
   _KeyMsg.Key = Key;
   _KeyMsg.PressedCnt = PressedCnt;
   _KeyMsgCnt = 1;
-  GUI_X_SIGNAL_EVENT();
+  GUI_X_Numpad_EVENT();
   #else
     GUI_USE_PARA(PressedCnt);
     GUI_StoreKey(Key);
