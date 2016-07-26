@@ -52,6 +52,8 @@ osc_stm32f407\myuart.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\myuart.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\myuart.o: ..\SOFTWARE\TypeDefine.h
 osc_stm32f407\myuart.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\myuart.o: ..\Chips\ChipsDefine.h
+osc_stm32f407\myuart.o: ..\Chips\AD9834.h
 osc_stm32f407\myuart.o: ..\HARDWARE\System.h
 osc_stm32f407\myuart.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\myuart.o: ..\HARDWARE\myADC.h
@@ -63,6 +65,7 @@ osc_stm32f407\myuart.o: ..\SOFTWARE\Usual.h
 osc_stm32f407\myuart.o: ..\SOFTWARE\FSM.h
 osc_stm32f407\myuart.o: ..\SOFTWARE\OSC_Work.h
 osc_stm32f407\myuart.o: ..\SOFTWARE\FFT.h
+osc_stm32f407\myuart.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\myuart.o: ..\SOFTWARE\GUI\GUIDefine.h
 osc_stm32f407\myuart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 osc_stm32f407\myuart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
@@ -106,5 +109,5 @@ osc_stm32f407\myuart.o: ..\SOFTWARE\GUI\GUIUsual.h
 osc_stm32f407\myuart.o: ..\SOFTWARE\GUI\GUIGraph.h
 osc_stm32f407\myuart.o: ..\SOFTWARE\GUI\GUIDraw.h
 osc_stm32f407\myuart.o: ..\SOFTWARE\GUI\GUINumPad.h
-osc_stm32f407\myuart.o: ..\SOFTWARE\GUI\GUIControlStation.h
+osc_stm32f407\myuart.o: ..\SOFTWARE\GUI\GUIMeasureData.h
 osc_stm32f407\myuart.o: ..\SOFTWARE\GUI\__UserGUI.h

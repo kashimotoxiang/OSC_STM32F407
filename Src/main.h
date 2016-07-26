@@ -7,6 +7,7 @@
 #include "GUI.h"
 #include "core_cm4.h"
 #include "TypeDefine.h"
+#include "ChipsDefine.h"
 /* Private define ------------------------------------------------------------*/
 #define  TFT_WIDTH           640
 #define  TFT_BEGINNING   MEMORYE_DEPTH/4
@@ -42,10 +43,10 @@
 typedef struct FPGADATA_struct {
 	WAVE_TYPE ADCConvData[MEMORYE_DEPTH];
 	uint8_t isEquSampl;
-	uint32_t NumpadFreq;
-	uint32_t SamplFreq;
+	long NumpadFreq;
+	double SamplFreq;
 	uint32_t Ampli;
-	uint32_t DutyCycle;
+	double DutyCycle;
 } FPGADATA_struct;
 
 /* FMS ---------------------------------------------------------*/
@@ -117,6 +118,13 @@ typedef struct SenseData_struct//Key
 	__uIO32 AD9852;
 } SenseData_struct;
 
+/*器件控制参数-------------------------------------------------------*/
+typedef struct DevicePar_struct {
+	uint32_t AD9834Wava;
+	uint32_t AD9834Freq;
+} DevicePar_struct;
+
+
 /*=======================================================*/
 extern FPGADATA_struct g_FPGAData;
 extern FSM_struct g_FSM;
@@ -125,6 +133,7 @@ extern Page_struct g_DispPage;
 extern Key_struct g_Key;
 extern GUIControl_struct g_GUICon;
 extern SenseData_struct g_Sense;//传感器数据
+extern DevicePar_struct g_Device;
 
 extern void Error_Handler (void);
 /* Includes ------------------------------------------------------------------*/
@@ -134,7 +143,9 @@ extern void Error_Handler (void);
 #include "mySPI.h"
 #include "myADC.h"
 #include "myKey.h"
+#include "myUART.h"
 #include "LCD_MD050SD.h"
+#include "ChipsDefine.h"
 /*软件-------------------------------------------------------*/
 #include "Usual.h"
 #include "FSM.h"

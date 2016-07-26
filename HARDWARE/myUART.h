@@ -87,4 +87,4 @@ inline uint8_t mUART6_ReceiveAByte (void) {
 //
 //*****************************************************************************
 void UART_DMATX (volatile uint16_t* sourceTxBuffer, uint16_t Tx_Begin, uint16_t Tx_End);
-
+uint8_t UART_SendReceive (uint8_t address);

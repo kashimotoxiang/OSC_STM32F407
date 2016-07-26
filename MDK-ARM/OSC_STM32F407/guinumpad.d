@@ -91,10 +91,13 @@ osc_stm32f407\guinumpad.o: C:\Keil_v5\ARM\ARMCC\include\math.h
 osc_stm32f407\guinumpad.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\guinumpad.o: ..\SOFTWARE\TypeDefine.h
 osc_stm32f407\guinumpad.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\guinumpad.o: ..\Chips\ChipsDefine.h
+osc_stm32f407\guinumpad.o: ..\Chips\AD9834.h
 osc_stm32f407\guinumpad.o: ..\HARDWARE\System.h
 osc_stm32f407\guinumpad.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\guinumpad.o: ..\HARDWARE\myADC.h
 osc_stm32f407\guinumpad.o: ..\HARDWARE\myKey.h
+osc_stm32f407\guinumpad.o: ..\HARDWARE\myUART.h
 osc_stm32f407\guinumpad.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h
 osc_stm32f407\guinumpad.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h
 osc_stm32f407\guinumpad.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h
@@ -102,9 +105,10 @@ osc_stm32f407\guinumpad.o: ..\SOFTWARE\Usual.h
 osc_stm32f407\guinumpad.o: ..\SOFTWARE\FSM.h
 osc_stm32f407\guinumpad.o: ..\SOFTWARE\OSC_Work.h
 osc_stm32f407\guinumpad.o: ..\SOFTWARE\FFT.h
+osc_stm32f407\guinumpad.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\guinumpad.o: ..\SOFTWARE\GUI\GUIUsual.h
 osc_stm32f407\guinumpad.o: ..\SOFTWARE\GUI\GUIGraph.h
 osc_stm32f407\guinumpad.o: ..\SOFTWARE\GUI\GUIDraw.h
-osc_stm32f407\guinumpad.o: ..\SOFTWARE\GUI\GUIControlStation.h
+osc_stm32f407\guinumpad.o: ..\SOFTWARE\GUI\GUIMeasureData.h
 osc_stm32f407\guinumpad.o: ..\SOFTWARE\GUI\__UserGUI.h
 osc_stm32f407\guinumpad.o: ..\ENWIN\inc\BUTTON_Private.h

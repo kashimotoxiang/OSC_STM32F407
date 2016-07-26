@@ -69,10 +69,10 @@
 #define AD9834_RESET_GPIO_Port GPIOD
 #define SPI1_CS_Pin GPIO_PIN_7
 #define SPI1_CS_GPIO_Port GPIOG
-#define FPGA_MOSI_Pin GPIO_PIN_8
-#define FPGA_MOSI_GPIO_Port GPIOC
-#define FPGA_MISO_Pin GPIO_PIN_9
-#define FPGA_MISO_GPIO_Port GPIOC
+#define FPGA_SCK_Pin GPIO_PIN_8
+#define FPGA_SCK_GPIO_Port GPIOC
+#define UART_COM_Pin GPIO_PIN_9
+#define UART_COM_GPIO_Port GPIOC
 #define ESP_T_DOUT_Pin GPIO_PIN_2
 #define ESP_T_DOUT_GPIO_Port GPIOD
 #define ESP_T_IRQ_Pin GPIO_PIN_3

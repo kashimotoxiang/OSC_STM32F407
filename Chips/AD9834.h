@@ -1,7 +1,6 @@
 #pragma once
 
-#include "main.h"
-#include "mxconstants.h"
+#include "CHipsDefine.h"
 
 #define Triangle_Wave     0x2002
 #define Sine_Wave		  0x2028

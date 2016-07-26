@@ -51,10 +51,13 @@ osc_stm32f407\main.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\main.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\main.o: ..\SOFTWARE\TypeDefine.h
 osc_stm32f407\main.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\main.o: ..\Chips\ChipsDefine.h
+osc_stm32f407\main.o: ..\Chips\AD9834.h
 osc_stm32f407\main.o: ..\HARDWARE\System.h
 osc_stm32f407\main.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\main.o: ..\HARDWARE\myADC.h
 osc_stm32f407\main.o: ..\HARDWARE\myKey.h
+osc_stm32f407\main.o: ..\HARDWARE\myUART.h
 osc_stm32f407\main.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h
 osc_stm32f407\main.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h
 osc_stm32f407\main.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h
@@ -62,6 +65,7 @@ osc_stm32f407\main.o: ..\SOFTWARE\Usual.h
 osc_stm32f407\main.o: ..\SOFTWARE\FSM.h
 osc_stm32f407\main.o: ..\SOFTWARE\OSC_Work.h
 osc_stm32f407\main.o: ..\SOFTWARE\FFT.h
+osc_stm32f407\main.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUIDefine.h
 osc_stm32f407\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 osc_stm32f407\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
@@ -105,7 +109,5 @@ osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUIUsual.h
 osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUIGraph.h
 osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUIDraw.h
 osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUINumPad.h
-osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUIControlStation.h
+osc_stm32f407\main.o: ..\SOFTWARE\GUI\GUIMeasureData.h
 osc_stm32f407\main.o: ..\SOFTWARE\GUI\__UserGUI.h
-osc_stm32f407\main.o: ..\Chips\ChipsDefine.h
-osc_stm32f407\main.o: ..\Chips\ADS1110.h

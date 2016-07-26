@@ -192,7 +192,7 @@ static void MeasureData_cbCallback (WM_MESSAGE* pMsg) {
 */
 WM_HWIN MeasureData_CreateWindow (void) {
 	WM_HWIN hWin;
-	GUI_ExecDialogBox(MeasureData_aDialogCreate, GUI_COUNTOF (MeasureData_aDialogCreate), &MeasureData_cbCallback, 0, 0, 0);
+	GUI_CreateDialogBox(MeasureData_aDialogCreate, GUI_COUNTOF (MeasureData_aDialogCreate), &MeasureData_cbCallback, 0, 0, 0);
 	return hWin;
 }
 

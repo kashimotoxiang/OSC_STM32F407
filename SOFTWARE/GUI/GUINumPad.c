@@ -39,7 +39,7 @@ TrueTypeFonts - ( )
 // Bitmap data for arrow keys
 //
 
-ResourceMap_struct NumPad_RMs;
+ResourceMap_struct Numpad_RMs;
 
 static GUI_CONST_STORAGE GUI_COLOR NumPad_aColorsArrow[] = {
 	0xFFFFFF, 0x000000
@@ -240,7 +240,7 @@ WM_HWIN Numpad_CreateWindow (void) {
 	/*-------------------------------------------------------*/
 	hWin = __User_GUI_CreateDialogBox(NumPad_aDialog,
 	                                  GUI_COUNTOF (NumPad_aDialog),
-	                                  NumPad_cbDesktop, WM_HBKWIN, 0, 0, &NumPad_RMs); /* Create the numpad dialog */
+	                                  NumPad_cbDesktop, WM_HBKWIN, 0, 0, &Numpad_RMs); /* Create the numpad dialog */
 	return hWin;
 }
 

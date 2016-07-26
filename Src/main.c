@@ -35,7 +35,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "main.h"
-#include "ChipsDefine.h"
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -83,6 +83,7 @@ Page_struct g_DispPage = {ePage_Num_1, ePage_Num_2, ePage_Num_2};
 Key_struct g_Key = {eKey_Empty, eKey_Empty};
 GUIControl_struct g_GUICon = {eOpen, eOpen, eClose, eISEMPTY};
 SenseData_struct g_Sense = {0};//传感器数据
+DevicePar_struct g_Device = {Triangle_Wave ,1000000};
 /* Others ---------------------------------------------------------*/
 __uIO32 g_DACVal = 0;
 
@@ -136,10 +137,7 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
 	Display_Initial();
-	//	ADS1110_Init();
-	//	HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
-	//	HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, 0x08f);
-
+	FSM_DeviceInit();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -148,9 +146,8 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-		//FPGA_COM_SPISTART;
-		FSM_OSC();
-		AppendDataUpdata();
+		FSM_MeasureUpdata();
+		FSM_OSCDisp();
 		BackgroundUpdata();
 	}
   /* USER CODE END 3 */
@@ -368,7 +365,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOE, ESP_T_DIN_Pin|ESP_T_CS_Pin|ESP_T_CLK_Pin|ESP_LCD_REST_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, BSP_T_CS_Pin|FPGA_MOSI_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, BSP_T_CS_Pin|FPGA_SCK_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, BSP_T_CLK_Pin|BSP_LCD_BL_Pin, GPIO_PIN_RESET);
@@ -392,8 +389,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : BSP_T_CS_Pin FPGA_MOSI_Pin */
-  GPIO_InitStruct.Pin = BSP_T_CS_Pin|FPGA_MOSI_Pin;
+  /*Configure GPIO pins : BSP_T_CS_Pin FPGA_SCK_Pin */
+  GPIO_InitStruct.Pin = BSP_T_CS_Pin|FPGA_SCK_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -401,10 +398,10 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PC0 PC1 PC2 PC3 
                            PC4 PC5 PC6 PC7 
-                           FPGA_MISO_Pin */
+                           UART_COM_Pin */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3 
                           |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7 
-                          |FPGA_MISO_Pin;
+                          |UART_COM_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);

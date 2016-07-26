@@ -57,7 +57,8 @@
 "osc_stm32f407\guigraph.o"
 "osc_stm32f407\guinumpad.o"
 "osc_stm32f407\guiusual.o"
-"osc_stm32f407\ads1110.o"
+"osc_stm32f407\guimeasuredata.o"
+"osc_stm32f407\ad9834.o"
 --library_type=microlib --strict --scatter "OSC_STM32F407\OSC_STM32F407.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

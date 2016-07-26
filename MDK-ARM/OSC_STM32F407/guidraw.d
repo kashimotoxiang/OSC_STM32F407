@@ -91,10 +91,13 @@ osc_stm32f407\guidraw.o: C:\Keil_v5\ARM\ARMCC\include\math.h
 osc_stm32f407\guidraw.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\guidraw.o: ..\SOFTWARE\TypeDefine.h
 osc_stm32f407\guidraw.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\guidraw.o: ..\Chips\ChipsDefine.h
+osc_stm32f407\guidraw.o: ..\Chips\AD9834.h
 osc_stm32f407\guidraw.o: ..\HARDWARE\System.h
 osc_stm32f407\guidraw.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\guidraw.o: ..\HARDWARE\myADC.h
 osc_stm32f407\guidraw.o: ..\HARDWARE\myKey.h
+osc_stm32f407\guidraw.o: ..\HARDWARE\myUART.h
 osc_stm32f407\guidraw.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h
 osc_stm32f407\guidraw.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h
 osc_stm32f407\guidraw.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h
@@ -102,8 +105,9 @@ osc_stm32f407\guidraw.o: ..\SOFTWARE\Usual.h
 osc_stm32f407\guidraw.o: ..\SOFTWARE\FSM.h
 osc_stm32f407\guidraw.o: ..\SOFTWARE\OSC_Work.h
 osc_stm32f407\guidraw.o: ..\SOFTWARE\FFT.h
+osc_stm32f407\guidraw.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\guidraw.o: ..\SOFTWARE\GUI\GUIUsual.h
 osc_stm32f407\guidraw.o: ..\SOFTWARE\GUI\GUIGraph.h
 osc_stm32f407\guidraw.o: ..\SOFTWARE\GUI\GUINumPad.h
-osc_stm32f407\guidraw.o: ..\SOFTWARE\GUI\GUIControlStation.h
+osc_stm32f407\guidraw.o: ..\SOFTWARE\GUI\GUIMeasureData.h
 osc_stm32f407\guidraw.o: ..\SOFTWARE\GUI\__UserGUI.h

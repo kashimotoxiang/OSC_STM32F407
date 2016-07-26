@@ -22,22 +22,23 @@ Dialog DLL:      TCM.DLL V1.14.9.0
  
 <h2>Project:</h2>
 D:\Documents\workspace\stm32ДњТы\OSC_STM32F407\MDK-ARM\OSC_STM32F407.uvprojx
-Project File Date:  07/24/2016
+Project File Date:  07/26/2016
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'OSC_STM32F407'
-compiling LCD_ILI9325_Touch.c...
-compiling LCD_ILI9325.c...
-..\HARDWARE\LCD_ILI9325\LCD_ILI9325.c(153): warning:  #177-D: variable "g" was declared but never referenced
-  	u16 r = 0, g = 0, b = 0;
-..\HARDWARE\LCD_ILI9325\LCD_ILI9325.c(153): warning:  #177-D: variable "b" was declared but never referenced
-  	u16 r = 0, g = 0, b = 0;
-..\HARDWARE\LCD_ILI9325\LCD_ILI9325.c: 2 warnings, 0 errors
+compiling FSM.c...
+..\SOFTWARE\TypeDefine.h(32): warning:  #47-D: incompatible redefinition of macro "WAVE_TYPE" (declared at line 28)
+  #define   WAVE_TYPE							uint16_t
+..\Chips\AD9834.h(26): warning:  #1295-D: Deprecated declaration AD9834_Triangular_Wave - give arg types
+  void AD9834_Triangular_Wave ();
+..\SOFTWARE\FSM.c(34): warning:  #177-D: variable "t" was declared but never referenced
+  uint32_t t=0;
+..\SOFTWARE\FSM.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=96420 RO-data=22940 RW-data=2396 ZI-data=45492  
+Program Size: Code=97196 RO-data=23064 RW-data=2436 ZI-data=44180  
 FromELF: creating hex file...
-"OSC_STM32F407\OSC_STM32F407.axf" - 0 Error(s), 2 Warning(s).
+"OSC_STM32F407\OSC_STM32F407.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -55,7 +56,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:4.3.0
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

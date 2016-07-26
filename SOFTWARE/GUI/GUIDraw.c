@@ -1,5 +1,8 @@
 #include "GUIDraw.h"
-#include "GUIControlStation.h"
+
+#include "GUINumPad.h"
+#include "GUIMeasureData.h"
+
 /*********************************************************************
 *
 *       extern data
@@ -181,7 +184,6 @@ void BSP_MainTask (void) {
 void GUIDataUpdata (void) {
 	static int j;//下标
 	/*控制数据更新-------------------------------------------------------*/
-	SliderClassUpdata(&g_UserInput.SliderTime);//时间梯度化处理
 	g_OSCInfo.Time_rat = g_UserInput.SliderTime.Class;
 	g_OSCInfo.Ampli_rat = g_UserInput.SliderAmpli.Value;
 
@@ -191,7 +193,7 @@ void GUIDataUpdata (void) {
 	/*显示-------------------------------------------------------*/
 	GRAPH_DATA_YT_Clear(_hData);
 	for (j = 0; j < g_OSCInfo.DataEnd; j++) {
-		GRAPH_DATA_YT_AddValue(_hData, &WaveArray[j]);
+		GRAPH_DATA_YT_AddValue(_hData, WaveArray[j]);
 	}
 	/*无效化按键使之重绘-------------------------------------------------------*/
 	WM_InvalidateWindow(g_GraphButton.ZoomPlus.Handle);

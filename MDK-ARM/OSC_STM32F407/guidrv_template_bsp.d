@@ -53,10 +53,13 @@ osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\inc\GUI_Version.h
 osc_stm32f407\guidrv_template_bsp.o: ../Drivers/CMSIS/Include/core_cm4.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\TypeDefine.h
 osc_stm32f407\guidrv_template_bsp.o: ../Drivers/CMSIS/Include/core_cm4.h
+osc_stm32f407\guidrv_template_bsp.o: ..\Chips\ChipsDefine.h
+osc_stm32f407\guidrv_template_bsp.o: ..\Chips\AD9834.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\System.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\myADC.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\myKey.h
+osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\myUART.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h
@@ -64,6 +67,7 @@ osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\Usual.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\FSM.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\OSC_Work.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\FFT.h
+osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUIDefine.h
 osc_stm32f407\guidrv_template_bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 osc_stm32f407\guidrv_template_bsp.o: ..\ENWIN\inc\DIALOG.h
@@ -106,7 +110,7 @@ osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUIUsual.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUIGraph.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUIDraw.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUINumPad.h
-osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUIControlStation.h
+osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\GUIMeasureData.h
 osc_stm32f407\guidrv_template_bsp.o: ..\SOFTWARE\GUI\__UserGUI.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h
 osc_stm32f407\guidrv_template_bsp.o: ..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h

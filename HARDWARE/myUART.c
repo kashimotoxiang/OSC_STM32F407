@@ -19,6 +19,7 @@ extern UART_HandleTypeDef huart3;
 //*****************************************************************************
 #define TX_TRANSMIT_SIZE 640
 char TxBuffer[TX_TRANSMIT_SIZE] = {0};
+char RxBuffer = 0;
 
 /*-------------------------------------------------------*
 *
@@ -40,3 +41,18 @@ void UART_DMATX (volatile uint16_t* sourceTxBuffer, uint16_t Tx_Begin, uint16_t 
 		Error_Handler();
 	}
 }
+
+/*-------------------------------------------------------*
+*
+*	UART_SendRecieve
+*
+*-------------------------------------------------------*/
+uint8_t UART_SendReceive (uint8_t address) {
+
+	USART3->DR = address;
+	while ((USART3->SR & 0X40) == 0);//发送
+	while ((USART3->SR & 0X20) == 0);//接受
+	RxBuffer = USART3->DR;
+	return RxBuffer;
+}
+

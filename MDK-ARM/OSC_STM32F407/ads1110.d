@@ -40,4 +40,4 @@ osc_stm32f407\ads1110.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 osc_stm32f407\ads1110.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 osc_stm32f407\ads1110.o: ..\SOFTWARE\TypeDefine.h
 osc_stm32f407\ads1110.o: ../Drivers/CMSIS/Include/core_cm4.h
-osc_stm32f407\ads1110.o: ..\Chips\ADS1110.h
+osc_stm32f407\ads1110.o: ..\Chips\AD9834.h
