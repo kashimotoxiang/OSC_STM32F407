@@ -11,12 +11,12 @@
 * @param
 * @note
 */
-u8 OSC_DataDeal(I16* WaveArray, int DataLength) {
+u8 OSC_DataDeal (I16* WaveArray, int DataLength) {
 	static int i = 0, n = 0, m = 0;//下标
 	/*触发设置-------------------------------------------------------*/
 	g_OSCInfo.DataEnd = MEMORYE_DEPTH - TFT_WIDTH;//边界确定
-	OSC_MaxMin_Found(&g_OSCInfo.i_MaxVal, &g_OSCInfo.i_MinVal, g_FPGAData.ADCConvData);//最值确定
-	if (!Trig_Init(g_FPGAData.ADCConvData))//触发设置
+	OSC_MaxMin_Found(&g_OSCInfo.i_MaxVal, &g_OSCInfo.i_MinVal, g_FPGAData.ADCDispData);//最值确定
+	if (!Trig_Init(g_FPGAData.ADCDispData))//触发设置
 		return 0;
 	/*判断是否等效采样-------------------------------------------------------*/
 	g_OSCInfo.ClyDotNum = FPGA_SAMPL_RATE / g_OSCInfo.Freq;
@@ -26,14 +26,14 @@ u8 OSC_DataDeal(I16* WaveArray, int DataLength) {
 		g_OSCInfo.Sampl_Mod = eSampl_Mod_DMA;
 	/*数据填充-------------------------------------------------------*/
 	if (g_OSCInfo.Sampl_Mod == eSampl_Mod_Equal) {//等效采样方式
-		for (i = 0 , m = 0 , n = g_OSCInfo.DataBegin; i< DataLength && i < DATAARRAYLENTGH; i++ , n++) {
-			WaveArray[i] = g_FPGAData.ADCConvData[n] * g_OSCInfo.Ampli_rat * VOLTDISPCONVCOFI ;
+		for (i = 0 , m = 0 , n = g_OSCInfo.DataBegin; i < DataLength && i < DATAARRAYLENTGH; i++ , n++) {
+			WaveArray[i] = g_FPGAData.ADCDispData[n] * g_OSCInfo.Ampli_rat * VOLTDISPCONVCOFI ;
 			m += g_OSCInfo.Time_rat;
 		}
 	}
 	else {//正常采样方式
 		for (i = 0 , n = g_OSCInfo.DataBegin; i < DataLength && n < g_OSCInfo.DataEnd && i < DATAARRAYLENTGH; i++) {
-			WaveArray[i] = g_FPGAData.ADCConvData[n] * g_OSCInfo.Ampli_rat * VOLTDISPCONVCOFI ;
+			WaveArray[i] = g_FPGAData.ADCDispData[n] * g_OSCInfo.Ampli_rat * VOLTDISPCONVCOFI ;
 			n += g_OSCInfo.Time_rat;
 		}
 	}
@@ -53,9 +53,9 @@ uint8_t Trigger_Found (int High, int Low) {
 	static int32_t Trigger_Index = 0;
 	static int32_t i = 0;
 	for (i = g_OSCInfo.TRG_Pos + FOUND_SIZE; i < g_OSCInfo.DataEnd; i++) {//从FOUND_SIZE排序后的点开始寻找
-		if (g_FPGAData.ADCConvData[i] > High)
+		if (g_FPGAData.ADCDispData[i] > High)
 			for (Trigger_Index = 1; Trigger_Index < TRIGGER_WIDTH_TOLRATE; Trigger_Index++)
-				if (g_FPGAData.ADCConvData[i + Trigger_Index] < Low) {
+				if (g_FPGAData.ADCDispData[i + Trigger_Index] < Low) {
 					g_OSCInfo.DataBegin = i + Trigger_Index;
 					return 1;
 				}

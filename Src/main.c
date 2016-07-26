@@ -61,7 +61,9 @@ SRAM_HandleTypeDef hsram4;
 /* Private variables ---------------------------------------------------------*/
 UART_TYPE RxBuff[1];
 /* Private Struct-------------------------------------------------------*/
-FPGADATA_struct g_FPGAData = {{0}};
+FPGAControl_struct g_FPGAPar_A = {500000000};//初始化FPAG器件参数
+FPGAControl_struct g_FPGACon_C = {500000000};//初始化FPAG器件参数
+FPGAData_struct g_FPGAData = {{0}};
 FSM_struct g_FSM = {eFSM_WorkS_Emp, eFSM_WorkS_Emp, eFSM_MainS_Emp, eFSM_MainS_Emp};
 OSC_struct g_OSCInfo = {
 	eTrg_Mod_Centr,//触发模式
@@ -75,7 +77,7 @@ OSC_struct g_OSCInfo = {
 	0, //采样数值浮点型最小值
 	0,//频率
 	0,//显示数据从采样数据中的起始
-	MEMORYE_DEPTH,//显示数据从采样数据中的终止
+	MEMORYE_DEPTH ,//显示数据从采样数据中的终止
 	0, //是否等效采样标识
 	eClose,//是否打开测量标识
 };
@@ -146,8 +148,18 @@ int main (void) {
 
 		/* USER CODE BEGIN 3 */
 		if (g_GUICon.GraphDispState == eOpen) {//停止时不进行任何活动 ，开启时才进入任务
-			//FSM_MeasureUpdata();
-			FSM_OSCDisp();
+			FPGA_GetMeasurePar();//请求基础数据
+
+			FPGA_WritePar(10 * g_FPGAData.SignalFreq, 0x0FFF, 0x0000, FPGADATALENTGH128, 0, g_FPGAPar_A);
+			FPGA_ParallDataTrans(g_FPGAData.ADCParMeasureData, &g_FPGAPar_A);//采样128个数据，为了计算幅度
+			FPGA_AmplitudeCompute(&g_FPGAData);//计算出幅度
+
+			FPGA_WritePar(g_FPGAData.SignalFreq, 0.9 * g_FPGAData.i_AmplitudeMax,
+			              0.1 * g_FPGAData.i_AmplitudeMin, FPGADATALENTGH2048, 1, g_FPGACon_C);
+			FPGA_ParallDataTrans(g_FPGAData.ADCUpTimeData, &g_FPGACon_C);//采样2048个数据，为了计算上升时间
+			FPGA_UpTimeCompute(&g_FPGAData, &g_FPGACon_C);//计算上升时间
+
+			//FSM_OSCDisp();//波形显示
 			BackgroundUpdata();
 		}
 
@@ -306,8 +318,8 @@ static void MX_USART3_UART_Init (void) {
   */
 static void MX_DMA_Init (void) {
 	/* DMA controller clock enable */
-	__HAL_RCC_DMA1_CLK_ENABLE();
 	__HAL_RCC_DMA2_CLK_ENABLE();
+	__HAL_RCC_DMA1_CLK_ENABLE();
 
 	/* DMA interrupt init */
 	/* DMA1_Stream1_IRQn interrupt configuration */
@@ -350,10 +362,11 @@ static void MX_GPIO_Init (void) {
 	HAL_GPIO_WritePin(GPIOE, ESP_T_DIN_Pin | ESP_T_CS_Pin | ESP_T_CLK_Pin | ESP_LCD_REST_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(GPIOC, BSP_T_CS_Pin | FPGA_SCK_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(BSP_T_CS_GPIO_Port, BSP_T_CS_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(GPIOB, BSP_T_CLK_Pin | BSP_LCD_BL_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB, BSP_T_CLK_Pin | BSP_LCD_BL_Pin | FPGA_COM2_Pin | FPGA_COM1_Pin
+	                                         | FPGA_SCK_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(BSP_T_DIN_GPIO_Port, BSP_T_DIN_Pin, GPIO_PIN_RESET);
@@ -374,25 +387,27 @@ static void MX_GPIO_Init (void) {
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH ;
 	HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-	/*Configure GPIO pins : BSP_T_CS_Pin FPGA_SCK_Pin */
-	GPIO_InitStruct.Pin = BSP_T_CS_Pin | FPGA_SCK_Pin ;
+	/*Configure GPIO pin : BSP_T_CS_Pin */
+	GPIO_InitStruct.Pin = BSP_T_CS_Pin ;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP ;
 	GPIO_InitStruct.Pull = GPIO_NOPULL ;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW ;
-	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+	HAL_GPIO_Init(BSP_T_CS_GPIO_Port, &GPIO_InitStruct);
 
 	/*Configure GPIO pins : PC0 PC1 PC2 PC3 
 	                         PC4 PC5 PC6 PC7 
-	                         UART_COM_Pin */
+	                         PC8 PC9 PC11 */
 	GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3
 	                                   | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7
-	                                   | UART_COM_Pin ;
+	                                   | GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_11 ;
 	GPIO_InitStruct.Mode = GPIO_MODE_INPUT ;
 	GPIO_InitStruct.Pull = GPIO_NOPULL ;
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-	/*Configure GPIO pins : BSP_T_CLK_Pin BSP_LCD_BL_Pin */
-	GPIO_InitStruct.Pin = BSP_T_CLK_Pin | BSP_LCD_BL_Pin ;
+	/*Configure GPIO pins : BSP_T_CLK_Pin BSP_LCD_BL_Pin FPGA_COM2_Pin FPGA_COM1_Pin 
+	                         FPGA_SCK_Pin */
+	GPIO_InitStruct.Pin = BSP_T_CLK_Pin | BSP_LCD_BL_Pin | FPGA_COM2_Pin | FPGA_COM1_Pin
+	                                      | FPGA_SCK_Pin ;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP ;
 	GPIO_InitStruct.Pull = GPIO_NOPULL ;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH ;
@@ -415,7 +430,7 @@ static void MX_GPIO_Init (void) {
 	GPIO_InitStruct.Pin = AD9834_SDATA_Pin | AD9834_SCLK_Pin | AD9834_RESET_Pin | AD9834_FSYNC_Pin ;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP ;
 	GPIO_InitStruct.Pull = GPIO_NOPULL ;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW ;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH ;
 	HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
 	/*Configure GPIO pin : SPI1_CS_Pin */
@@ -435,7 +450,7 @@ static void MX_GPIO_Init (void) {
 	GPIO_InitStruct.Pin = ADS1110_SCL_Pin | ADS1110_SDA_Pin ;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD ;
 	GPIO_InitStruct.Pull = GPIO_NOPULL ;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM ;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH ;
 	HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
 }

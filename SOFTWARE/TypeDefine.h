@@ -28,8 +28,8 @@ unsigned char vu8;
 #define   WAVE_TYPE             __uIO8
 #define   TFT_DISPLAY_TYPE      __uIO16
 #define   SPI_TYPE              uint8_t 
-#define   UART_TYPE							char
-#define   WAVE_TYPE							uint16_t
+#define   UART_TYPE				char
+#define   WAVE_TYPE				uint16_t
 
 /*=========================状态定义==============================*/
 //注意初始状态值一定要大于1！！！！！！！！！！！！！！！！

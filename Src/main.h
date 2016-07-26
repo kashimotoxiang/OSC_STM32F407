@@ -9,10 +9,12 @@
 #include "TypeDefine.h"
 #include "ChipsDefine.h"
 /* Private define ------------------------------------------------------------*/
-#define  TFT_WIDTH           640
-#define  TFT_BEGINNING   MEMORYE_DEPTH/4
-#define  MEMORYE_DEPTH       2048
-#define  Zone_Size           0.1
+#define  TFT_WIDTH           640//波形显示宽度
+#define  TFT_BEGINNING   MEMORYE_DEPTH/4//波形显示起始
+
+#define  MEMORYE_DEPTH       2048//存储深度
+#define  MEMORYETEXT_DEPTH       100//测试存储深度//计算幅度用
+
 #define  TRIGGER_TOLRATE_EDGE             50
 #define  TRIGGER_WIDTH_TOLRATE       10
 #define  TRIGGER_CENTRE_TOLRATE    1
@@ -40,15 +42,33 @@
 /*=========================结构体定义==============================*/
 
 /* ADC ----------------------------------------------------------*/
-typedef struct FPGADATA_struct {
-	WAVE_TYPE ADCConvData[MEMORYE_DEPTH];
-	uint8_t isEquSampl;
-	long NumpadFreq;
-	double SamplFreq;
+typedef struct FPGAData_struct {
+	WAVE_TYPE ADCParMeasureData[MEMORYETEXT_DEPTH ];//幅值参数计算数组
+	WAVE_TYPE ADCUpTimeData[MEMORYE_DEPTH ];//上升时间计算数组
+	WAVE_TYPE ADCDispData[MEMORYE_DEPTH ];//波形显示数组
 	double SignalFreq;
 	double Amplitude;
 	double DutyCycle;
-} FPGADATA_struct;
+	double UpTime;
+	double DownTime;
+	uint16_t i_AmplitudeMax;
+	uint16_t i_AmplitudeMin;
+	double f_AmplitudeMax;
+	double f_AmplitudeMin;
+	double TimeSpace;//相领两个点时间间隔
+} FPGAData_struct;
+
+typedef struct FPGAControl_struct {
+	/*FGPA器件参数-------------------------------------------------------*/
+	uint32_t FPGA_Freq;
+	/*测试振幅用(Amplitude)-------------------------------------------------------*/
+	uint32_t SamplFreq;//指定采样频率
+	uint32_t HighTimes;//高电平保持时间
+	uint32_t LowTimes;//低电平保持时间
+	uint16_t HighThreshold;//高阈值
+	uint16_t LowThreshold;//低阈值
+	uint8_t DataLengthCOM;//低阈值
+} FPGAControl_struct;
 
 /* FMS ---------------------------------------------------------*/
 typedef struct FSM_struct//FMS
@@ -121,13 +141,14 @@ typedef struct SenseData_struct//Key
 
 /*器件控制参数-------------------------------------------------------*/
 typedef struct DevicePar_struct {
+	long NumpadFreq;
 	uint32_t AD9834Wava;
 	uint32_t AD9834Freq;
 } DevicePar_struct;
 
 
 /*=======================================================*/
-extern FPGADATA_struct g_FPGAData;
+extern FPGAData_struct g_FPGAData;
 extern FSM_struct g_FSM;
 extern OSC_struct g_OSCInfo;
 extern Page_struct g_DispPage;
@@ -165,7 +186,7 @@ extern void Error_Handler (void);
 #endif
 
 /*assert诊断-------------------------------------------------------*/
-#if MEMORYE_DEPTH-TFT_WIDTH<0
+#if MEMORYE_DEPTH -TFT_WIDTH <0
 #pragma message("采样深度过小！！")  
 #error
 #endif 

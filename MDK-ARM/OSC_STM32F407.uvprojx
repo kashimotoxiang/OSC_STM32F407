@@ -334,7 +334,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx,__TARGET_FPU_VFP,ARM_MATH_MATRIX_CHECK,ARM_MATH_ROUNDING,ARM_MATH_CM4,__CC_ARM</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;..\ENWIN;..\ENWIN\emWin_Config;..\ENWIN\emWin_Lib;..\HARDWARE;..\HARDWARE\LCD_MD050SD;..\SOFTWARE;..\SOFTWARE\GUI;..\Src;C:\Keil_v5\ARM\ARMCC\include;..\ENWIN\inc;..\HARDWARE\LCD_ILI9325;..\Chips</IncludePath>
+              <IncludePath>../Inc; ../Drivers/STM32F4xx_HAL_Driver/Inc; ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy; ../Drivers/CMSIS/Include; ../Drivers/CMSIS/Device/ST/STM32F4xx/Include; ..\ENWIN; ..\ENWIN\emWin_Config; ..\ENWIN\emWin_Lib; ..\HARDWARE; ..\HARDWARE\LCD_MD050SD; ..\SOFTWARE; ..\SOFTWARE\GUI; ..\Src; C:\Keil_v5\ARM\ARMCC\include; ..\ENWIN\inc; ..\HARDWARE\LCD_ILI9325; ..\Chips</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
