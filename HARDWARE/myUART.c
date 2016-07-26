@@ -51,7 +51,8 @@ uint8_t UART_SendReceive (uint8_t address) {
 
 	USART3->DR = address;
 	while ((USART3->SR & 0X40) == 0);//发送
-	while ((USART3->SR & 0X20) == 0);//接受
+	while ((USART3->SR & 0X20) == 0) {
+	}//接受
 	RxBuffer = USART3->DR;
 	return RxBuffer;
 }

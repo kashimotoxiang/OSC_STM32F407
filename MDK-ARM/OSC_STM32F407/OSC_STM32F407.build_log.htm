@@ -27,16 +27,16 @@ Project File Date:  07/26/2016
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'OSC_STM32F407'
-compiling FSM.c...
+compiling GUIMeasureData.c...
 ..\SOFTWARE\TypeDefine.h(32): warning:  #47-D: incompatible redefinition of macro "WAVE_TYPE" (declared at line 28)
   #define   WAVE_TYPE							uint16_t
 ..\Chips\AD9834.h(26): warning:  #1295-D: Deprecated declaration AD9834_Triangular_Wave - give arg types
   void AD9834_Triangular_Wave ();
-..\SOFTWARE\FSM.c(34): warning:  #177-D: variable "t" was declared but never referenced
-  uint32_t t=0;
-..\SOFTWARE\FSM.c: 3 warnings, 0 errors
+..\SOFTWARE\GUI\GUIMeasureData.c(71): warning:  #177-D: variable "hWin" was declared but never referenced
+  	WM_HWIN hWin = pMsg->hWin;
+..\SOFTWARE\GUI\GUIMeasureData.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=97196 RO-data=23064 RW-data=2436 ZI-data=44180  
+Program Size: Code=99784 RO-data=23148 RW-data=2476 ZI-data=44188  
 FromELF: creating hex file...
 "OSC_STM32F407\OSC_STM32F407.axf" - 0 Error(s), 3 Warning(s).
 

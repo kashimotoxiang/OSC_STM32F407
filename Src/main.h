@@ -45,7 +45,8 @@ typedef struct FPGADATA_struct {
 	uint8_t isEquSampl;
 	long NumpadFreq;
 	double SamplFreq;
-	uint32_t Ampli;
+	double SignalFreq;
+	double Amplitude;
 	double DutyCycle;
 } FPGADATA_struct;
 

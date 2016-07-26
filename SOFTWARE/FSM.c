@@ -60,7 +60,7 @@ uint32_t t=0;
 	ch1_L_Value = (ch1_L[0] << 24 )|(ch1_L[1] << 16 )|( ch1_L[2] << 8 )|(ch1_L[3]);
 
 	/*数值计算-------------------------------------------------------*/
-	g_FPGAData.SamplFreq = (cnt_ch1_Value / (double)cnt_ref1_Value) * 50000000;//50Mhz为基准频率
+	g_FPGAData.SignalFreq = (cnt_ch1_Value / (double)cnt_ref1_Value) * 50000000;//50Mhz为基准频率
 	g_FPGAData.DutyCycle = ch1_H_Value / ((double)ch1_H_Value + ch1_L_Value);
 }
 

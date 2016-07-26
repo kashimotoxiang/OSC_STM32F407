@@ -38,7 +38,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x574D5220)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x574D5220)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x574D5220)
 I (../Inc/stm32f4xx_it.h)(0x5796BB94)
-F (../Src/main.c)(0x5796BB95)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\main.o --omf_browse osc_stm32f407\main.crf --depend osc_stm32f407\main.d)
+F (../Src/main.c)(0x5796DB55)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\main.o --omf_browse osc_stm32f407\main.crf --depend osc_stm32f407\main.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -75,7 +75,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x574D5220)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x574D5220)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x574D5220)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x574D5220)
-I (../Src/main.h)(0x5796C718)
+I (../Src/main.h)(0x5796D699)
 I (../Drivers/CMSIS/Include/arm_math.h)(0x574D5220)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x56FE42DE)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x56FE42D6)
@@ -143,7 +143,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (../Src/stm32f4xx_hal_msp.c)(0x5796BB95)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\stm32f4xx_hal_msp.o --omf_browse osc_stm32f407\stm32f4xx_hal_msp.crf --depend osc_stm32f407\stm32f4xx_hal_msp.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
@@ -182,7 +182,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x574D5220)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x574D5220)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x574D5220)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x574D5220)
-F (..\Src\main.h)(0x5796C718)()
+F (..\Src\main.h)(0x5796D699)()
 F (C:\Keil_v5\ARM\Pack\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Lib\ARM\arm_cortexM4lf_math.lib)(0x56441812)()
 F (C:\Keil_v5\ARM\Pack\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Include\arm_math.h)(0x56441800)()
 F (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x578FB2CA)()
@@ -1076,7 +1076,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x574D5220)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x574D5220)
 F (..\HARDWARE\LCD_MD050SD\LCD_MD050SD.c)(0x57949E0F)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\lcd_md050sd.o --omf_browse osc_stm32f407\lcd_md050sd.crf --depend osc_stm32f407\lcd_md050sd.d)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h)(0x57921C83)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -1177,14 +1177,14 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h)(0x579219C4)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h)(0x579217CC)
 F (..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h)(0x57921C83)()
 F (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.c)(0x579219C4)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\lcd_md050sd_graph.o --omf_browse osc_stm32f407\lcd_md050sd_graph.crf --depend osc_stm32f407\lcd_md050sd_graph.d)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h)(0x579219C4)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -1287,13 +1287,13 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h)(0x579219C4)()
 F (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.c)(0x5794C1BC)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\lcd_md050sd_touch.o --omf_browse osc_stm32f407\lcd_md050sd_touch.crf --depend osc_stm32f407\lcd_md050sd_touch.d)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h)(0x579217CC)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h)(0x57921C83)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -1394,13 +1394,13 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h)(0x579219C4)
 F (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h)(0x579217CC)()
 F (..\HARDWARE\LCD_ILI9325\LCD_ILI9325.c)(0x5794DD39)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\lcd_ili9325.o --omf_browse osc_stm32f407\lcd_ili9325.crf --depend osc_stm32f407\lcd_ili9325.d)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325.h)(0x5794DA49)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -1504,14 +1504,14 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h)(0x579226C1)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h)(0x5794BC0B)
 F (..\HARDWARE\LCD_ILI9325\LCD_ILI9325.h)(0x5794DA49)()
 F (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.c)(0x5794DA35)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\lcd_ili9325_graph.o --omf_browse osc_stm32f407\lcd_ili9325_graph.crf --depend osc_stm32f407\lcd_ili9325_graph.d)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h)(0x579226C1)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -1615,7 +1615,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325.h)(0x5794DA49)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h)(0x5794BC0B)
@@ -1623,7 +1623,7 @@ F (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h)(0x579226C1)()
 F (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.c)(0x5794DCF0)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\lcd_ili9325_touch.o --omf_browse osc_stm32f407\lcd_ili9325_touch.crf --depend osc_stm32f407\lcd_ili9325_touch.d)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h)(0x5794BC0B)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325.h)(0x5794DA49)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -1727,13 +1727,13 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h)(0x579226C1)
 F (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h)(0x5794BC0B)()
 F (..\HARDWARE\myADC.c)(0x579614F8)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\myadc.o --omf_browse osc_stm32f407\myadc.crf --depend osc_stm32f407\myadc.d)
 I (..\HARDWARE\myADC.h)(0x5756FF92)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -1836,12 +1836,12 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\HARDWARE\myADC.h)(0x5756FF92)()
 F (..\HARDWARE\myKey.c)(0x578B861F)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\mykey.o --omf_browse osc_stm32f407\mykey.crf --depend osc_stm32f407\mykey.d)
 I (..\HARDWARE\myKey.h)(0x572A2AF8)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -1944,12 +1944,12 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\HARDWARE\myKey.h)(0x572A2AF8)()
 F (..\HARDWARE\mySPI.c)(0x578FD15F)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\myspi.o --omf_browse osc_stm32f407\myspi.crf --depend osc_stm32f407\myspi.d)
 I (..\HARDWARE\mySPI.h)(0x578FD15F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -2052,12 +2052,12 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\HARDWARE\mySPI.h)(0x578FD15F)()
-F (..\HARDWARE\myUART.c)(0x5796C45D)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\myuart.o --omf_browse osc_stm32f407\myuart.crf --depend osc_stm32f407\myuart.d)
+F (..\HARDWARE\myUART.c)(0x5796D3B2)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\myuart.o --omf_browse osc_stm32f407\myuart.crf --depend osc_stm32f407\myuart.d)
 I (..\HARDWARE\myUART.h)(0x5796C45C)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -2160,12 +2160,12 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\HARDWARE\myUART.h)(0x5796C45C)()
 F (..\HARDWARE\System.c)(0x5794DA49)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\system.o --omf_browse osc_stm32f407\system.crf --depend osc_stm32f407\system.d)
 I (..\HARDWARE\System.h)(0x5793903C)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -2268,7 +2268,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\HARDWARE\LCD_ILI9325/LCD_ILI9325.h)(0x5794DA49)
 I (..\HARDWARE\LCD_ILI9325/LCD_ILI9325_Graph.h)(0x579226C1)
@@ -2276,7 +2276,7 @@ I (..\HARDWARE\LCD_ILI9325/LCD_ILI9325_Touch.h)(0x5794BC0B)
 F (..\HARDWARE\System.h)(0x5793903C)()
 F (..\SOFTWARE\Usual.c)(0x5751146F)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\usual.o --omf_browse osc_stm32f407\usual.crf --depend osc_stm32f407\usual.d)
 I (..\SOFTWARE\Usual.h)(0x578FD161)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -2379,14 +2379,14 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdarg)(0x56FE42D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x56FE42E0)
 F (..\SOFTWARE\Usual.h)(0x578FD161)()
 F (..\SOFTWARE\DebugSupport.c)(0x5746C259)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\debugsupport.o --omf_browse osc_stm32f407\debugsupport.crf --depend osc_stm32f407\debugsupport.d)
 I (..\SOFTWARE\DebugSupport.h)(0x5746C28B)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -2490,12 +2490,12 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\SOFTWARE\DebugSupport.h)(0x5746C28B)()
 F (..\SOFTWARE\FFT.c)(0x573F0B17)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\fft.o --omf_browse osc_stm32f407\fft.crf --depend osc_stm32f407\fft.d)
 I (..\SOFTWARE\FFT.h)(0x572CB44F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -2598,12 +2598,12 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\SOFTWARE\FFT.h)(0x572CB44F)()
-F (..\SOFTWARE\FSM.c)(0x5796CD69)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\fsm.o --omf_browse osc_stm32f407\fsm.crf --depend osc_stm32f407\fsm.d)
+F (..\SOFTWARE\FSM.c)(0x5796D699)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\fsm.o --omf_browse osc_stm32f407\fsm.crf --depend osc_stm32f407\fsm.d)
 I (..\SOFTWARE\FSM.h)(0x5796BB4B)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -2706,12 +2706,12 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\SOFTWARE\FSM.h)(0x5796BB4B)()
 F (..\SOFTWARE\OSC_Work.c)(0x579614F9)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\osc_work.o --omf_browse osc_stm32f407\osc_work.crf --depend osc_stm32f407\osc_work.d)
 I (..\SOFTWARE\OSC_Work.h)(0x579600A7)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -2814,7 +2814,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\SOFTWARE\OSC_Work.h)(0x579600A7)()
 F (..\SOFTWARE\TypeDefine.h)(0x5796C926)()
@@ -2827,7 +2827,7 @@ I (..\ENWIN\inc\LCD.h)(0x57486110)
 I (..\ENWIN\inc\Global.h)(0x52E7F27E)
 I (..\ENWIN\inc\GUI_Version.h)(0x52E7F27F)
 I (..\HARDWARE\System.h)(0x5793903C)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -2923,12 +2923,12 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\ENWIN\emWin_Config\GUI_X_Touch_Analog.c)(0x57920785)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\gui_x_touch_analog.o --omf_browse osc_stm32f407\gui_x_touch_analog.crf --depend osc_stm32f407\gui_x_touch_analog.d)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h)(0x579217CC)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h)(0x57921C83)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -3029,7 +3029,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h)(0x579219C4)
 F (..\ENWIN\emWin_Config\GUIConf.c)(0x5752E16A)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\guiconf.o --omf_browse osc_stm32f407\guiconf.crf --depend osc_stm32f407\guiconf.d)
@@ -3044,7 +3044,7 @@ F (..\ENWIN\emWin_Config\GUIConf.h)(0x5752E169)()
 F (..\ENWIN\emWin_Config\GUIDRV_Template_BSP.c)(0x5794DA34)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\guidrv_template_bsp.o --omf_browse osc_stm32f407\guidrv_template_bsp.crf --depend osc_stm32f407\guidrv_template_bsp.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x56FE42DE)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325.h)(0x5794DA49)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -3147,7 +3147,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Graph.h)(0x579226C1)
 I (..\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.h)(0x5794BC0B)
@@ -3158,7 +3158,7 @@ F (..\ENWIN\emWin_Config\GUIDRV_Template_BSP.h)(0x57921679)()
 F (..\ENWIN\emWin_Config\GUIDRV_Template_ESP.c)(0x57921C9B)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\guidrv_template_esp.o --omf_browse osc_stm32f407\guidrv_template_esp.crf --depend osc_stm32f407\guidrv_template_esp.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x56FE42DE)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h)(0x57921C83)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -3258,7 +3258,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h)(0x579219C4)
 I (..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h)(0x579217CC)
@@ -3278,7 +3278,7 @@ I (..\ENWIN\inc\GUI_Version.h)(0x52E7F27F)
 I (..\ENWIN\emWin_Config\GUIDRV_Template_ESP.h)(0x5751BE90)
 I (..\ENWIN\emWin_Config\GUIDRV_Template_BSP.h)(0x57921679)
 I (..\ENWIN\inc\GUIDRV_FlexColor.h)(0x52E7F27F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -3375,7 +3375,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\ENWIN\emWin_Config\LCDConf_FlexColor_Template.h)(0x5740E5C4)()
 F (..\ENWIN\emWin_Lib\STemWin528_CM4_Keil.lib)(0x574D5221)()
@@ -3428,7 +3428,7 @@ I (..\ENWIN\inc\SLIDER.h)(0x52E7F27E)
 I (..\ENWIN\inc\SPINBOX.h)(0x52E7F27E)
 I (..\ENWIN\inc\TEXT.h)(0x52E7F27E)
 I (..\ENWIN\inc\TREEVIEW.h)(0x52E7F27F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -3486,7 +3486,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\ENWIN\inc\BUTTON_Private.h)(0x52E7F27F)
 F (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)()
 F (..\SOFTWARE\GUI\GUIControlStation.c)(0x5796297D)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\guicontrolstation.o --omf_browse osc_stm32f407\guicontrolstation.crf --depend osc_stm32f407\guicontrolstation.d)
@@ -3537,7 +3537,7 @@ I (..\ENWIN\inc\SLIDER.h)(0x52E7F27E)
 I (..\ENWIN\inc\SPINBOX.h)(0x52E7F27E)
 I (..\ENWIN\inc\TEXT.h)(0x52E7F27E)
 I (..\ENWIN\inc\TREEVIEW.h)(0x52E7F27F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -3595,7 +3595,7 @@ I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\SOFTWARE\GUI\GUIControlStation.h)(0x57961BC8)()
 F (..\SOFTWARE\GUI\GUIDefine.h)(0x579629EB)()
@@ -3647,7 +3647,7 @@ I (..\ENWIN\inc\SLIDER.h)(0x52E7F27E)
 I (..\ENWIN\inc\SPINBOX.h)(0x52E7F27E)
 I (..\ENWIN\inc\TEXT.h)(0x52E7F27E)
 I (..\ENWIN\inc\TREEVIEW.h)(0x52E7F27F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -3704,7 +3704,7 @@ I (..\SOFTWARE\FPGAControl.h)(0x5796173E)
 I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)()
 F (..\SOFTWARE\GUI\GUIGraph.c)(0x5796BEC0)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\guigraph.o --omf_browse osc_stm32f407\guigraph.crf --depend osc_stm32f407\guigraph.d)
@@ -3755,7 +3755,7 @@ I (..\ENWIN\inc\SLIDER.h)(0x52E7F27E)
 I (..\ENWIN\inc\SPINBOX.h)(0x52E7F27E)
 I (..\ENWIN\inc\TEXT.h)(0x52E7F27E)
 I (..\ENWIN\inc\TREEVIEW.h)(0x52E7F27F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -3812,7 +3812,7 @@ I (..\SOFTWARE\FPGAControl.h)(0x5796173E)
 I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\SOFTWARE\GUI\GUIControlStation.h)(0x57961BC8)
 F (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)()
@@ -3864,7 +3864,7 @@ I (..\ENWIN\inc\SLIDER.h)(0x52E7F27E)
 I (..\ENWIN\inc\SPINBOX.h)(0x52E7F27E)
 I (..\ENWIN\inc\TEXT.h)(0x52E7F27E)
 I (..\ENWIN\inc\TREEVIEW.h)(0x52E7F27F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -3921,7 +3921,7 @@ I (..\SOFTWARE\FPGAControl.h)(0x5796173E)
 I (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 I (..\ENWIN\inc\BUTTON_Private.h)(0x52E7F27F)
 F (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)()
@@ -3973,7 +3973,7 @@ I (..\ENWIN\inc\SLIDER.h)(0x52E7F27E)
 I (..\ENWIN\inc\SPINBOX.h)(0x52E7F27E)
 I (..\ENWIN\inc\TEXT.h)(0x52E7F27E)
 I (..\ENWIN\inc\TREEVIEW.h)(0x52E7F27F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -4030,11 +4030,11 @@ I (..\SOFTWARE\FPGAControl.h)(0x5796173E)
 I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
 F (..\SOFTWARE\GUI\GUIUsual.h)(0x57485CFA)()
-F (..\SOFTWARE\GUI\GUIMeasureData.c)(0x5796BFE8)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\guimeasuredata.o --omf_browse osc_stm32f407\guimeasuredata.crf --depend osc_stm32f407\guimeasuredata.d)
-I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)
+F (..\SOFTWARE\GUI\GUIMeasureData.c)(0x5796DD0E)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\guimeasuredata.o --omf_browse osc_stm32f407\guimeasuredata.crf --depend osc_stm32f407\guimeasuredata.d)
+I (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)
 I (..\SOFTWARE\GUI\GUIDefine.h)(0x579629EB)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x578FB2CA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x56FE42DE)
@@ -4081,7 +4081,7 @@ I (..\ENWIN\inc\SLIDER.h)(0x52E7F27E)
 I (..\ENWIN\inc\SPINBOX.h)(0x52E7F27E)
 I (..\ENWIN\inc\TEXT.h)(0x52E7F27E)
 I (..\ENWIN\inc\TREEVIEW.h)(0x52E7F27F)
-I (..\Src\main.h)(0x5796C718)
+I (..\Src\main.h)(0x5796D699)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x574D5220)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5796BB95)
 I (../Inc/mxconstants.h)(0x5796BB95)
@@ -4140,7 +4140,7 @@ I (..\SOFTWARE\GUI\GUIGraph.h)(0x5790FD9B)
 I (..\SOFTWARE\GUI\GUIDraw.h)(0x57961BC8)
 I (..\SOFTWARE\GUI\GUINumPad.h)(0x5796BEC0)
 I (..\SOFTWARE\GUI\__UserGUI.h)(0x575A6C16)
-F (..\SOFTWARE\GUI\GUIMeasureData.h)(0x57961338)()
+F (..\SOFTWARE\GUI\GUIMeasureData.h)(0x5796D8B9)()
 F (..\Chips\ChipsDefine.h)(0x57962CEE)()
 F (..\Chips\AD9834.c)(0x57962E1D)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Include -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ..\ENWIN -I ..\ENWIN\emWin_Config -I ..\ENWIN\emWin_Lib -I ..\HARDWARE -I ..\HARDWARE\LCD_MD050SD -I ..\SOFTWARE -I ..\SOFTWARE\GUI -I ..\Src -I C:\Keil_v5\ARM\ARMCC\include -I ..\ENWIN\inc -I ..\HARDWARE\LCD_ILI9325 -I ..\Chips-I D:\Documents\workspace\stm32代码\OSC_STM32F407\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx -D__TARGET_FPU_VFP -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_CM4 -D__CC_ARM-o osc_stm32f407\ad9834.o --omf_browse osc_stm32f407\ad9834.crf --depend osc_stm32f407\ad9834.d)
 I (..\Chips\AD9834.h)(0x5796BCEA)
