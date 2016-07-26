@@ -8,7 +8,7 @@
 #define __MeasureID  GUI_ID_BUTTON4
 #define __NumpadID  GUI_ID_BUTTON5
 #define __StopID  GUI_ID_BUTTON6
-
+#define __InputModeID GUI_ID_BUTTON7
 
 /*********************************************************************
 *
@@ -24,8 +24,7 @@ MAINBUTTON_struct g_GraphButton = {
 	{__MeasureID, 0},
 	{__NumpadID, 0},
 	{__StopID, 0},
-
-
+	{__InputModeID,0},
 };
 /*********************************************************************
 *
@@ -42,12 +41,11 @@ MAINBUTTON_struct g_GraphButton = {
 static GRAPH_SCALE_Handle g_hScaleV; // Handle of vertical scale
 static GRAPH_SCALE_Handle g_hScaleH; // Handle of horizontal scale
 
-static int GUI_Exec_State = 1; // 显存一的数据
 //
 // Dialog ressource（global）
 //
 const GUI_WIDGET_CREATE_INFO OSC_DialogCreate[] = {
-	{WINDOW_CreateIndirect, 0, 0, 0, 0, 800, 480},//不可移动
+	{FRAMEWIN_CreateIndirect, 0, GUI_ID_USER + 22, -20, -20, 850, 520,0,0},//不可移动
 	{BUTTON_CreateIndirect, "Zoom+", __ZoomPlusID, 692, 15, 105, 51, 0, 0},
 	{BUTTON_CreateIndirect, "Zoom-", __ZoomSubID, 692, 72, 105, 51, 0, 0},
 	{BUTTON_CreateIndirect, "Amplitude+", __AmpliPlusID, 692, 129, 105, 51, 0, 0},
@@ -55,6 +53,7 @@ const GUI_WIDGET_CREATE_INFO OSC_DialogCreate[] = {
 	{BUTTON_CreateIndirect, "Measure", __MeasureID, 692, 243, 105, 51, 0, 0},
 	{BUTTON_CreateIndirect, "Numpad", __NumpadID, 692, 300, 105, 51, 0, 0},
 	{BUTTON_CreateIndirect, "Stop", __StopID, 692, 357, 105, 51, 0, 0},
+	{BUTTON_CreateIndirect, "Duty Input", __InputModeID, 692, 414, 105, 51, 0, 0},
 	{GRAPH_CreateIndirect, 0, GUI_ID_GRAPH0, 2, 2, 685, 478},
 };
 
@@ -73,7 +72,6 @@ const GUI_WIDGET_CREATE_INFO OSC_DialogCreate[] = {
 
 static void OSC_PaintDialog (WM_MESSAGE* pMsg) {
 	WM_HWIN hWin = pMsg->hWin;
-
 }
 
 /*********************************************************************
@@ -121,9 +119,6 @@ void Main_UserDraw (WM_HWIN hWin, int Stage) {
 		GUI_DispStringInRectEx(ycText, &RectY, GUI_TA_CENTER, strlen(ycText), GUI_ROTATE_CCW);//纵向显示（GUI_ROTATE_CCW），水平对齐（GUI_TA_HCENTER）
 		GUI_DispStringInRectEx(xcText, &RectX, GUI_TA_HCENTER, strlen(xcText), GUI_ROTATE_0);//从左到右显示（GUI_ROTATE_0），水平对齐（GUI_TA_HCENTER）
 
-		/*显示参数-------------------------------------------------------*/
-		if (g_OSCInfo.MeasureStatu == eOpen)
-			OSC_MeasureInfoSwitch(eOpen);
 		/*内存监视-------------------------------------------------------*/
 #ifdef MEM_DEBUG__
 		MemDisp(200, 200);
@@ -214,32 +209,28 @@ void Main_cbCallback (WM_MESSAGE* pMsg) {
 					break;
 				case __MeasureID: //Measure
 					if (NCode == WM_NOTIFICATION_RELEASED)
-						if (g_GUICon.MeasureState == eClose
-						) {//打开NumPad//判断是否冲突
-							g_GUICon.MeasureState = eOpen;
+						if (g_GUICon.MeasureState == eClose) {//打开Measure
 							CloseAllBSPDLG();
 							WindowSwitch(g_Disp.BSP_MersureDlg, eOpen);
+							g_GUICon.MeasureState = eOpen;
 						}
-						else {//关闭NumPad
-							g_GUICon.ConStState = eClose;
+						else {//关闭Measure
 							CloseAllBSPDLG();
 						}
 					break;
 				case __NumpadID: //开关Singal控制面板
 					if (NCode == WM_NOTIFICATION_RELEASED)
-						if (g_GUICon.NumpadState == eClose
-						) {//打开NumPad
-							g_GUICon.NumpadState = eOpen;
+						if (g_GUICon.NumpadState == eClose) {//打开NumPad
 							CloseAllBSPDLG();
-							RMSwitch(eOpen, Numpad_RMs);
+							WindowSwitch(g_Disp.BSP_NumpadDlg, eOpen);
+							g_GUICon.NumpadState = eOpen;
 						}
 						else {//关闭NumPad
-							g_GUICon.NumpadState = eClose;
 							CloseAllBSPDLG();
 						}
 					break;
 				case __StopID: //Stop
-					if (NCode == WM_NOTIFICATION_RELEASED)
+					if (NCode == WM_NOTIFICATION_RELEASED) {
 						if (g_GUICon.GraphDispState == eClose) {//开始
 							g_GUICon.GraphDispState = eOpen;
 							BUTTON_SetText(g_GraphButton.Stop.Handle, "Stop");
@@ -252,6 +243,26 @@ void Main_cbCallback (WM_MESSAGE* pMsg) {
 							BUTTON_SetBkColor(g_GraphButton.Stop.Handle, BUTTON_CI_PRESSED, GUI_RED);
 							BUTTON_SetBkColor(g_GraphButton.Stop.Handle, BUTTON_CI_UNPRESSED, GUI_RED);
 						}
+					}
+
+					break;
+				case __InputModeID:
+					if (NCode == WM_NOTIFICATION_RELEASED) {
+						if (g_UserInput.InputMode == eAD9834DutyInput) {//改为输入频率
+							g_UserInput.InputMode = eAD9834FreqInput;
+							BUTTON_SetText(g_GraphButton.InputMode.Handle, "Freq Input");
+							EDIT_SetDecMode(g_UserInput.Numpad.EdirorHandle, g_Device.AD9834Freq, 1000, 1000000, 0, GUI_EDIT_SUPPRESS_LEADING_ZEROES);
+							BUTTON_SetBkColor(g_GraphButton.InputMode.Handle, BUTTON_CI_PRESSED, GUI_BLUE);
+							BUTTON_SetBkColor(g_GraphButton.InputMode.Handle, BUTTON_CI_UNPRESSED, GUI_BLUE);
+						}
+						else {//改为输入占空比
+							g_UserInput.InputMode = eAD9834DutyInput;
+							BUTTON_SetText(g_GraphButton.InputMode.Handle, "Duty Input");
+							EDIT_SetFloatMode(g_UserInput.Numpad.EdirorHandle, g_Device.AD9834Duty, 0, 100, 2, GUI_EDIT_SUPPRESS_LEADING_ZEROES);
+							BUTTON_SetBkColor(g_GraphButton.InputMode.Handle, BUTTON_CI_PRESSED, GUI_RED);
+							BUTTON_SetBkColor(g_GraphButton.InputMode.Handle, BUTTON_CI_UNPRESSED, GUI_RED);
+						}
+					}
 					break;
 			}
 			break;

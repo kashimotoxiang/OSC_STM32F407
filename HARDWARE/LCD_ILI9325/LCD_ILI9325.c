@@ -1,4 +1,4 @@
-﻿#include "LCD_ILI9325.h"
+#include "LCD_ILI9325.h"
 
 //LCD的画笔颜色和背景色	   
 u16 BSP_POINT_COLOR = 0x0000; //画笔颜色
@@ -98,8 +98,7 @@ void BSP_LCD_Display (u8 off_on) {
 //Xpos:横坐标
 //Ypos:纵坐标
 inline void BSP_LCD_SetCursor (u16 Xpos, u16 Ypos) {
-	if (
-		Horizontal_or_Vertical) {
+	if (Horizontal_or_Vertical) {
 		//横屏显示
 		BSP_LCD_WriteReg (0x20, Ypos);
 		BSP_LCD_WriteReg (0x21, 319 - Xpos);
@@ -150,7 +149,7 @@ inline void BSP_Address_Set (u16 x1, u16 y1, u16 x2, u16 y2) {
 //x,y:坐标
 //返回值:此点的颜色
 inline u16 BSP_LCD_ReadPoint (u16 x, u16 y) {
-	u16 r = 0, g = 0, b = 0;
+	u16 r = 0;
 	BSP_LCD_SetCursor(x, y);
 	BSP_LCD_WR_REG(R34); //其他IC发送读GRAM指令
 	if (BSP_LCD_RD_DATA())

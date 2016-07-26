@@ -61,6 +61,8 @@ SRAM_HandleTypeDef hsram4;
 /* Private variables ---------------------------------------------------------*/
 UART_TYPE RxBuff[1];
 /* Private Struct-------------------------------------------------------*/
+WAVE_TYPE WaveArray[TFT_WIDTH ] = {0};//波型数组
+
 FPGAControl_struct g_FPGAPar_A = {500000000};//初始化FPAG器件参数
 FPGAControl_struct g_FPGACon_C = {500000000};//初始化FPAG器件参数
 FPGAData_struct g_FPGAData = {{0}};
@@ -82,10 +84,13 @@ OSC_struct g_OSCInfo = {
 	eClose,//是否打开测量标识
 };
 Page_struct g_DispPage = {ePage_Num_1, ePage_Num_2, ePage_Num_2};
-Key_struct g_Key = {eKey_Empty, eKey_Empty};
-GUIControl_struct g_GUICon = {eOpen, eOpen, eClose, eISEMPTY};
+GUIControl_struct g_GUICon = {eOpen, eOpen, eClose, eClose, eISEMPTY};
 SenseData_struct g_Sense = {0};//传感器数据
-DevicePar_struct g_Device = {Triangle_Wave ,1000000};
+DevicePar_struct g_Device = {
+	Triangle_Wave ,//波形
+	1000000,//频率
+	50,//占空比
+};
 /* Others ---------------------------------------------------------*/
 __uIO32 g_DACVal = 0;
 
@@ -148,20 +153,25 @@ int main (void) {
 
 		/* USER CODE BEGIN 3 */
 		if (g_GUICon.GraphDispState == eOpen) {//停止时不进行任何活动 ，开启时才进入任务
-			FPGA_GetMeasurePar();//请求基础数据
+			//FPGA_GetMeasurePar();//请求基础数据
 
-			FPGA_WritePar(10 * g_FPGAData.SignalFreq, 0x0FFF, 0x0000, FPGADATALENTGH128, 0, g_FPGAPar_A);
-			FPGA_ParallDataTrans(g_FPGAData.ADCParMeasureData, &g_FPGAPar_A);//采样128个数据，为了计算幅度
+			FPGA_WritePar(10 * g_FPGAData.SignalFreq, 0x0FFF,
+			              0x0000, FPGADATALENTGH128, 0, &g_FPGAPar_A);
+			//FPGA_ParallDataTrans(g_FPGAData.ADCParMeasureData, AMPLITITUDEDATALENGTH);//采样128个数据，为了计算幅度
 			FPGA_AmplitudeCompute(&g_FPGAData);//计算出幅度
 
-			FPGA_WritePar(g_FPGAData.SignalFreq, 0.9 * g_FPGAData.i_AmplitudeMax,
-			              0.1 * g_FPGAData.i_AmplitudeMin, FPGADATALENTGH2048, 1, g_FPGACon_C);
-			FPGA_ParallDataTrans(g_FPGAData.ADCUpTimeData, &g_FPGACon_C);//采样2048个数据，为了计算上升时间
+			FPGA_WritePar(g_FPGAData.SignalFreq, 0.9 * g_FPGAData.i_Amplitude + g_FPGAData.i_AmplitudeMin,
+			              0.1 * g_FPGAData.i_Amplitude + g_FPGAData.i_AmplitudeMin, FPGADATALENTGH2048, 1, &g_FPGACon_C);
+			//FPGA_ParallDataTrans(g_FPGAData.ADCUpTimeData, UPTIMEDATALENGTH);//采样2048个数据，为了计算上升时间
 			FPGA_UpTimeCompute(&g_FPGAData, &g_FPGACon_C);//计算上升时间
 
-			//FSM_OSCDisp();//波形显示
-			BackgroundUpdata();
+			//FPGA_ParallDataTrans(g_FPGAData.ADCUpTimeData, WAVEDATALENGTH);//采样2048个数据，为了显示波形
+
+			FSM_OSCDisp();//波形显示
+
+			FSM_DeviceOperation();//器件数据更新
 		}
+		BackgroundUpdata();
 
 	}
 	/* USER CODE END 3 */
@@ -185,7 +195,7 @@ void SystemClock_Config (void) {
 	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
 	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
 	RCC_OscInitStruct.PLL.PLLM = 8;
-	RCC_OscInitStruct.PLL.PLLN = 168;
+	RCC_OscInitStruct.PLL.PLLN = 250;
 	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
 	RCC_OscInitStruct.PLL.PLLQ = 4;
 	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
@@ -443,7 +453,7 @@ static void MX_GPIO_Init (void) {
 	/*Configure GPIO pins : ESP_T_DOUT_Pin ESP_T_IRQ_Pin */
 	GPIO_InitStruct.Pin = ESP_T_DOUT_Pin | ESP_T_IRQ_Pin ;
 	GPIO_InitStruct.Mode = GPIO_MODE_INPUT ;
-	GPIO_InitStruct.Pull = GPIO_PULLUP ;
+	GPIO_InitStruct.Pull = GPIO_NOPULL ;
 	HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
 	/*Configure GPIO pins : ADS1110_SCL_Pin ADS1110_SDA_Pin */
@@ -479,12 +489,12 @@ static void MX_FSMC_Init (void) {
 	hsram1.Init.WriteBurst = FSMC_WRITE_BURST_DISABLE;
 	hsram1.Init.PageSize = FSMC_PAGE_SIZE_NONE;
 	/* Timing */
-	Timing.AddressSetupTime = 15;
-	Timing.AddressHoldTime = 15;
-	Timing.DataSetupTime = 80;
+	Timing.AddressSetupTime = 4;
+	Timing.AddressHoldTime = 4;
+	Timing.DataSetupTime = 60;
 	Timing.BusTurnAroundDuration = 0;
-	Timing.CLKDivision = 16;
-	Timing.DataLatency = 17;
+	Timing.CLKDivision = 0;
+	Timing.DataLatency = 0;
 	Timing.AccessMode = FSMC_ACCESS_MODE_A;
 	/* ExtTiming */
 
@@ -512,12 +522,12 @@ static void MX_FSMC_Init (void) {
 	hsram4.Init.WriteBurst = FSMC_WRITE_BURST_DISABLE;
 	hsram4.Init.PageSize = FSMC_PAGE_SIZE_NONE;
 	/* Timing */
-	Timing.AddressSetupTime = 15;
-	Timing.AddressHoldTime = 15;
-	Timing.DataSetupTime = 255;
-	Timing.BusTurnAroundDuration = 15;
-	Timing.CLKDivision = 16;
-	Timing.DataLatency = 17;
+	Timing.AddressSetupTime = 4;
+	Timing.AddressHoldTime = 4;
+	Timing.DataSetupTime = 60;
+	Timing.BusTurnAroundDuration = 0;
+	Timing.CLKDivision = 0;
+	Timing.DataLatency = 0;
 	Timing.AccessMode = FSMC_ACCESS_MODE_A;
 	/* ExtTiming */
 

@@ -12,6 +12,5 @@ extern ResourceMap_struct Numpad_RMs;
 */
 
 WM_HWIN Numpad_CreateWindow (void);
-void RMSwitch (u8 state, ResourceMap_struct RMs);
 WM_HWIN Text_CreateWindow (void);
 

@@ -46,8 +46,8 @@ MeasureData_struct g_MeasureData = {
 * It has been created by ucGUIbuilder.
 */
 
-static const GUI_WIDGET_CREATE_INFO MeasureData_aDialogCreate[] = {
-	{FRAMEWIN_CreateIndirect, "Measured Data", 0, 0, 0, 240, 320, FRAMEWIN_CF_MOVEABLE, 0},
+static const GUI_WIDGET_CREATE_INFO MeasureData_aDialog[] = {
+	{FRAMEWIN_CreateIndirect, "Measured Data", GUI_ID_USER + 21, 0, 0, 240, 320, 0, 0},
 	{TEXT_CreateIndirect, "Frequency:", GUI_ID_TEXT0, 9, 10, 116, 27, 0, 0},
 	{TEXT_CreateIndirect, "Amplitude:", GUI_ID_TEXT2, 9, 210, 116, 27, 0, 0},
 	{TEXT_CreateIndirect, "Duty Cycle:", GUI_ID_TEXT1, 9, 110, 116, 27, 0, 0},
@@ -261,7 +261,8 @@ static void MeasureData_cbCallback (WM_MESSAGE* pMsg) {
 */
 WM_HWIN MeasureData_CreateWindow (void) {
 	WM_HWIN hWin;
-	hWin = GUI_CreateDialogBox(MeasureData_aDialogCreate, GUI_COUNTOF (MeasureData_aDialogCreate), &MeasureData_cbCallback, 0, 0, 0);
+	hWin = GUI_CreateDialogBox(MeasureData_aDialog, GUI_COUNTOF (MeasureData_aDialog),
+	                           &MeasureData_cbCallback, 0, 0, 0);
 	return hWin;
 }
 

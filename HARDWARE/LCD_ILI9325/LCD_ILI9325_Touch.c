@@ -56,7 +56,7 @@ u16 BSP_TP_Read_AD (u8 CMD) {
 		BSP_T_CLK_Low ; //ÏÂ½µÑØÓÐÐ§  	    	   
 		delay_us(1);
 		BSP_T_CLK_High ;
-		if (((BSP_T_DOUT_GPIO_Port->IDR)&BSP_T_DOUT_Pin))
+		if (((BSP_T_DOUT_GPIO_Port->IDR) & BSP_T_DOUT_Pin))
 			Num++;
 	}
 	Num >>= 4; //Ö»ÓÐ¸ß12Î»ÓÐÐ§.
@@ -130,13 +130,13 @@ u8 BSP_TP_Read_XY2 (u16* x, u16* y) {
 u8 BSP_Convert_Pos (void) {
 	static u8 state;
 	state = 0;
-		if (!BSP_T_IRQ_Dect) {//检测硬件触摸
-	if (BSP_TP_Read_XY2(&BSP_tp_pixad.xc, &BSP_tp_pixad.yc)) {//判断触摸数据是否正常
-		state = 1;
-		BSP_TS.xc = Touch_date.xfac * (BSP_tp_pixad.xc) + Touch_date.xoff;
-		BSP_TS.yc = Touch_date.yfac * (BSP_tp_pixad.yc) + Touch_date.yoff;
-		return state;
-	}
+	if (!BSP_T_IRQ_Dect) {//检测硬件触摸
+		if (BSP_TP_Read_XY2(&BSP_tp_pixad.xc, &BSP_tp_pixad.yc)) {//判断触摸数据是否正常
+			state = 1;
+			BSP_TS.xc = Touch_date.xfac * (BSP_tp_pixad.xc) + Touch_date.xoff;
+			BSP_TS.yc = Touch_date.yfac * (BSP_tp_pixad.yc) + Touch_date.yoff;
+			return state;
+		}
 	}
 	BSP_TS.xc = 0;
 	BSP_TS.yc = 0;

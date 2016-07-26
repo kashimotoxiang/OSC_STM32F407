@@ -143,3 +143,15 @@ void ESP_SwapPage (Page_struct* a) {
 #endif
 }
 
+//画点
+//ESP_POINT_COLOR:此点的颜色
+inline void ESP_LCD_DrawPoint (u16 x_cur, u16 y_cur) {
+	ESP_Address_set(x_cur, y_cur, x_cur, y_cur);//设置光标位置
+	ESP_LCD_WR_DATA (ESP_POINT_COLOR);
+}
+
+/*-------------------------------------------------------*/
+inline void ESP_LCD_SetCursor (u16 Xpos, u16 Ypos) {
+	ESP_Address_set(Xpos, Ypos, Xpos, Ypos);
+}
+

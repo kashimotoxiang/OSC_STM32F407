@@ -57,15 +57,14 @@ osc_stm32f407\lcd_md050sd_graph.o: ..\Chips\AD9834.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\HARDWARE\System.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\HARDWARE\myADC.h
-osc_stm32f407\lcd_md050sd_graph.o: ..\HARDWARE\myKey.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\HARDWARE\myUART.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h
+osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\Usual.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\FSM.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\OSC_Work.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\FFT.h
-osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\GUI\GUIDefine.h
 osc_stm32f407\lcd_md050sd_graph.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 osc_stm32f407\lcd_md050sd_graph.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
@@ -110,4 +109,3 @@ osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\GUI\GUIGraph.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\GUI\GUIDraw.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\GUI\GUINumPad.h
 osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\GUI\GUIMeasureData.h
-osc_stm32f407\lcd_md050sd_graph.o: ..\SOFTWARE\GUI\__UserGUI.h

@@ -43,6 +43,7 @@ typedef struct {
 	BUTTON_struct Measure;
 	BUTTON_struct NumPad;
 	BUTTON_struct Stop;
+	BUTTON_struct InputMode;
 } MAINBUTTON_struct;
 
 /*主要显示句柄-------------------------------------------------------*/
@@ -72,6 +73,7 @@ typedef struct {
 
 /*控制台句柄-------------------------------------------------------*/
 typedef struct {
+	uint8_t InputMode;
 	Slider_struct SliderTime;
 	Slider_struct SliderAmpli;
 	Numpad_struct Numpad;
@@ -84,13 +86,13 @@ typedef struct ResourceMap_struct {
 	WM_HWIN RM[30];
 } ResourceMap_struct;
 
+
 #include "main.h"
 #include "GUIUsual.h"
 #include "GUIGraph.h"
 #include "GUIDraw.h"
 #include "GUINumPad.h"
 #include "GUIMeasureData.h"
-#include "__UserGUI.h"
 
 
 /*********************************************************************
@@ -99,12 +101,6 @@ typedef struct ResourceMap_struct {
 *
 **********************************************************************
 */
-#define DATAARRAYLENTGH 680//显示数据长度
-#define SPEED           1250//延时速度
-
 #define SCALE_V_Pos 35//坐标位置
 #define SCALE_H_Pos 155
-
-#define MEASURE_INFO_BEGIN_X 100//测试数据位置
-#define MEASURE_INFO_BEGIN_Y 20
 

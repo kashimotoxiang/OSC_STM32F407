@@ -57,15 +57,14 @@ osc_stm32f407\usual.o: ..\Chips\AD9834.h
 osc_stm32f407\usual.o: ..\HARDWARE\System.h
 osc_stm32f407\usual.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\usual.o: ..\HARDWARE\myADC.h
-osc_stm32f407\usual.o: ..\HARDWARE\myKey.h
 osc_stm32f407\usual.o: ..\HARDWARE\myUART.h
 osc_stm32f407\usual.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h
 osc_stm32f407\usual.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h
 osc_stm32f407\usual.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h
+osc_stm32f407\usual.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\usual.o: ..\SOFTWARE\FSM.h
 osc_stm32f407\usual.o: ..\SOFTWARE\OSC_Work.h
 osc_stm32f407\usual.o: ..\SOFTWARE\FFT.h
-osc_stm32f407\usual.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\usual.o: ..\SOFTWARE\GUI\GUIDefine.h
 osc_stm32f407\usual.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 osc_stm32f407\usual.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
@@ -110,7 +109,6 @@ osc_stm32f407\usual.o: ..\SOFTWARE\GUI\GUIGraph.h
 osc_stm32f407\usual.o: ..\SOFTWARE\GUI\GUIDraw.h
 osc_stm32f407\usual.o: ..\SOFTWARE\GUI\GUINumPad.h
 osc_stm32f407\usual.o: ..\SOFTWARE\GUI\GUIMeasureData.h
-osc_stm32f407\usual.o: ..\SOFTWARE\GUI\__UserGUI.h
 osc_stm32f407\usual.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdarg
 osc_stm32f407\usual.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 osc_stm32f407\usual.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

@@ -55,7 +55,6 @@
     <None Include="..\..\ENWIN\emWin_Config\LCDConf_FlexColor_Template.h" />
     <None Include="..\..\ENWIN\emWin_Lib\STemWin528_CM4_Keil.lib" />
     <None Include="..\..\ENWIN\inc\BUTTON_Private.h" />
-    <None Include="..\..\SOFTWARE\GUI\__UserGUI.h" />
     <None Include="..\..\SOFTWARE\GUI\GUIControlStation.h" />
     <None Include="..\..\SOFTWARE\GUI\GUIDefine.h" />
     <None Include="..\..\SOFTWARE\GUI\GUIDraw.h" />
@@ -121,7 +120,6 @@
     <ClCompile Include="..\..\ENWIN\emWin_Config\GUIDRV_Template_BSP.c" />
     <ClCompile Include="..\..\ENWIN\emWin_Config\GUIDRV_Template_ESP.c" />
     <ClCompile Include="..\..\ENWIN\emWin_Config\LCDConf_FlexColor_Template.c" />
-    <ClCompile Include="..\..\SOFTWARE\GUI\__UserGUI.c" />
     <ClCompile Include="..\..\SOFTWARE\GUI\GUIControlStation.c" />
     <ClCompile Include="..\..\SOFTWARE\GUI\GUIDraw.c" />
     <ClCompile Include="..\..\SOFTWARE\GUI\GUIGraph.c" />

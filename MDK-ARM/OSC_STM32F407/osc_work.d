@@ -57,15 +57,14 @@ osc_stm32f407\osc_work.o: ..\Chips\AD9834.h
 osc_stm32f407\osc_work.o: ..\HARDWARE\System.h
 osc_stm32f407\osc_work.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\osc_work.o: ..\HARDWARE\myADC.h
-osc_stm32f407\osc_work.o: ..\HARDWARE\myKey.h
 osc_stm32f407\osc_work.o: ..\HARDWARE\myUART.h
 osc_stm32f407\osc_work.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h
 osc_stm32f407\osc_work.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h
 osc_stm32f407\osc_work.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h
+osc_stm32f407\osc_work.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\osc_work.o: ..\SOFTWARE\Usual.h
 osc_stm32f407\osc_work.o: ..\SOFTWARE\FSM.h
 osc_stm32f407\osc_work.o: ..\SOFTWARE\FFT.h
-osc_stm32f407\osc_work.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\osc_work.o: ..\SOFTWARE\GUI\GUIDefine.h
 osc_stm32f407\osc_work.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 osc_stm32f407\osc_work.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
@@ -110,4 +109,3 @@ osc_stm32f407\osc_work.o: ..\SOFTWARE\GUI\GUIGraph.h
 osc_stm32f407\osc_work.o: ..\SOFTWARE\GUI\GUIDraw.h
 osc_stm32f407\osc_work.o: ..\SOFTWARE\GUI\GUINumPad.h
 osc_stm32f407\osc_work.o: ..\SOFTWARE\GUI\GUIMeasureData.h
-osc_stm32f407\osc_work.o: ..\SOFTWARE\GUI\__UserGUI.h

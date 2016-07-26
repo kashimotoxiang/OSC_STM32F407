@@ -98,7 +98,7 @@ static const GUI_WIDGET_CREATE_INFO NumPad_aDialog[] = {
 	//
 	//  Function                 Text      Id                 Px   Py   Dx   Dy
 	//
-	//{WINDOW_CreateIndirect, "NumPad", GUI_ID_USER + 20, 0, 0, 240, 320, 0, 0},
+	{FRAMEWIN_CreateIndirect, "NumPad", GUI_ID_USER + 20, 0, 0, 240, 320, 0, 0},
 	{EDIT_CreateIndirect, 0, GUI_ID_EDIT0, 4, 3, 224, 59, 0, 0},
 	{BUTTON_CreateIndirect, "7", GUI_ID_USER + 7, 6, 68, 70, 40, 0, 0},
 	{BUTTON_CreateIndirect, "8", GUI_ID_USER + 8, 82, 68, 70, 40, 0, 0},
@@ -137,8 +137,17 @@ void NumPad_InitDialog (WM_MESSAGE* pMsg) {
 	//
 	//FRAMEWIN
 	//
+	FRAMEWIN_SetBarColor(hWin, 1, 0xff901e);
+	FRAMEWIN_SetClientColor(hWin, 0xc0c0c0);
+	FRAMEWIN_SetTextColor(hWin, 0xcc3299);
+	FRAMEWIN_SetFont(hWin, &GUI_Font16B_ASCII);
+	FRAMEWIN_SetTextAlign(hWin, GUI_TA_VCENTER | GUI_TA_CENTER);
+	FRAMEWIN_AddCloseButton(hWin, FRAMEWIN_BUTTON_RIGHT, 0);
+	FRAMEWIN_AddMaxButton(hWin, FRAMEWIN_BUTTON_RIGHT, 1);
+	FRAMEWIN_AddMinButton(hWin, FRAMEWIN_BUTTON_RIGHT, 2);
+	FRAMEWIN_SetTitleHeight(hWin, 16);
 	//
-	//GUI_ID_EDIT0
+	//GUI_User_ID
 	//
 	EDIT_SetText(WM_GetDialogItem(hWin, GUI_ID_EDIT0), "EDIT0");
 	for (int i = 0; i < 15; i++)
@@ -210,15 +219,21 @@ static void NumPad_cbDesktop (WM_MESSAGE* pMsg) {
 						else {
 							Key = _aKey[Id - GUI_ID_USER - 11]; /* Get the text from the array */
 						}
+
 						GUI_SendKeyMsg(Key, Pressed); /* Send a key message to the focussed window */
 
 						//获取Editor输入值
-						if (Key == GUI_KEY_ENTER) { {
+						if (Key == GUI_KEY_ENTER) {
+							if (g_UserInput.InputMode == eAD9834DutyInput)//占空比
+							{
 								g_UserInput.Numpad.f_InputValue = EDIT_GetFloatValue(g_UserInput.Numpad.EdirorHandle);
-								g_UserInput.Numpad.InputEnterFlag = 1;
+								g_Device.AD9834Duty = g_UserInput.Numpad.f_InputValue;
+							}
+							else {//频率
+								g_UserInput.Numpad.i_InputValue = EDIT_GetValue(g_UserInput.Numpad.EdirorHandle);
+								g_Device.AD9834Freq = (int)g_UserInput.Numpad.i_InputValue;
 							}
 						}
-
 					}
 					break;
 			}
@@ -236,11 +251,8 @@ static void NumPad_cbDesktop (WM_MESSAGE* pMsg) {
 WM_HWIN Numpad_CreateWindow (void) {
 	WM_HWIN hWin;
 	/*-------------------------------------------------------*/
-	WM_SetCallback(WM_HBKWIN, NumPad_cbDesktop);
-	/*-------------------------------------------------------*/
-	hWin = __User_GUI_CreateDialogBox(NumPad_aDialog,
-	                                  GUI_COUNTOF (NumPad_aDialog),
-	                                  NumPad_cbDesktop, WM_HBKWIN, 0, 0, &Numpad_RMs); /* Create the numpad dialog */
+	hWin = GUI_CreateDialogBox(NumPad_aDialog,GUI_COUNTOF (NumPad_aDialog),
+	                           &NumPad_cbDesktop, 0, 0, 0); /* Create the numpad dialog */
 	return hWin;
 }
 

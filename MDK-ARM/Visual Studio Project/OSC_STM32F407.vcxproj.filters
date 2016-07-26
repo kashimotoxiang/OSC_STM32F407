@@ -192,9 +192,6 @@
     <ClCompile Include="..\..\ENWIN\emWin_Config\LCDConf_FlexColor_Template.c">
       <Filter>源文件\ENWIN</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SOFTWARE\GUI\__UserGUI.c">
-      <Filter>源文件\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\SOFTWARE\GUI\GUIControlStation.c">
       <Filter>源文件\GUI</Filter>
     </ClCompile>
@@ -2011,9 +2008,6 @@
     </None>
     <None Include="..\..\ENWIN\inc\BUTTON_Private.h">
       <Filter>源文件\ENWIN</Filter>
-    </None>
-    <None Include="..\..\SOFTWARE\GUI\__UserGUI.h">
-      <Filter>源文件\GUI</Filter>
     </None>
     <None Include="..\..\SOFTWARE\GUI\GUIControlStation.h">
       <Filter>源文件\GUI</Filter>

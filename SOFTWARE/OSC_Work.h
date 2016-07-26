@@ -9,5 +9,5 @@ uint8_t Trig_Init (WAVE_TYPE Data[]);
 void OSC_MaxMin_Found (__uIO16* Max_Value, __uIO16* Min_Value, WAVE_TYPE Data[]);
 void Quick_Sort (WAVE_TYPE ai[], int low, int high);
 int partition (WAVE_TYPE vec[], int low, int high);
-u8 OSC_DataDeal (I16* WaveArray, int DataLength);
+u8 OSC_DataDeal (I16* WaveArray);
 

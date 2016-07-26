@@ -36,8 +36,8 @@ static void __User_GUI_DRAW__Draw (GUI_DRAW_HANDLE hDrawObj, int x, int y) {
 
 static void _Paint (BUTTON_Obj* pObj, BUTTON_Handle hObj) {
 	const char* s = NULL;
-	unsigned int Index;
 	int State, PressedState, ColorIndex;
+	int Index=0;
 	GUI_RECT rClient, rInside;
 	State = pObj->Widget.State;
 	PressedState = (State & BUTTON_STATE_PRESSED) ? 1 : 0;

@@ -8,10 +8,6 @@
 u16 ESP_vx = 4421, ESP_vy = 6078;
 u16 ESP_chx = 247, ESP_chy = 3388;
 T_Data_Struct ESP_tp_pixad, ESP_TS; //???????AD?,?????????
-//------------------------------------------------------------------------------------------//
-inline u8 ESP_tpstate (void) {
-	return ESP_T_IRQ_Dect ;
-}
 
 //------------------------------------------------------------------------------------------//
 void ESP_TS_Init (void) //SPI??
@@ -142,26 +138,6 @@ u8 ESP_Read_ADS2 (u16* x_cur, u16* y_cur) {
 }
 
 //------------------------------------------------------------------------------------------//
-//????????,???????
-u8 ESP_Read_TP_Once (void) {
-	static u8 re = 0;
-	static u16 x1, y1;
-	static u16 x2, y2;
-	re = 0;
-	while (re == 0) {
-		while (!ESP_Read_ADS2(&x1, &y1));
-		delay_ms(10);
-		while (!ESP_Read_ADS2(&x2, &y2));
-		if ((x2 <= x1 && x1 < x2 + 3) || (x1 <= x2 && x2 < x1 + 3)) {
-			ESP_tp_pixad.xc = (x1 + x2) / 2;
-			ESP_tp_pixad.yc = (y1 + y2) / 2;
-			re = 1;
-		}
-	}
-	return re;
-}
-
-//------------------------------------------------------------------------------------------//
 //?LCD???????
 //??????
 //??????
@@ -175,189 +151,8 @@ void ESP_Drow_Touch_Point (u16 x_cur, u16 y_cur) {
 	//	Draw_Circle(x_cur,y_cur,6);//????
 }
 
-//------------------------------------------------------------------------------------------//
-//???????
-//????????
-#define tp_pianyi 80   //???????
-#define tp_xiaozhun 2000   //????
 
-void ESP_T_Adjust (void) {
-	float vx1, vx2, vy1, vy2; //????,????1000???????AD????????
-	u16 chx1, chx2, chy1, chy2;//????????0??AD???
-	u16 lx, ly;
-	struct tp_pixu32_ p[4];
-	u8 cnt = 0;
-	cnt = 0;
-	ESP_POINT_COLOR = BLUE ;
-	ESP_BACK_COLOR = WHITE;
-	ESP_LCD_Clear(WHITE);//??
-	ESP_POINT_COLOR = RED;//??
-	ESP_LCD_Clear(WHITE);//??
-	ESP_Drow_Touch_Point(tp_pianyi, tp_pianyi);//??1
-	while (1) {
-		if (ESP_T_IRQ_Dect)//?????
-		{
-			if (ESP_Read_TP_Once())//???????
-			{
-				p[cnt].xc = ESP_tp_pixad.xc;
-				p[cnt].yc = ESP_tp_pixad.yc;
-				cnt++;
-			}
-			switch (cnt) {
-				case 1:
-					ESP_LCD_Clear(WHITE);//??
-					while (!ESP_T_IRQ_Dect) //????
-					{
-					}
-					ESP_Drow_Touch_Point(LCD_W_ - tp_pianyi - 1, tp_pianyi);//??2
-					break;
-				case 2:
-					ESP_LCD_Clear(WHITE);//??
-					while (!ESP_T_IRQ_Dect) //????
-					{
-					}
-					ESP_Drow_Touch_Point(tp_pianyi, LCD_H_ - tp_pianyi - 1);//??3
-					break;
-				case 3:
-					ESP_LCD_Clear(WHITE);//??
-					while (!ESP_T_IRQ_Dect) //????
-					{
-					}
-					ESP_Drow_Touch_Point(LCD_W_ - tp_pianyi - 1, LCD_H_ - tp_pianyi - 1);//??4
-					break;
-				case 4: //?????????
-					ESP_LCD_Clear(WHITE);//??
-					while (!ESP_T_IRQ_Dect) //????
-					{
-					}
-					vx1 = p[1].xc > p[0].xc ? (p[1].xc - p[0].xc + 1) * 1000 / (LCD_W_ - tp_pianyi - tp_pianyi) : (p[0].xc - p[1].xc - 1) * 1000 / (LCD_W_ - tp_pianyi - tp_pianyi);
-					chx1 = p[1].xc > p[0].xc ? p[0].xc - (vx1 * tp_pianyi) / 1000 : p[0].xc + (vx1 * tp_pianyi) / 1000;
-					vy1 = p[2].yc > p[0].yc ? (p[2].yc - p[0].yc - 1) * 1000 / (LCD_H_ - tp_pianyi - tp_pianyi) : (p[0].yc - p[2].yc - 1) * 1000 / (LCD_H_ - tp_pianyi - tp_pianyi);
-					chy1 = p[2].yc > p[0].yc ? p[0].yc - (vy1 * tp_pianyi) / 1000 : p[0].yc + (vy1 * tp_pianyi) / 1000;
-
-					vx2 = p[3].xc > p[2].xc ? (p[3].xc - p[2].xc + 1) * 1000 / (LCD_W_ - tp_pianyi - tp_pianyi) : (p[2].xc - p[3].xc - 1) * 1000 / (LCD_W_ - tp_pianyi - tp_pianyi);
-					chx2 = p[3].xc > p[2].xc ? p[2].xc - (vx2 * tp_pianyi) / 1000 : p[2].xc + (vx2 * tp_pianyi) / 1000;
-					vy2 = p[3].yc > p[1].yc ? (p[3].yc - p[1].yc - 1) * 1000 / (LCD_H_ - tp_pianyi - tp_pianyi) : (p[1].yc - p[3].yc - 1) * 1000 / (LCD_H_ - tp_pianyi - tp_pianyi);
-					chy2 = p[3].yc > p[1].yc ? p[1].yc - (vy2 * tp_pianyi) / 1000 : p[1].yc + (vy2 * tp_pianyi) / 1000;
-
-					if ((vx1 > vx2 && vx1 > vx2 + tp_xiaozhun) || (vx1 < vx2 && vx1 < vx2 - tp_xiaozhun) || (vy1 > vy2 && vy1 > vy2 + tp_xiaozhun) || (vy1 < vy2 && vy1 < vy2 - tp_xiaozhun)) {
-						cnt = 0;
-						ESP_LCD_Clear(WHITE);//??
-						ESP_Drow_Touch_Point(tp_pianyi, tp_pianyi);//??1
-						continue;
-					}
-					ESP_vx = (vx1 + vx2) / 2;
-					ESP_vy = (vy1 + vy2) / 2;
-					ESP_chx = (chx1 + chx2) / 2;
-					ESP_chy = (chy1 + chy2) / 2;
-
-					//??????
-					ESP_LCD_Clear(WHITE);//??
-					ESP_POINT_COLOR = YELLOW;
-					ESP_BACK_COLOR = BLUE ;
-
-					lx = 0;
-					ly = 50;
-					ESP_LCD_ShowString(lx, ly, "VX1:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, vx1, 4);
-					lx = 0;
-					ly += 20;
-					ESP_LCD_ShowString(lx, ly, "Vy1:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, vy1, 4);
-					lx = 0;
-					ly += 20;
-					ESP_LCD_ShowString(lx, ly, "CHX1:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, chx1, 4);
-					lx = 0;
-					ly += 20;
-					ESP_LCD_ShowString(lx, ly, "CHY1:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, chy1, 4);
-
-					lx = 100;
-					ly = 50;
-					ESP_LCD_ShowString(lx, ly, "VX2:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, vx2, 4);
-					lx = 100;
-					ly += 20;
-					ESP_LCD_ShowString(lx, ly, "Vy2:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, vy2, 4);
-					lx = 100;
-					ly += 20;
-					ESP_LCD_ShowString(lx, ly, "CHX2:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, chx2, 4);
-					lx = 100;
-					ly += 20;
-					ESP_LCD_ShowString(lx, ly, "CHY2:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, chy2, 4);
-
-					lx = 50;
-					ly = 150;
-					ESP_LCD_ShowString(lx, ly, "VX:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, ESP_vx, 4);
-					lx = 50;
-					ly += 20;
-					ESP_LCD_ShowString(lx, ly, "Vy:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, ESP_vy, 4);
-					lx = 50;
-					ly += 20;
-					ESP_LCD_ShowString(lx, ly, "CHX:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, ESP_chx, 4);
-					lx = 50;
-					ly += 20;
-					ESP_LCD_ShowString(lx, ly, "CHY:");
-					lx += 40;
-					ESP_LCD_Show_Num(lx, ly, ESP_chy, 4);
-
-					lx = 30;
-					ly += 30;
-					ESP_LCD_ShowString(lx, ly, "Adjust OK!  Touch Anywhere To Continue");
-					ESP_Read_TP_Once(); //????????
-
-					ESP_LCD_Clear(WHITE);//??
-					return;//????
-			}
-		}
-	}
-}
-
-//------------------------------------------------------------------------------------------//
-void ESP_T_point (void) //????
-{
-	static double t = 0;
-	while (1) {
-		if (ESP_T_IRQ_Dect == 0) {
-			t = 0;
-			if (ESP_Convert_Pos()) //?????
-			{
-				ESP_POINT_COLOR = YELLOW;
-				ESP_LCD_ShowString(10, 250, "x_cur:");
-				ESP_LCD_Show_Num(30, 250, ESP_tp_pixad.xc, 4);
-				ESP_LCD_ShowString(180, 250, "y_cur:");
-				ESP_LCD_Show_Num(200, 250, ESP_tp_pixad.yc, 4);
-				ESP_LCD_DrawPoint_big(ESP_TS.xc, ESP_TS.yc);
-			}
-		}
-		else {
-			t++;
-			if (t > 65000) {
-				return;
-			}
-		}
-	}
-}
-
-/*------------------------¥•√˛∆¡≈‰÷√£®SPI2£©-------------------------------*/
+/*------------------------¥•√˛∆¡≈‰÷√-------------------------------*/
 u16 ESP_TP_Read_XOY (u8 xy) {
 	static u16 i, j;
 	static u16 buf[ESP_READ_TIMES ];

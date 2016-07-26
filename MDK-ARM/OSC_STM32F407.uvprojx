@@ -638,16 +638,6 @@
               <FilePath>..\HARDWARE\myADC.h</FilePath>
             </File>
             <File>
-              <FileName>myKey.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\myKey.c</FilePath>
-            </File>
-            <File>
-              <FileName>myKey.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\myKey.h</FilePath>
-            </File>
-            <File>
               <FileName>mySPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\mySPI.c</FilePath>
@@ -658,16 +648,6 @@
               <FilePath>..\HARDWARE\mySPI.h</FilePath>
             </File>
             <File>
-              <FileName>myUART.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\myUART.c</FilePath>
-            </File>
-            <File>
-              <FileName>myUART.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\myUART.h</FilePath>
-            </File>
-            <File>
               <FileName>System.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\System.c</FilePath>
@@ -676,6 +656,16 @@
               <FileName>System.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\HARDWARE\System.h</FilePath>
+            </File>
+            <File>
+              <FileName>myUART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\myUART.c</FilePath>
+            </File>
+            <File>
+              <FileName>myUART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HARDWARE\myUART.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -736,6 +726,16 @@
               <FileName>TypeDefine.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\SOFTWARE\TypeDefine.h</FilePath>
+            </File>
+            <File>
+              <FileName>FPGAControl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SOFTWARE\FPGAControl.c</FilePath>
+            </File>
+            <File>
+              <FileName>FPGAControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\SOFTWARE\FPGAControl.h</FilePath>
             </File>
           </Files>
         </Group>

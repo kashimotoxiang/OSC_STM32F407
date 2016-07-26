@@ -11,33 +11,22 @@
 * @param
 * @note
 */
-u8 OSC_DataDeal (I16* WaveArray, int DataLength) {
-	static int i = 0, n = 0, m = 0;//下标
+u8 OSC_DataDeal (I16* WaveArray) {
+	int i = 0, n = 0;//下标
 	/*触发设置-------------------------------------------------------*/
-	g_OSCInfo.DataEnd = MEMORYE_DEPTH - TFT_WIDTH;//边界确定
-	OSC_MaxMin_Found(&g_OSCInfo.i_MaxVal, &g_OSCInfo.i_MinVal, g_FPGAData.ADCDispData);//最值确定
-	if (!Trig_Init(g_FPGAData.ADCDispData))//触发设置
+	g_OSCInfo.DataEnd = MEMORYE_DEPTH - TFT_WIDTH ;//边界确定
+	g_OSCInfo.i_MaxVal = g_FPGAData.i_AmplitudeMax;//最值确定
+	g_OSCInfo.i_MinVal = g_FPGAData.i_AmplitudeMin;
+	if (!Trig_Init(g_FPGAData.DispData))//触发设置
 		return 0;
-	/*判断是否等效采样-------------------------------------------------------*/
-	g_OSCInfo.ClyDotNum = FPGA_SAMPL_RATE / g_OSCInfo.Freq;
-	if (g_OSCInfo.ClyDotNum < EQUAL_SAMPL_GATE)
-		g_OSCInfo.Sampl_Mod = eSampl_Mod_Equal;
-	else
-		g_OSCInfo.Sampl_Mod = eSampl_Mod_DMA;
 	/*数据填充-------------------------------------------------------*/
-	if (g_OSCInfo.Sampl_Mod == eSampl_Mod_Equal) {//等效采样方式
-		for (i = 0 , m = 0 , n = g_OSCInfo.DataBegin; i < DataLength && i < DATAARRAYLENTGH; i++ , n++) {
-			WaveArray[i] = g_FPGAData.ADCDispData[n] * g_OSCInfo.Ampli_rat * VOLTDISPCONVCOFI ;
-			m += g_OSCInfo.Time_rat;
-		}
+	for (i = 0  , n = g_OSCInfo.DataBegin; n < MEMORYE_DEPTH && i < TFT_WIDTH; i++) {
+		WaveArray[i] = g_FPGAData.DispData[n] * g_OSCInfo.Ampli_rat * VOLTDISPCONVCOFI ;
+		n += g_OSCInfo.Time_rat;
 	}
-	else {//正常采样方式
-		for (i = 0 , n = g_OSCInfo.DataBegin; i < DataLength && n < g_OSCInfo.DataEnd && i < DATAARRAYLENTGH; i++) {
-			WaveArray[i] = g_FPGAData.ADCDispData[n] * g_OSCInfo.Ampli_rat * VOLTDISPCONVCOFI ;
-			n += g_OSCInfo.Time_rat;
-		}
-	}
-	g_OSCInfo.DataEnd = i;
+	g_OSCInfo.DataEnd = i;//记录终点
+	for (; i < TFT_WIDTH; i++)//如果有没有填充完的补零
+		WaveArray[i] = 0;
 	return 1;
 }
 
@@ -53,9 +42,9 @@ uint8_t Trigger_Found (int High, int Low) {
 	static int32_t Trigger_Index = 0;
 	static int32_t i = 0;
 	for (i = g_OSCInfo.TRG_Pos + FOUND_SIZE; i < g_OSCInfo.DataEnd; i++) {//从FOUND_SIZE排序后的点开始寻找
-		if (g_FPGAData.ADCDispData[i] > High)
+		if (g_FPGAData.DispData[i] > High)
 			for (Trigger_Index = 1; Trigger_Index < TRIGGER_WIDTH_TOLRATE; Trigger_Index++)
-				if (g_FPGAData.ADCDispData[i + Trigger_Index] < Low) {
+				if (g_FPGAData.DispData[i + Trigger_Index] < Low) {
 					g_OSCInfo.DataBegin = i + Trigger_Index;
 					return 1;
 				}
@@ -66,60 +55,22 @@ uint8_t Trigger_Found (int High, int Low) {
 //触发设置------------------------------------------------------------------------------------------//
 uint8_t Trig_Init (WAVE_TYPE Data[]) {
 	static uint8_t count = 0;
-	int Trigger_Value_High = 0;
-	int Trigger_Value_Low = 0;
 	int Trigger_Value_Centre = 0;
 	int Trigger_Value_Centre_High = 0;
 	int Trigger_Value_Centre_Low = 0;
-	//------------------------------------------------------------------------------------------//
-	switch (g_OSCInfo.Trig_Mod)//触发设置
-	{
-		case eTrg_Mod_Rising: {
-			Trigger_Value_High = g_OSCInfo.i_MaxVal - TRIGGER_TOLRATE_EDGE;
-			Trigger_Value_Low = g_OSCInfo.i_MinVal + TRIGGER_TOLRATE_EDGE;
-			if (!Trigger_Found(Trigger_Value_High, Trigger_Value_Low)) {
-				count++;
-				if (count < 5)
-					return 0;
-				else
-					break;
-			}
-			count = 0;
-		}
-			break;
-			//------------------------------------------------------------------------------------------//
-		case eTrg_Mod_Falling: {
-			Trigger_Value_High = g_OSCInfo.i_MaxVal - TRIGGER_TOLRATE_EDGE;
-			Trigger_Value_Low = g_OSCInfo.i_MinVal + TRIGGER_TOLRATE_EDGE;
-			if (!Trigger_Found(Trigger_Value_Low, Trigger_Value_High)) {
-				count++;
-				if (count < 5)
-					return 0;
-				else
-					break;
-			}
-			count = 0;
-		}
-			break;
-			//------------------------------------------------------------------------------------------//
-		case eTrg_Mod_Centr: {
-			Trigger_Value_Centre = (g_OSCInfo.i_MaxVal + g_OSCInfo.i_MinVal) / 2;
-			Trigger_Value_Centre_High = Trigger_Value_Centre + TRIGGER_CENTRE_TOLRATE;
-			Trigger_Value_Centre_Low = Trigger_Value_Centre - TRIGGER_CENTRE_TOLRATE;
-			if (!Trigger_Found(Trigger_Value_Centre_High, Trigger_Value_Centre_Low)) {
-				count++;
-				if (count < 5)
-					return 0;
-				else
-					break;
-			}
-			count = 0;
-		}
-			break;
-		default:
-			break;
+	/*-------------------------------------------------------*/
+	Trigger_Value_Centre = (g_OSCInfo.i_MaxVal + g_OSCInfo.i_MinVal) / 2;
+	Trigger_Value_Centre_High = Trigger_Value_Centre + TRIGGER_CENTRE_TOLRATE;
+	Trigger_Value_Centre_Low = Trigger_Value_Centre - TRIGGER_CENTRE_TOLRATE;
+	if (!Trigger_Found(Trigger_Value_Centre_High, Trigger_Value_Centre_Low)) {
+		count++;
+		if (count < 5)
+			return 0;//没找到 先不显示
+		else
+			return 1;//多次没找到 只好返回
 	}
-	return 1;
+	count = 0;
+	return 1;//找到触发
 }
 
 //最值确定------------------------------------------------------------------------------------------//

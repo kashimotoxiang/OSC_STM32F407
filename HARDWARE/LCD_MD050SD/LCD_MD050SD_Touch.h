@@ -39,8 +39,6 @@ extern T_Data_Struct ESP_tp_pixad, ESP_TS; //当前触控坐标的AD值,前触控坐标的像素
 extern u16 ESP_vx, ESP_vy; //比例因子，此值除以1000之后表示多少个AD值代表一个像素点
 extern u16 ESP_chx, ESP_chy;//默认像素点坐标为0时的AD起始值
 void ESP_TS_Init (void);
-void ESP_T_Adjust (void);
-void ESP_T_point (void); //绘图函数
 
 u16 ESP_TP_Read_XOY (u8 xy);//SPI （寄存器版本）收发数据
 u8 ESP_Convert_Pos (void);

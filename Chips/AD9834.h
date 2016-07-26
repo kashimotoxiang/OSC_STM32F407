@@ -23,5 +23,5 @@
 void AD9834_Write_16Bits (unsigned int data); //写一个字到AD9834
 void AD9834_Select_Wave (unsigned int initdata); //选择输出波形
 void AD9834_Set_Freq (unsigned char freq_number, unsigned long freq); //选择输出寄存器和输出频率值
-void AD9834_Triangular_Wave ();
+void AD9834_Triangular_Wave (void);
 

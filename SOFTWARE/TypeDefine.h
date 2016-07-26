@@ -1,4 +1,5 @@
 #pragma once
+
 #include <core_cm4.h>
 
 /*=======================类型定义================================*/
@@ -25,11 +26,10 @@ unsigned short int vu16;
 typedef __IO
 unsigned char vu8;
 
-#define   WAVE_TYPE             __uIO8
+#define   WAVE_TYPE             uint16_t
 #define   TFT_DISPLAY_TYPE      __uIO16
 #define   SPI_TYPE              uint8_t 
-#define   UART_TYPE				char
-#define   WAVE_TYPE				uint16_t
+#define   UART_TYPE				      char
 
 /*=========================状态定义==============================*/
 //注意初始状态值一定要大于1！！！！！！！！！！！！！！！！
@@ -133,10 +133,10 @@ typedef enum {
 	eLAYER_ESP = 1,
 } LAYER_Par_;
 
-/*------------------------GUI控制字-------------------------------*/
-typedef enum {
-	eNumpadInput = 0,
-} GUI_CONTROL_;//
+///*------------------------GUI控制字-------------------------------*/
+//typedef enum {
+//	eNumpadInput = 0,
+//} GUI_CONTROL_;//
 
 /*------------------------SPI控制字-------------------------------*/
 typedef enum {
@@ -150,4 +150,10 @@ typedef enum {
 	eISNOTEMPRT,
 } IsDispEmpty_;//显示区域是否为空，避免显示冲突
 
+
+/*输入模式-------------------------------------------------------*/
+typedef enum Resourc__InputModeeMap_struct {
+	eAD9834DutyInput = 1,
+	eAD9834FreqInput,
+} __InputMode;
 

@@ -208,7 +208,7 @@
           <Type>0</Type>
           <LineNumber>152</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134223916</Address>
+          <Address>134223854</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -218,38 +218,6 @@
           <Filename>D:\Documents\workspace\stm32浠ｇ爜\OSC_STM32F407\HARDWARE\LCD_ILI9325\LCD_ILI9325.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\OSC_STM32F407\../HARDWARE/LCD_ILI9325/LCD_ILI9325.c\152</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>138</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134220994</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>D:\Documents\workspace\stm32浠ｇ爜\OSC_STM32F407\HARDWARE\LCD_ILI9325\LCD_ILI9325_Touch.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\OSC_STM32F407\../HARDWARE/LCD_ILI9325/LCD_ILI9325_Touch.c\138</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>271</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134227184</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>D:\Documents\workspace\stm32浠ｇ爜\OSC_STM32F407\SOFTWARE\GUI\GUIDraw.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\OSC_STM32F407\../SOFTWARE/GUI/GUIDraw.c\271</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -388,6 +356,31 @@
           <WinNumber>1</WinNumber>
           <ItemText>g_Disp</ItemText>
         </Ww>
+        <Ww>
+          <count>27</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>g_Disp.BSP_NumpadDlg</ItemText>
+        </Ww>
+        <Ww>
+          <count>28</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>g_UserInput</ItemText>
+        </Ww>
+        <Ww>
+          <count>29</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>FPGAPar</ItemText>
+        </Ww>
+        <Ww>
+          <count>30</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TotalTimes,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>31</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>g_FPGACon_C,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
@@ -425,6 +418,18 @@
       <Lin2ConfigFile></Lin2ConfigFile>
       <bLin2Auto>0</bLin2Auto>
       <SystemViewers>
+        <Entry>
+          <Name>System Viewer\GPIOB</Name>
+          <WinId>35902</WinId>
+        </Entry>
+        <Entry>
+          <Name>System Viewer\GPIOD</Name>
+          <WinId>35903</WinId>
+        </Entry>
+        <Entry>
+          <Name>System Viewer\GPIOE</Name>
+          <WinId>35904</WinId>
+        </Entry>
         <Entry>
           <Name>System Viewer\USART3</Name>
           <WinId>35905</WinId>
@@ -1052,8 +1057,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\HARDWARE\myKey.c</PathWithFileName>
-      <FilenameWithoutPath>myKey.c</FilenameWithoutPath>
+      <PathWithFileName>..\HARDWARE\mySPI.c</PathWithFileName>
+      <FilenameWithoutPath>mySPI.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1064,8 +1069,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\HARDWARE\myKey.h</PathWithFileName>
-      <FilenameWithoutPath>myKey.h</FilenameWithoutPath>
+      <PathWithFileName>..\HARDWARE\mySPI.h</PathWithFileName>
+      <FilenameWithoutPath>mySPI.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1076,8 +1081,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\HARDWARE\mySPI.c</PathWithFileName>
-      <FilenameWithoutPath>mySPI.c</FilenameWithoutPath>
+      <PathWithFileName>..\HARDWARE\System.c</PathWithFileName>
+      <FilenameWithoutPath>System.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1088,8 +1093,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\HARDWARE\mySPI.h</PathWithFileName>
-      <FilenameWithoutPath>mySPI.h</FilenameWithoutPath>
+      <PathWithFileName>..\HARDWARE\System.h</PathWithFileName>
+      <FilenameWithoutPath>System.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1117,30 +1122,6 @@
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
-    <File>
-      <GroupNumber>7</GroupNumber>
-      <FileNumber>53</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\HARDWARE\System.c</PathWithFileName>
-      <FilenameWithoutPath>System.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>7</GroupNumber>
-      <FileNumber>54</FileNumber>
-      <FileType>5</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\HARDWARE\System.h</PathWithFileName>
-      <FilenameWithoutPath>System.h</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
   </Group>
 
   <Group>
@@ -1151,7 +1132,7 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>55</FileNumber>
+      <FileNumber>53</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1163,7 +1144,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>56</FileNumber>
+      <FileNumber>54</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1175,7 +1156,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>57</FileNumber>
+      <FileNumber>55</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1187,7 +1168,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>58</FileNumber>
+      <FileNumber>56</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1199,7 +1180,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>59</FileNumber>
+      <FileNumber>57</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1211,7 +1192,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>60</FileNumber>
+      <FileNumber>58</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1223,7 +1204,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>61</FileNumber>
+      <FileNumber>59</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1235,7 +1216,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>62</FileNumber>
+      <FileNumber>60</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1247,7 +1228,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>63</FileNumber>
+      <FileNumber>61</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1259,7 +1240,7 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>64</FileNumber>
+      <FileNumber>62</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1271,13 +1252,37 @@
     </File>
     <File>
       <GroupNumber>8</GroupNumber>
-      <FileNumber>65</FileNumber>
+      <FileNumber>63</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\SOFTWARE\TypeDefine.h</PathWithFileName>
       <FilenameWithoutPath>TypeDefine.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>8</GroupNumber>
+      <FileNumber>64</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\SOFTWARE\FPGAControl.c</PathWithFileName>
+      <FilenameWithoutPath>FPGAControl.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>8</GroupNumber>
+      <FileNumber>65</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\SOFTWARE\FPGAControl.h</PathWithFileName>
+      <FilenameWithoutPath>FPGAControl.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

@@ -96,16 +96,15 @@ osc_stm32f407\__usergui.o: ..\Chips\AD9834.h
 osc_stm32f407\__usergui.o: ..\HARDWARE\System.h
 osc_stm32f407\__usergui.o: ..\HARDWARE\mySPI.h
 osc_stm32f407\__usergui.o: ..\HARDWARE\myADC.h
-osc_stm32f407\__usergui.o: ..\HARDWARE\myKey.h
 osc_stm32f407\__usergui.o: ..\HARDWARE\myUART.h
 osc_stm32f407\__usergui.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD.h
 osc_stm32f407\__usergui.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Graph.h
 osc_stm32f407\__usergui.o: ..\HARDWARE\LCD_MD050SD\LCD_MD050SD_Touch.h
+osc_stm32f407\__usergui.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\__usergui.o: ..\SOFTWARE\Usual.h
 osc_stm32f407\__usergui.o: ..\SOFTWARE\FSM.h
 osc_stm32f407\__usergui.o: ..\SOFTWARE\OSC_Work.h
 osc_stm32f407\__usergui.o: ..\SOFTWARE\FFT.h
-osc_stm32f407\__usergui.o: ..\SOFTWARE\FPGAControl.h
 osc_stm32f407\__usergui.o: ..\SOFTWARE\GUI\GUIUsual.h
 osc_stm32f407\__usergui.o: ..\SOFTWARE\GUI\GUIGraph.h
 osc_stm32f407\__usergui.o: ..\SOFTWARE\GUI\GUIDraw.h

@@ -16,7 +16,7 @@
 **********************************************************************
 */
 Disp_struct g_Disp = {0};
-UserInput_struct g_UserInput = {{0}};
+UserInput_struct g_UserInput = {eAD9834DutyInput};
 /*********************************************************************
 *
 *       Static data
@@ -30,8 +30,6 @@ static GRAPH_SCALE_Handle g_hScaleH; // Handle of horizontal scale
 
 static GUI_COLOR _aColor = {GUI_RED}; // Array of colors for the GRAPH_DATA objects
 /*-------------------------------------------------------*/
-static WAVE_TYPE WaveArray[DATAARRAYLENTGH ] = {0};//波型数组
-
 static Index_struct index;
 
 
@@ -42,45 +40,6 @@ static Index_struct index;
 **********************************************************************
 */
 static void _ChangeInfoText (char* pStr, int m_MsgId);
-static void ResizeWindow (void);
-
-/*******************************************************************
-*
-*       _DemoResizeWindow
-*
-* Function description
-*   Demonstrates the use of WM_ResizeWindow
-*/
-static void ResizeWindow (void) {
-	int i;
-	int tm;
-	int tDiff;
-
-	_ChangeInfoText("WM_ResizeWindow()", WM_PAINT);
-	GUI_Delay(SPEED);
-	for (i = 0; i < 20; i++) {
-		tm = GUI_GetTime();
-		//WM_ResizeWindow (_hWindow1, 1, 1);
-		//WM_ResizeWindow(_hWindow2, -1, -1);
-		tDiff = 15 - (GUI_GetTime() - tm);
-		GUI_Delay(tDiff);
-	}
-	for (i = 0; i < 40; i++) {
-		tm = GUI_GetTime();
-		//WM_ResizeWindow (_hWindow1, -1, -1);
-		//WM_ResizeWindow (_hWindow2, 1, 1);
-		tDiff = 15 - (GUI_GetTime() - tm);
-		GUI_Delay(tDiff);
-	}
-	for (i = 0; i < 20; i++) {
-		tm = GUI_GetTime();
-		//WM_ResizeWindow(_hWindow1, 1, 1);
-		//WM_ResizeWindow(_hWindow2, -1, -1);
-		tDiff = 15 - (GUI_GetTime() - tm);
-		GUI_Delay(tDiff);
-	}
-	GUI_Delay(SPEED);
-}
 
 /*******************************************************************
 *
@@ -128,10 +87,12 @@ void ESP_MainTask (void) {
 	/*装载界面Dual-------------------------------------------------------*/
 	g_Disp.ESP_GraphDlg = Main_CreateWindow();//创建界面
 	GUI_Exec();//重绘
+#ifndef SINGLE_PAGE__
 	ESP_SwapPage(&g_DispPage);//交换至第二块页面
 	WM_PaintWindowAndDescs(g_Disp.ESP_GraphDlg);//重绘界面于第二块显示器同时重绘
-	/*-------------------------------------------------------*/
-	_hData = GRAPH_DATA_YT_Create(_aColor, DATAARRAYLENTGH, WaveArray, DATAARRAYLENTGH);
+#endif
+	/*填充数据-------------------------------------------------------*/
+	_hData = GRAPH_DATA_YT_Create(_aColor, TFT_WIDTH, WaveArray, TFT_WIDTH);
 	GRAPH_AttachData(g_Disp.hItemGraph_OSC, _hData);//重绘这次的点
 	/*获取按键句柄-------------------------------------------------------*/
 	g_GraphButton.ZoomPlus.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.ZoomPlus.ID);//获取按键句柄//必须放在这里！！！！
@@ -141,13 +102,8 @@ void ESP_MainTask (void) {
 	g_GraphButton.Measure.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.Measure.ID);//获取按键句柄//必须放在这里！！！！
 	g_GraphButton.NumPad.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.NumPad.ID);//获取按键句柄//必须放在这里！！！！
 	g_GraphButton.Stop.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.Stop.ID);//获取按键句柄//必须放在这里！！！！
-
-	/*-------------------------------------------------------*/
-
+	g_GraphButton.InputMode.Handle = WM_GetDialogItem(g_Disp.ESP_GraphDlg, g_GraphButton.InputMode.ID);//获取按键句柄//必须放在这里！！！！
 	GUI_Exec();//重绘
-	/*-------------------------------------------------------*/
-#ifdef DEBUG__
-#endif
 }
 
 /*********************************************************************
@@ -173,62 +129,10 @@ void BSP_MainTask (void) {
 	/*-------------------------------------------------------*/
 	g_Disp.BSP_NumpadDlg = Numpad_CreateWindow();
 	g_Disp.BSP_MersureDlg = MeasureData_CreateWindow();
-	RMSwitch(eOpen, Numpad_RMs);//关闭屏幕键盘
+	WindowSwitch(g_Disp.BSP_NumpadDlg, eClose);
 	GUI_Exec();//重绘
 }
 
-/*********************************************************************
-*
-*       GUIDataUpdata
-*/
-void GUIDataUpdata (void) {
-	static int j;//下标
-	/*控制数据更新-------------------------------------------------------*/
-	g_OSCInfo.Time_rat = g_UserInput.SliderTime.Class;
-	g_OSCInfo.Ampli_rat = g_UserInput.SliderAmpli.Value;
-
-	/*OSC数据处理-------------------------------------------------------*/
-	if (!OSC_DataDeal(WaveArray, DATAARRAYLENTGH))//数据处理
-		return;
-	/*显示-------------------------------------------------------*/
-	GRAPH_DATA_YT_Clear(_hData);
-	for (j = 0; j < g_OSCInfo.DataEnd; j++) {
-		GRAPH_DATA_YT_AddValue(_hData, WaveArray[j]);
-	}
-	/*无效化按键使之重绘-------------------------------------------------------*/
-	WM_InvalidateWindow(g_GraphButton.ZoomPlus.Handle);
-	WM_InvalidateWindow(g_GraphButton.ZoomSub.Handle);
-	WM_InvalidateWindow(g_GraphButton.AmpliPlus.Handle);
-	WM_InvalidateWindow(g_GraphButton.AmpliSub.Handle);
-	WM_InvalidateWindow(g_GraphButton.Measure.Handle);
-	WM_InvalidateWindow(g_GraphButton.NumPad.Handle);
-	WM_InvalidateWindow(g_GraphButton.Stop.Handle);
-}
-
-/*********************************************************************
-*
-*       MeasureInfoChange
-*/
-void OSC_MeasureInfoSwitch (u8 state) {
-	static int FontSizeY;//字体高度
-	GUI_SetFont(&GUI_Font20B_ASCII);//设置字体
-	FontSizeY = GUI_GetFontSizeY();//返回字体高度
-	if (state == eOpen) {
-		GUI_SetColor(GUI_RED);
-		GUI_DispStringAt("Freq:", MEASURE_INFO_BEGIN_X, MEASURE_INFO_BEGIN_Y);
-		GUI_DispFloat(g_OSCInfo.Freq, 4);
-		GUI_DispStringAt("Ampl:", MEASURE_INFO_BEGIN_X, MEASURE_INFO_BEGIN_Y + FontSizeY);
-		GUI_DispFloat(g_OSCInfo.f_MaxVal, 4);
-		GUI_DispStringAt("ADS1110:", MEASURE_INFO_BEGIN_X, MEASURE_INFO_BEGIN_Y + FontSizeY * 2);
-		GUI_DispFloat(g_Sense.ADS1110, 4);
-	}
-	else {
-		GUI_GotoXY(MEASURE_INFO_BEGIN_X, MEASURE_INFO_BEGIN_Y);
-		GUI_DispCEOL();
-		GUI_GotoXY(MEASURE_INFO_BEGIN_X, MEASURE_INFO_BEGIN_Y + FontSizeY);
-		GUI_DispCEOL();
-	}
-}
 
 /*********************************************************************
 *
@@ -267,9 +171,13 @@ void WindowSwitch (WM_HWIN hWin,u8 state) {
 *       关闭BSP所有窗口
 */
 void CloseAllBSPDLG (void) {
-	if (g_GUICon.NumpadState == eOpen)
-		RMSwitch(eClose, Numpad_RMs);
-	if (g_GUICon.MeasureState == eOpen)
+	if (g_GUICon.MeasureState == eOpen) {
 		WindowSwitch(g_Disp.BSP_MersureDlg, eClose);
+		g_GUICon.MeasureState = eClose;
+	}
+	if (g_GUICon.NumpadState == eOpen) {
+		WindowSwitch(g_Disp.BSP_NumpadDlg, eClose);
+		g_GUICon.NumpadState = eClose;
+	}
 }
 
